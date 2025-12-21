@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - OneScribe</title>
+    <meta name="description" content="OneScribe Privacy Policy - 100% on-device processing, zero cloud servers, complete privacy.">
+    <link rel="canonical" href="https://getonescribe.app/privacy">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight-purple: #1C122E;
+            --glow-purple: #8B5CF6;
+            --accent-purple: #A78BFA;
+            --text-white: #FFFFFF;
+            --text-gray: rgba(255, 255, 255, 0.8);
+            --text-light: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--midnight-purple);
+            color: var(--text-white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(28, 18, 46, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-white);
+        }
+
+        /* Content */
+        .content {
+            padding: 8rem 0 4rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .privacy-badge {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent-purple);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
+            border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-purple);
+        }
+
+        .section p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .section ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section li {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-left: 4px solid var(--glow-purple);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1.125rem;
+            color: var(--text-white);
+        }
+
+        .contact-info {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-white);
+        }
+
+        .footer-copyright {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 6rem 0 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.75rem;
+            }
+
+            .section h3 {
+                font-size: 1.25rem;
+            }
+
+            .section p,
+            .section li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/index.html" class="logo">OneScribe</a>
+            <a href="/index.html" class="nav-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="container">
+            <div class="header">
+                <div class="privacy-badge">🔒 Privacy First</div>
+                <h1>Privacy Policy</h1>
+                <p>Last Updated: January 2025</p>
+            </div>
+
+            <div class="section">
+                <div class="highlight-box">
+                    <p><strong>TL;DR:</strong> OneScribe is an offline-first app. All processing happens on your device. We don't collect, store, or transmit your data. Your notes never leave your iPhone or iPad.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1. Our Privacy Philosophy</h2>
+                <p>
+                    OneScribe was built with privacy as a core principle, not an afterthought. We believe your thoughts, notes, and documents should remain completely private. That's why we designed OneScribe to process everything on your device—no cloud servers, no data collection, no tracking.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>2. Data Collection</h2>
+                <h3>We Don't Collect Your Data</h3>
+                <p>
+                    OneScribe does not collect, store, or transmit any of your personal data, including:
+                </p>
+                <ul>
+                    <li>Scanned documents or images</li>
+                    <li>Extracted text from OCR</li>
+                    <li>AI analysis results (summaries, action items, etc.)</li>
+                    <li>Authentication credentials</li>
+                    <li>Usage analytics or telemetry</li>
+                    <li>Device identifiers</li>
+                    <li>Location data</li>
+                </ul>
+                <p>
+                    <strong>Zero data collection means zero privacy risk.</strong>
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>3. On-Device Processing</h2>
+                <h3>Everything Happens on Your Device</h3>
+                <p>
+                    All processing in OneScribe occurs entirely on your iPhone or iPad:
+                </p>
+                <ul>
+                    <li><strong>OCR (Optical Character Recognition):</strong> Uses Apple's Vision Framework, processing images locally on your device</li>
+                    <li><strong>AI Analysis:</strong> Uses Apple Intelligence (FoundationModels), running completely on-device</li>
+                    <li><strong>Text Extraction:</strong> All layout analysis and text extraction happens locally</li>
+                    <li><strong>Image Processing:</strong> All image enhancement, cropping, and adjustments are done on-device</li>
+                </ul>
+                <p>
+                    Your scanned documents, extracted text, and AI insights never leave your device during processing.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>4. Cloud Integration</h2>
+                <h3>Direct API Connections Only</h3>
+                <p>
+                    OneScribe integrates with Microsoft OneNote and Google Docs through their official APIs. When you choose to upload a document:
+                </p>
+                <ul>
+                    <li>Your document is sent <strong>directly</strong> to your chosen service (OneNote or Google Docs)</li>
+                    <li>No intermediate servers or third-party services are involved</li>
+                    <li>Authentication tokens are stored securely in your device's Secure Enclave</li>
+                    <li>We never have access to your cloud account credentials</li>
+                </ul>
+                <p>
+                    Once uploaded, your documents are subject to the privacy policies of Microsoft OneNote or Google Docs, respectively.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>5. Authentication & Security</h2>
+                <h3>Secure Enclave Storage</h3>
+                <p>
+                    Authentication tokens for Microsoft and Google accounts are stored in your device's Secure Enclave—Apple's hardware security module. This means:
+                </p>
+                <ul>
+                    <li>Tokens are encrypted and isolated from the rest of the system</li>
+                    <li>Even we (the developers) cannot access your tokens</li>
+                    <li>Tokens never leave your device except for API calls to Microsoft/Google</li>
+                    <li>You can revoke access at any time through your account settings</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Third-Party Services</h2>
+                <h3>Microsoft OneNote & Google Docs</h3>
+                <p>
+                    When you use OneScribe to upload to OneNote or Google Docs, you are using their services directly. Please review their privacy policies:
+                </p>
+                <ul>
+                    <li><a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" style="color: var(--accent-purple);">Microsoft Privacy Statement</a></li>
+                    <li><a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent-purple);">Google Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>7. Apple Services</h2>
+                <h3>App Store & Apple Intelligence</h3>
+                <p>
+                    OneScribe uses Apple's services, which are subject to Apple's privacy policies:
+                </p>
+                <ul>
+                    <li><strong>App Store:</strong> Standard App Store analytics (download counts, crash reports) are handled by Apple</li>
+                    <li><strong>Apple Intelligence:</strong> All AI processing uses Apple's FoundationModels framework, which runs entirely on-device</li>
+                    <li><strong>Vision Framework:</strong> OCR uses Apple's Vision Framework, which processes images locally</li>
+                </ul>
+                <p>
+                    For more information, see <a href="https://www.apple.com/privacy/" target="_blank" style="color: var(--accent-purple);">Apple's Privacy Policy</a>.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>8. Local Storage</h2>
+                <h3>What's Stored on Your Device</h3>
+                <p>
+                    OneScribe stores the following data locally on your device:
+                </p>
+                <ul>
+                    <li><strong>Scanned Images:</strong> Temporarily stored in your device's photo library or app storage until you delete them</li>
+                    <li><strong>Authentication Tokens:</strong> Stored securely in the Secure Enclave</li>
+                    <li><strong>App Settings:</strong> Your preferences (default upload destination, template choices, etc.) stored in UserDefaults</li>
+                </ul>
+                <p>
+                    All local storage is managed by iOS and can be cleared by deleting the app. We never sync this data to external servers.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>9. Children's Privacy</h2>
+                <p>
+                    OneScribe is not intended for children under 13 years of age. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us immediately.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>10. Changes to This Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>11. Your Rights</h2>
+                <p>
+                    Since we don't collect your data, there's nothing to request, delete, or export. However, you have full control over:
+                </p>
+                <ul>
+                    <li>Deleting scanned images from your device</li>
+                    <li>Revoking cloud service access through your account settings</li>
+                    <li>Uninstalling the app, which removes all local data</li>
+                </ul>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>
+                    If you have any questions about this Privacy Policy, please contact us:
+                </p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:hello@getonescribe.app" style="color: var(--accent-purple);">hello@getonescribe.app</a>
+                </p>
+                <p>
+                    <strong>Website:</strong> <a href="https://getonescribe.app" style="color: var(--accent-purple);">getonescribe.app</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/index.html" class="footer-link">Home</a>
+                <a href="/privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="/support.html" class="footer-link">Support</a>
+            </div>
+            <p class="footer-copyright">
+                © 2025 OneScribe. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+

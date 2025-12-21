@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - OneScribe</title>
+    <meta name="description" content="OneScribe Support - Get help with scanning, OCR, AI insights, and more.">
+    <link rel="canonical" href="https://getonescribe.app/support">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight-purple: #1C122E;
+            --glow-purple: #8B5CF6;
+            --accent-purple: #A78BFA;
+            --text-white: #FFFFFF;
+            --text-gray: rgba(255, 255, 255, 0.8);
+            --text-light: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--midnight-purple);
+            color: var(--text-white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(28, 18, 46, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-white);
+        }
+
+        /* Content */
+        .content {
+            padding: 8rem 0 4rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-white);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--glow-purple);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-light);
+        }
+
+        /* Article Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-white);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+            border-color: var(--glow-purple);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-count {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Articles */
+        .article-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-white);
+            border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .article {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .article-content {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content strong {
+            color: var(--accent-purple);
+        }
+
+        .article-content code {
+            background: rgba(139, 92, 246, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+        }
+
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 4px solid var(--glow-purple);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            display: inline-block;
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--text-white);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-white);
+        }
+
+        .footer-copyright {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 6rem 0 2rem;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .article-title {
+                font-size: 1.25rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/index.html" class="logo">OneScribe</a>
+            <a href="/index.html" class="nav-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="container">
+            <div class="header">
+                <h1>Support Center</h1>
+                <p>Find answers to common questions and learn how to get the most out of OneScribe</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search for help..." id="searchInput">
+            </div>
+
+            <!-- Quick Categories -->
+            <div class="categories">
+                <a href="#getting-started" class="category-card">
+                    <div class="category-icon">🚀</div>
+                    <div class="category-title">Getting Started</div>
+                    <div class="category-count">5 articles</div>
+                </a>
+                <a href="#scanning" class="category-card">
+                    <div class="category-icon">📸</div>
+                    <div class="category-title">Scanning & OCR</div>
+                    <div class="category-count">6 articles</div>
+                </a>
+                <a href="#ai-insights" class="category-card">
+                    <div class="category-icon">🤖</div>
+                    <div class="category-title">AI Insights</div>
+                    <div class="category-count">4 articles</div>
+                </a>
+                <a href="#uploading" class="category-card">
+                    <div class="category-icon">☁️</div>
+                    <div class="category-title">Uploading & Cloud</div>
+                    <div class="category-count">5 articles</div>
+                </a>
+                <a href="#troubleshooting" class="category-card">
+                    <div class="category-icon">🔧</div>
+                    <div class="category-title">Troubleshooting</div>
+                    <div class="category-count">4 articles</div>
+                </a>
+                <a href="#privacy" class="category-card">
+                    <div class="category-icon">🔒</div>
+                    <div class="category-title">Privacy & Security</div>
+                    <div class="category-count">3 articles</div>
+                </a>
+            </div>
+
+            <!-- Getting Started -->
+            <section class="article-section" id="getting-started">
+                <h2 class="section-title">Getting Started</h2>
+
+                <article class="article">
+                    <h3 class="article-title">What is OneScribe?</h3>
+                    <div class="article-content">
+                        <p>OneScribe is a privacy-first document scanning app for iPhone and iPad that turns any piece of paper into a smart notebook. Unlike proprietary notebook systems, OneScribe works with any paper and any pen—no special notebooks required.</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Scan any paper (legal pads, sticky notes, napkins, etc.)</li>
+                            <li>Perfect layout preservation with the "Monospace" Engine</li>
+                            <li>On-device AI insights powered by Apple Intelligence</li>
+                            <li>Direct upload to OneNote or Google Docs</li>
+                            <li>100% on-device processing—your data never leaves your device</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">System Requirements</h3>
+                    <div class="article-content">
+                        <p>OneScribe requires:</p>
+                        <ul>
+                            <li><strong>iOS 26.0 or later</strong> (for Apple Intelligence features)</li>
+                            <li><strong>iPhone or iPad</strong> with Apple Intelligence support</li>
+                            <li><strong>Camera access</strong> for document scanning</li>
+                            <li><strong>Microsoft or Google account</strong> (optional, for cloud uploads)</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p><strong>Note:</strong> Apple Intelligence requires a device with Apple Silicon (A17 Pro or later) or M-series chip. On older devices, OCR will still work, but AI insights will be unavailable.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">First Time Setup</h3>
+                    <div class="article-content">
+                        <p>Getting started with OneScribe is simple:</p>
+                        <ol>
+                            <li><strong>Download and Install:</strong> Get OneScribe from the App Store</li>
+                            <li><strong>Grant Permissions:</strong> Allow camera access when prompted</li>
+                            <li><strong>Connect Cloud Service (Optional):</strong> Sign in to Microsoft OneNote or Google Docs if you want to upload documents</li>
+                            <li><strong>Start Scanning:</strong> Tap the scan button and capture your first document!</li>
+                        </ol>
+                        <p>You can use OneScribe without connecting any cloud services—just scan and copy text to your clipboard.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Understanding the "Monospace" Engine</h3>
+                    <div class="article-content">
+                        <p>The "Monospace" Engine is OneScribe's unique layout preservation technology. Unlike other scanners that dump text into a messy blob, OneScribe:</p>
+                        <ul>
+                            <li><strong>Calculates exact indentation</strong> from your handwriting</li>
+                            <li><strong>Preserves horizontal spacing</strong> using monospaced formatting</li>
+                            <li><strong>Maintains code blocks</strong> as code blocks</li>
+                            <li><strong>Keeps lists structured</strong> with proper indentation</li>
+                        </ul>
+                        <p>This is especially useful for:</p>
+                        <ul>
+                            <li>Code documentation and snippets</li>
+                            <li>Hierarchical notes with indentation</li>
+                            <li>Structured lists and outlines</li>
+                            <li>Any document where layout matters</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Quick Actions & Shortcuts</h3>
+                    <div class="article-content">
+                        <p>OneScribe supports iOS Quick Actions for faster workflows:</p>
+                        <ul>
+                            <li><strong>Long-press the app icon</strong> on your home screen</li>
+                            <li><strong>Select "Scan & Upload"</strong> to quickly scan and upload to your default destination</li>
+                            <li><strong>Set default destination</strong> in Settings to enable one-tap workflows</li>
+                        </ul>
+                        <p>This turns a 5-step process into a 1-tap reflex!</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Scanning & OCR -->
+            <section class="article-section" id="scanning">
+                <h2 class="section-title">Scanning & OCR</h2>
+
+                <article class="article">
+                    <h3 class="article-title">How to Scan Documents</h3>
+                    <div class="article-content">
+                        <p>Scanning documents with OneScribe is easy:</p>
+                        <ol>
+                            <li><strong>Open OneScribe</strong> and tap the scan button</li>
+                            <li><strong>Position your document</strong> in the camera viewfinder</li>
+                            <li><strong>Wait for auto-detection</strong> - OneScribe automatically detects document edges</li>
+                            <li><strong>Capture the page</strong> - Tap the capture button or let it auto-capture</li>
+                            <li><strong>Add more pages</strong> - Tap "Add Page" to scan additional pages in the same session</li>
+                            <li><strong>Review pages</strong> - Use the page viewer to review, delete, or reorder pages</li>
+                            <li><strong>Process OCR</strong> - Tap "Run OCR" to extract text from all pages</li>
+                        </ol>
+                        <div class="highlight-box">
+                            <p><strong>Tip:</strong> For best results, ensure good lighting and place documents on a contrasting background. OneScribe works best with flat, well-lit documents.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Multi-Page Document Scanning</h3>
+                    <div class="article-content">
+                        <p>OneScribe supports unlimited pages per scanning session:</p>
+                        <ul>
+                            <li><strong>Scan multiple pages</strong> in one session without interruption</li>
+                            <li><strong>AI analyzes all pages together</strong> for comprehensive insights</li>
+                            <li><strong>Page-specific summaries</strong> are generated for each page</li>
+                            <li><strong>Action items and concepts</strong> are tracked with page references</li>
+                        </ul>
+                        <p>Perfect for:</p>
+                        <ul>
+                            <li>Meeting notes spanning multiple pages</li>
+                            <li>Lecture notes from entire class sessions</li>
+                            <li>Multi-page journal entries</li>
+                            <li>Complete documents and reports</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Pre-OCR Review & Image Editing</h3>
+                    <div class="article-content">
+                        <p>Before processing OCR, you can review and edit your scans:</p>
+                        <ul>
+                            <li><strong>Rotate images</strong> 90° clockwise or counterclockwise</li>
+                            <li><strong>Crop images</strong> manually with aspect ratio options</li>
+                            <li><strong>Delete pages</strong> you don't want to process</li>
+                            <li><strong>Reorder pages</strong> by dragging in the page viewer</li>
+                        </ul>
+                        <p>After OCR, you can:</p>
+                        <ul>
+                            <li><strong>Review extracted text</strong> before uploading</li>
+                            <li><strong>Edit text</strong> if needed</li>
+                            <li><strong>Copy to clipboard</strong> for quick reuse</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">OCR Settings & Customization</h3>
+                    <div class="article-content">
+                        <p>Customize OCR behavior in Settings:</p>
+                        <ul>
+                            <li><strong>Minimum Text Size:</strong> Adjust OCR sensitivity (0.0-0.08) to filter out small text or noise</li>
+                            <li><strong>Footer Filtering:</strong> Automatically ignores text in the bottom 10% of documents (footers)</li>
+                            <li><strong>Image Quality:</strong> Adjust JPEG quality (0.4-1.0) for uploads</li>
+                            <li><strong>Image Width:</strong> Set maximum image width (900-2400px)</li>
+                            <li><strong>Display Width:</strong> Control display width in OneNote (360-900px)</li>
+                        </ul>
+                        <p>These settings help optimize OCR accuracy and upload quality for your specific use case.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Handwriting Recognition</h3>
+                    <div class="article-content">
+                        <p>OneScribe uses Apple's Vision Framework for handwriting recognition:</p>
+                        <ul>
+                            <li><strong>Works with any handwriting style</strong> - printed or cursive</li>
+                            <li><strong>Multi-language support</strong> - Recognizes text in multiple languages</li>
+                            <li><strong>On-device processing</strong> - All recognition happens locally</li>
+                            <li><strong>Layout preservation</strong> - Maintains indentation and spacing</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p><strong>Tip:</strong> For best handwriting recognition, write clearly and ensure good contrast between ink and paper. Dark ink on light paper works best.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">E-ink Display Optimization</h3>
+                    <div class="article-content">
+                        <p>OneScribe includes special optimization for e-ink displays like the Kindle Scribe:</p>
+                        <ul>
+                            <li><strong>Enhanced contrast detection</strong> for e-ink screens</li>
+                            <li><strong>Better edge detection</strong> on low-contrast displays</li>
+                            <li><strong>Improved OCR accuracy</strong> for e-ink text</li>
+                        </ul>
+                        <p>If you're scanning from an e-ink device, OneScribe will automatically optimize for better results.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- AI Insights -->
+            <section class="article-section" id="ai-insights">
+                <h2 class="section-title">AI Insights</h2>
+
+                <article class="article">
+                    <h3 class="article-title">What are AI Insights?</h3>
+                    <div class="article-content">
+                        <p>AI Insights are intelligent summaries and extractions powered by Apple Intelligence, processed entirely on your device:</p>
+                        <ul>
+                            <li><strong>Smart Summaries:</strong> Global summary of entire document + page-specific summaries</li>
+                            <li><strong>Action Items:</strong> Automatically extracted tasks with owners and due dates</li>
+                            <li><strong>Key Concepts:</strong> Important topics and definitions from lecture notes</li>
+                            <li><strong>Mood Analysis:</strong> Detects overall tone (Productive, Urgent, Reflective, etc.)</li>
+                            <li><strong>Auto-Tagging:</strong> 5-7 relevant tags covering major topics</li>
+                            <li><strong>Category Classification:</strong> Categorizes document type automatically</li>
+                        </ul>
+                        <p>All processing happens on-device—your notes never leave your iPhone or iPad.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Meeting Notes Template</h3>
+                    <div class="article-content">
+                        <p>When OneScribe detects meeting notes, it automatically:</p>
+                        <ul>
+                            <li><strong>Generates a smart title</strong> (3-8 words describing the meeting)</li>
+                            <li><strong>Creates summary bullets</strong> (4-6 concise points)</li>
+                            <li><strong>Extracts action items</strong> with:
+                                <ul>
+                                    <li>Task description</li>
+                                    <li>Owner assignment (if mentioned)</li>
+                                    <li>Due date detection</li>
+                                    <li>Page reference [Page X] for multi-page documents</li>
+                                </ul>
+                            </li>
+                            <li><strong>Detects mood</strong> (Productive, Urgent, Collaborative, etc.)</li>
+                            <li><strong>Categorizes meeting type</strong> (Team Meeting, Client Call, Planning, etc.)</li>
+                            <li><strong>Generates tags</strong> covering all major topics</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Class Notes Template</h3>
+                    <div class="article-content">
+                        <p>For lecture and class notes, OneScribe extracts:</p>
+                        <ul>
+                            <li><strong>Main topic</strong> or subject</li>
+                            <li><strong>Key concepts</strong> covered in the lecture</li>
+                            <li><strong>Definitions</strong> and terminology</li>
+                            <li><strong>Exam tips</strong> and important notes</li>
+                            <li><strong>Page references</strong> showing where each concept appears</li>
+                        </ul>
+                        <p>Perfect for students who want to quickly review key concepts and exam preparation tips.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Journal Template</h3>
+                    <div class="article-content">
+                        <p>For personal journal entries, OneScribe identifies:</p>
+                        <ul>
+                            <li><strong>Gratitude items</strong> - Things you're grateful for</li>
+                            <li><strong>Key moments</strong> - Significant events or reflections</li>
+                            <li><strong>Mood tracking</strong> - Overall emotional tone</li>
+                            <li><strong>Tags</strong> - Topics and themes in your journal</li>
+                        </ul>
+                        <p>All journal processing happens on-device—you're the only one reading your journal.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Uploading & Cloud -->
+            <section class="article-section" id="uploading">
+                <h2 class="section-title">Uploading & Cloud</h2>
+
+                <article class="article">
+                    <h3 class="article-title">Connecting Microsoft OneNote</h3>
+                    <div class="article-content">
+                        <p>To upload to OneNote:</p>
+                        <ol>
+                            <li><strong>Open Settings</strong> in OneScribe</li>
+                            <li><strong>Tap "Connect OneNote"</strong></li>
+                            <li><strong>Sign in</strong> with your Microsoft account</li>
+                            <li><strong>Select a notebook</strong> and section</li>
+                            <li><strong>Set as default</strong> (optional) for one-tap uploads</li>
+                        </ol>
+                        <p>Your authentication token is stored securely in your device's Secure Enclave. You can revoke access anytime through your Microsoft account settings.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Connecting Google Docs</h3>
+                    <div class="article-content">
+                        <p>To upload to Google Docs:</p>
+                        <ol>
+                            <li><strong>Open Settings</strong> in OneScribe</li>
+                            <li><strong>Tap "Connect Google Docs"</strong></li>
+                            <li><strong>Sign in</strong> with your Google account</li>
+                            <li><strong>Grant permissions</strong> for Google Drive API access</li>
+                            <li><strong>Set as default</strong> (optional) for one-tap uploads</li>
+                        </ol>
+                        <p>Documents are uploaded to a "OneScribe" folder in your Google Drive. You can change this location in Google Drive settings.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Auto-Upload Workflow</h3>
+                    <div class="article-content">
+                        <p>Enable auto-upload for a seamless workflow:</p>
+                        <ol>
+                            <li><strong>Enable "Auto-upload after OCR"</strong> in Settings</li>
+                            <li><strong>Set default destination</strong> (OneNote or Google Docs)</li>
+                            <li><strong>Choose destination each time</strong> (optional) - Shows picker if both services are connected</li>
+                        </ol>
+                        <p>With auto-upload enabled, OneScribe will automatically upload documents after OCR processing, turning scanning into a one-tap workflow.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">What Gets Uploaded?</h3>
+                    <div class="article-content">
+                        <p>When you upload a document, OneScribe includes:</p>
+                        <ul>
+                            <li><strong>Scanned images</strong> of each page</li>
+                            <li><strong>Extracted text</strong> with preserved layout (Monospace Engine)</li>
+                            <li><strong>AI Insights</strong> including:
+                                <ul>
+                                    <li>Summary (global + page-specific for multi-page)</li>
+                                    <li>Action items with page references</li>
+                                    <li>Mood, category, and tags</li>
+                                    <li>Key concepts, definitions, exam tips (for lecture notes)</li>
+                                    <li>Gratitude and key moments (for journal entries)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Metadata:</strong> Timestamp, document type, confidence score</li>
+                        </ul>
+                        <p>All insights are formatted and ready to use in your cloud service.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Privacy & Data Flow</h3>
+                    <div class="article-content">
+                        <p>Understanding how your data flows:</p>
+                        <ol>
+                            <li><strong>Scanning:</strong> Images captured on your device</li>
+                            <li><strong>OCR Processing:</strong> Text extraction happens on-device using Apple Vision</li>
+                            <li><strong>AI Analysis:</strong> Insights generated on-device using Apple Intelligence</li>
+                            <li><strong>Upload:</strong> Document sent directly to your chosen cloud service (OneNote or Google Docs)</li>
+                        </ol>
+                        <div class="highlight-box">
+                            <p><strong>Important:</strong> OneScribe never sends your data to intermediate servers. Your document goes directly from your device to your cloud service via their official APIs.</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section class="article-section" id="troubleshooting">
+                <h2 class="section-title">Troubleshooting</h2>
+
+                <article class="article">
+                    <h3 class="article-title">OCR Not Working or Poor Quality</h3>
+                    <div class="article-content">
+                        <p>If OCR results are poor, try:</p>
+                        <ul>
+                            <li><strong>Improve lighting:</strong> Ensure document is well-lit</li>
+                            <li><strong>Flat surface:</strong> Place document on a flat, contrasting background</li>
+                            <li><strong>Adjust text size filter:</strong> Lower the minimum text size setting if small text is being missed</li>
+                            <li><strong>Check image quality:</strong> Ensure camera focus is sharp</li>
+                            <li><strong>Rotate if needed:</strong> Use pre-OCR review to rotate images</li>
+                        </ul>
+                        <p>For handwriting, ensure clear contrast between ink and paper.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">AI Insights Not Available</h3>
+                    <div class="article-content">
+                        <p>AI Insights require Apple Intelligence, which needs:</p>
+                        <ul>
+                            <li><strong>iOS 26.0 or later</strong></li>
+                            <li><strong>Device with Apple Intelligence support</strong> (A17 Pro or later, M-series chip)</li>
+                            <li><strong>Apple Intelligence enabled</strong> in device settings</li>
+                        </ul>
+                        <p>If AI Insights aren't available:</p>
+                        <ul>
+                            <li>Check your iOS version (Settings → General → About)</li>
+                            <li>Verify Apple Intelligence is enabled (Settings → Apple Intelligence)</li>
+                            <li>OCR will still work without AI Insights</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Upload Failures</h3>
+                    <div class="article-content">
+                        <p>If uploads fail:</p>
+                        <ul>
+                            <li><strong>Check internet connection:</strong> Uploads require network access</li>
+                            <li><strong>Verify authentication:</strong> Reconnect your cloud service if tokens expired</li>
+                            <li><strong>Check permissions:</strong> Ensure OneScribe has permission to access your cloud account</li>
+                            <li><strong>Try manual upload:</strong> Disable auto-upload and try uploading manually</li>
+                            <li><strong>Check cloud service status:</strong> Verify OneNote or Google Docs is accessible</li>
+                        </ul>
+                        <p>If problems persist, try disconnecting and reconnecting your cloud service.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">Layout Not Preserved Correctly</h3>
+                    <div class="article-content">
+                        <p>If layout preservation isn't working:</p>
+                        <ul>
+                            <li><strong>Check document orientation:</strong> Ensure document is straight in the scan</li>
+                            <li><strong>Verify indentation:</strong> The Monospace Engine preserves indentation—ensure your original has clear indentation</li>
+                            <li><strong>Review extracted text:</strong> Check the OCR preview before uploading</li>
+                            <li><strong>Adjust settings:</strong> Try different image quality and width settings</li>
+                        </ul>
+                        <p>The Monospace Engine works best with documents that have clear indentation and structure.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Privacy & Security -->
+            <section class="article-section" id="privacy">
+                <h2 class="section-title">Privacy & Security</h2>
+
+                <article class="article">
+                    <h3 class="article-title">Is My Data Private?</h3>
+                    <div class="article-content">
+                        <p><strong>Yes, absolutely.</strong> OneScribe is designed with privacy as a core principle:</p>
+                        <ul>
+                            <li><strong>100% on-device processing:</strong> All OCR and AI analysis happens on your iPhone/iPad</li>
+                            <li><strong>No data collection:</strong> We don't collect, store, or transmit your documents or text</li>
+                            <li><strong>No cloud servers:</strong> We don't operate any servers that process your data</li>
+                            <li><strong>Direct API connections:</strong> Uploads go directly to your cloud service, not through us</li>
+                            <li><strong>Secure token storage:</strong> Authentication tokens stored in Secure Enclave</li>
+                        </ul>
+                        <p>Your notes never leave your device except when you explicitly choose to upload them.</p>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">What Data Does OneScribe Access?</h3>
+                    <div class="article-content">
+                        <p>OneScribe only accesses:</p>
+                        <ul>
+                            <li><strong>Camera:</strong> To scan documents (only when you use the scan feature)</li>
+                            <li><strong>Cloud accounts:</strong> Only when you explicitly connect OneNote or Google Docs</li>
+                            <li><strong>Local storage:</strong> To temporarily store scanned images on your device</li>
+                        </ul>
+                        <p>We don't access:</p>
+                        <ul>
+                            <li>Your contacts, photos, or other apps</li>
+                            <li>Location data</li>
+                            <li>Device identifiers for tracking</li>
+                            <li>Any data without your explicit permission</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <h3 class="article-title">How Are Authentication Tokens Stored?</h3>
+                    <div class="article-content">
+                        <p>Authentication tokens for Microsoft and Google accounts are stored in your device's Secure Enclave:</p>
+                        <ul>
+                            <li><strong>Hardware encryption:</strong> Tokens are encrypted and isolated from the rest of the system</li>
+                            <li><strong>Developer access:</strong> Even we (the developers) cannot access your tokens</li>
+                            <li><strong>Local only:</strong> Tokens never leave your device except for API calls</li>
+                            <li><strong>Revocable:</strong> You can revoke access anytime through your account settings</li>
+                        </ul>
+                        <p>This is the same security technology used by Apple Pay and Face ID.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h2>Still Need Help?</h2>
+                <p>Can't find what you're looking for? We're here to help.</p>
+                <a href="mailto:hello@getonescribe.app" class="contact-email">hello@getonescribe.app</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/" class="footer-link">Home</a>
+                <a href="/privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="/support.html" class="footer-link">Support</a>
+            </div>
+            <p class="footer-copyright">
+                © 2025 OneScribe. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple search functionality
+        const searchInput = document.getElementById('searchInput');
+        const articles = document.querySelectorAll('.article');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                articles.forEach(article => {
+                    article.style.display = 'block';
+                });
+                document.querySelectorAll('.article-section').forEach(section => {
+                    section.style.display = 'block';
+                });
+                return;
+            }
+
+            articles.forEach(article => {
+                const title = article.querySelector('.article-title').textContent.toLowerCase();
+                const content = article.querySelector('.article-content').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    article.style.display = 'block';
+                    article.closest('.article-section').style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+
+            // Hide empty sections
+            document.querySelectorAll('.article-section').forEach(section => {
+                const visibleArticles = section.querySelectorAll('.article[style="display: block;"]').length;
+                if (visibleArticles === 0) {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
