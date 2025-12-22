@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneScribe - Turn Any Paper Into a Smart Notebook</title>
     <meta name="description" content="Scan any paper, preserve perfect layout, get AI insights—all on-device. No special notebooks. No cloud processing. Privacy-first document scanning for iPhone and iPad.">
-    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs">
+    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, NotebookLM, RAG optimization">
     <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook">
     <meta property="og:description" content="Scan any paper, preserve perfect layout, get AI insights—all on-device. Privacy-first document scanning.">
     <meta property="og:type" content="website">
@@ -575,7 +575,9 @@
                     <h3 class="feature-title">Direct Cloud Integration</h3>
                     <p class="feature-description">
                         No middleman cloud. OneScribe sends your formatted notes directly to Microsoft OneNote 
-                        or Google Docs via native APIs. Your data goes from your hand to your private cloud.
+                        or Google Docs via native APIs. Google Docs exports are NotebookLM-ready with semantic 
+                        knowledge headers for optimal AI indexing. Uses minimal API permissions—only what's 
+                        needed to create and manage your documents.
                     </p>
                 </div>
 
@@ -674,7 +676,9 @@
             <p class="section-subheadline" style="max-width: 700px; margin: 0 auto;">
                 We are an offline-first utility. Your authentication tokens live in your device's Secure Enclave. 
                 You are the only one reading your journal. All OCR and AI processing happens on your device—zero data 
-                sent to third-party servers.
+                sent to third-party servers. We use minimal API permissions—Google Docs only requests file creation 
+                access (drive.file scope), and OneNote only requests note creation/reading permissions. We never access 
+                your other files, contacts, or personal data.
             </p>
             <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="/privacy.html" class="cta-primary" style="text-decoration: none;">Read Our Privacy Policy →</a>
