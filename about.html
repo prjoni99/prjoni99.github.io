@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About OneScribe - Built for the Kindle Scribe</title>
+    <meta name="description" content="OneScribe was born from a simple frustration: getting handwritten Kindle Scribe notes into OneNote without losing formatting. Built by someone who actually uses a Kindle Scribe.">
+    <meta property="og:title" content="About OneScribe - Built for the Kindle Scribe">
+    <meta property="og:description" content="The story behind OneScribe: a developer's journey from frustration to solution.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://getonescribe.app/about.html">
+    <link rel="canonical" href="https://getonescribe.app/about.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight-purple: #1C122E;
+            --glow-purple: #8B5CF6;
+            --accent-purple: #A78BFA;
+            --text-white: #FFFFFF;
+            --text-gray: rgba(255, 255, 255, 0.8);
+            --text-light: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --gradient-purple: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--midnight-purple);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(28, 18, 46, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-white);
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--gradient-purple);
+            color: var(--text-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.6);
+        }
+
+        /* Hero Section */
+        .about-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 4rem 0;
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-intro {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 4rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .story-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 16px 48px rgba(139, 92, 246, 0.3);
+        }
+
+        .timeline-marker {
+            font-size: 3rem;
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-purple);
+            border-radius: 50%;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.5);
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline-content p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-content em {
+            color: var(--accent-purple);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .timeline-content strong {
+            color: var(--text-white);
+        }
+
+        /* Philosophy Section */
+        .philosophy-section {
+            padding: 4rem 0;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: 32px;
+            margin: 4rem 0;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .philosophy-text {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-highlight {
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .philosophy-highlight p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .philosophy-highlight strong {
+            color: var(--text-white);
+            font-size: 1.25rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 4rem 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(139, 92, 246, 0.2);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .value-description {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-white);
+        }
+
+        .footer-copyright {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline-marker {
+                margin: 0 auto;
+            }
+
+            .story-intro {
+                font-size: 1.25rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .timeline-content p {
+                font-size: 1rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/index.html" class="logo">OneScribe</a>
+            <div class="nav-links">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/index.html#features" class="nav-link">Features</a>
+                <a href="/index.html#comparison" class="nav-link">Why OneScribe</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/privacy.html" class="nav-link">Privacy</a>
+                <a href="/support.html" class="nav-link">Support</a>
+                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-primary">Join Beta</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-icon">📱</div>
+            <h1 class="hero-title">Built for the Kindle Scribe</h1>
+            <p class="hero-subtitle">
+                OneScribe was born from a simple frustration: I loved my Kindle Scribe, but getting my handwritten notes into OneNote was a nightmare.
+            </p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <p class="story-intro">
+                    This is the story of how a developer got tired of losing formatting and built something better.
+                </p>
+
+                <div class="story-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">✨</div>
+                        <div class="timeline-content">
+                            <h3>The Problem</h3>
+                            <p>I'd write pages of notes on my Scribe—meeting notes, lecture summaries, journal entries. My handwriting wasn't perfect, but it was <em>mine</em>. The structure mattered. The indentation told a story. The spacing showed hierarchy.</p>
+                            <p>But when I tried to get those notes into OneNote or Google Docs, everything fell apart. The formatting was destroyed. Indentation disappeared. My carefully structured notes became a wall of text that I couldn't navigate.</p>
+                            <p>I tried every scanning app. They all treated handwriting like a blob of text, ignoring the visual structure that makes notes actually useful. It was frustrating.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">💡</div>
+                        <div class="timeline-content">
+                            <h3>The Lightbulb Moment</h3>
+                            <p>I realized the problem wasn't the Scribe—it was the scanning apps. They were built for generic document scanning, not for preserving the <em>intent</em> behind handwritten notes.</p>
+                            <p>So I asked myself: <strong>What if an app could see your notes the way you wrote them?</strong> What if it could calculate indentation, preserve spacing, respect formatting—and then add AI to extract insights?</p>
+                            <p>That's when OneScribe started taking shape in my head.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">🚀</div>
+                        <div class="timeline-content">
+                            <h3>The Solution</h3>
+                            <p>OneScribe is the bridge between the analog simplicity of the Scribe and the digital power of modern productivity tools. It preserves your layout, calculates indentation, respects your formatting—and then adds Apple Intelligence to extract insights.</p>
+                            <p>It's not just OCR. It's a <em>layout preservation engine</em> that understands the visual structure of your notes. It's AI that extracts action items, summaries, mood, and tags—all on-device, all private.</p>
+                            <p>And it works with <strong>any paper</strong>. No special notebooks. No proprietary pens. Just your Scribe and any piece of paper.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <h2 class="philosophy-title">Made by Someone Who Actually Uses a Kindle Scribe</h2>
+                <p class="philosophy-text">
+                    OneScribe isn't built by a corporation chasing metrics. It's not a startup trying to scale. It's built by someone who got frustrated with the same problem you have—and decided to fix it.
+                </p>
+                <p class="philosophy-text">
+                    Every feature exists because I needed it. Every design decision comes from actually using the app. Every improvement is based on real feedback from real users.
+                </p>
+                <div class="philosophy-highlight">
+                    <p>
+                        <strong>This is personal.</strong><br>
+                        I use a Kindle Scribe. I write notes. I need them in OneNote. I built OneScribe because nothing else worked the way I needed it to. And I'm sharing it because I think you might need it too.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="philosophy-title" style="text-align: center; margin-bottom: 3rem;">What Drives OneScribe</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3 class="value-title">Privacy First</h3>
+                    <p class="value-description">
+                        All processing happens on your device. Your notes never touch a server. Your authentication tokens live in your device's Secure Enclave. Privacy isn't a feature—it's the foundation.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3 class="value-title">Purpose-Built</h3>
+                    <p class="value-description">
+                        OneScribe isn't trying to be everything to everyone. It's built for one thing: getting your handwritten notes into digital productivity tools without losing what makes them useful.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3 class="value-title">Zero Friction</h3>
+                    <p class="value-description">
+                        Scan. OCR. Upload. That's it. No complicated workflows. No manual formatting. No special notebooks. Just your Scribe, your iPhone, and any piece of paper.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤖</div>
+                    <h3 class="value-title">Intelligence, Not Hype</h3>
+                    <p class="value-description">
+                        Apple Intelligence extracts real insights—action items, summaries, mood, tags. Not generic AI fluff. Real, useful information that makes your notes more valuable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="philosophy-title">Ready to Try It?</h2>
+            <p class="philosophy-text">
+                OneScribe is in beta. We'd love your feedback, your use cases, and your ideas.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-primary">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
+                    </svg>
+                    Join Public Beta
+                </a>
+                <a href="mailto:hello@getonescribe.app" class="cta-primary" style="background: rgba(139, 92, 246, 0.2); border: 1px solid var(--glow-purple);">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/index.html" class="footer-link">Home</a>
+                <a href="/privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="/support.html" class="footer-link">Support</a>
+                <a href="/about.html" class="footer-link">About</a>
+                <a href="https://testflight.apple.com/join/TqtMN8F7" class="footer-link">Join Beta</a>
+                <a href="mailto:hello@getonescribe.app" class="footer-link">Feedback</a>
+            </div>
+            <p class="footer-copyright">
+                © 2025 OneScribe. The last scanning app you'll ever need.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to nav
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(28, 18, 46, 0.95)';
+            } else {
+                nav.style.background = 'rgba(28, 18, 46, 0.8)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
+
