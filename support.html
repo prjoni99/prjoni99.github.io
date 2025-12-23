@@ -88,6 +88,12 @@
             text-decoration: none;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
         .nav-link {
             color: var(--text-gray);
             text-decoration: none;
@@ -97,6 +103,26 @@
 
         .nav-link:hover {
             color: var(--text-white);
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+            color: var(--text-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.6);
         }
 
         /* Content */
@@ -349,6 +375,10 @@
         }
 
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
             .content {
                 padding: 6rem 0 2rem;
             }
@@ -376,7 +406,15 @@
     <nav>
         <div class="container">
             <a href="/index.html" class="logo">OneScribe</a>
-            <a href="/index.html" class="nav-link">← Back to Home</a>
+            <div class="nav-links">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/index.html#features" class="nav-link">Features</a>
+                <a href="/index.html#comparison" class="nav-link">Why OneScribe</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/privacy.html" class="nav-link">Privacy</a>
+                <a href="/support.html" class="nav-link">Support</a>
+                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-primary">Join Beta</a>
+            </div>
         </div>
     </nav>
 
@@ -908,9 +946,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="/" class="footer-link">Home</a>
+                <a href="/index.html" class="footer-link">Home</a>
+                <a href="/about.html" class="footer-link">About</a>
                 <a href="/privacy.html" class="footer-link">Privacy Policy</a>
                 <a href="/support.html" class="footer-link">Support</a>
+                <a href="https://testflight.apple.com/join/TqtMN8F7" class="footer-link">Join Beta</a>
+                <a href="mailto:hello@getonescribe.app" class="footer-link">Feedback</a>
             </div>
             <p class="footer-copyright">
                 © 2025 OneScribe. All rights reserved.
