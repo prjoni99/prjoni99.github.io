@@ -88,12 +88,6 @@
             text-decoration: none;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
         .nav-link {
             color: var(--text-gray);
             text-decoration: none;
@@ -103,26 +97,6 @@
 
         .nav-link:hover {
             color: var(--text-white);
-        }
-
-        .cta-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
-            color: var(--text-white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.6);
         }
 
         /* Content */
@@ -375,10 +349,6 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
             .content {
                 padding: 6rem 0 2rem;
             }
@@ -406,15 +376,7 @@
     <nav>
         <div class="container">
             <a href="/index.html" class="logo">OneScribe</a>
-            <div class="nav-links">
-                <a href="/index.html" class="nav-link">Home</a>
-                <a href="/index.html#features" class="nav-link">Features</a>
-                <a href="/index.html#comparison" class="nav-link">Why OneScribe</a>
-                <a href="/about.html" class="nav-link">About</a>
-                <a href="/privacy.html" class="nav-link">Privacy</a>
-                <a href="/support.html" class="nav-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-primary">Join Beta</a>
-            </div>
+            <a href="/index.html" class="nav-link">← Back to Home</a>
         </div>
     </nav>
 
@@ -476,7 +438,7 @@
                         <p><strong>Key Features:</strong></p>
                         <ul>
                             <li>Scan any paper (legal pads, sticky notes, napkins, etc.)</li>
-                            <li>Perfect layout preservation with the Layout Preservation Engine</li>
+                            <li>Layout preservation with the Layout Preservation Engine</li>
                             <li>On-device AI insights powered by Apple Intelligence</li>
                             <li>Direct upload to OneNote or Google Docs</li>
                             <li>100% on-device processing—your data never leaves your device</li>
@@ -489,13 +451,13 @@
                     <div class="article-content">
                         <p>OneScribe requires:</p>
                         <ul>
-                            <li><strong>iOS 26.0 or later</strong> (for Apple Intelligence features)</li>
-                            <li><strong>iPhone or iPad</strong> with Apple Intelligence support</li>
+                            <li><strong>iOS 17.6+</strong> (standard OCR and text extraction)</li>
+                            <li><strong>iOS 26.0+ with compatible devices</strong> (Apple Intelligence features require A17 Pro/M-series chips)</li>
                             <li><strong>Camera access</strong> for document scanning</li>
                             <li><strong>Microsoft or Google account</strong> (optional, for cloud uploads)</li>
                         </ul>
                         <div class="highlight-box">
-                            <p><strong>Note:</strong> Apple Intelligence requires a device with Apple Silicon (A17 Pro or later) or M-series chip. On older devices, OCR will still work, but AI insights will be unavailable.</p>
+                            <p><strong>Note:</strong> Apple Intelligence features (AI insights, summaries, mood analysis) require iOS 26.0+ and a device with Apple Silicon (A17 Pro or later) or M-series chip. On iOS 17.6-25.x devices or older hardware, OCR and text extraction will still work, but AI insights will be unavailable.</p>
                         </div>
                     </div>
                 </article>
@@ -519,7 +481,7 @@
                     <div class="article-content">
                         <p>The Layout Preservation Engine is OneScribe's unique layout preservation technology. Unlike other scanners that dump text into a messy blob, OneScribe:</p>
                         <ul>
-                            <li><strong>Calculates exact indentation</strong> from your handwriting</li>
+                            <li><strong>Calculates indentation</strong> from your handwriting</li>
                             <li><strong>Preserves horizontal spacing</strong> using precise layout calculations</li>
                             <li><strong>Maintains code blocks</strong> as code blocks</li>
                             <li><strong>Keeps lists structured</strong> with proper indentation</li>
@@ -574,12 +536,13 @@
                 <article class="article">
                     <h3 class="article-title">Multi-Page Document Scanning</h3>
                     <div class="article-content">
-                        <p>OneScribe supports unlimited pages per scanning session:</p>
+                        <p>OneScribe supports multi-page scanning (optimized for 6-8 pages per session):</p>
                         <ul>
                             <li><strong>Scan multiple pages</strong> in one session without interruption</li>
                             <li><strong>AI analyzes all pages together</strong> for comprehensive insights</li>
                             <li><strong>Page-specific summaries</strong> are generated for each page</li>
                             <li><strong>Action items and concepts</strong> are tracked with page references</li>
+                            <li><strong>Performance note:</strong> For best results, keep sessions to 6-8 pages. Larger documents (15+ pages) may take longer to process.</li>
                         </ul>
                         <p>Perfect for:</p>
                         <ul>
@@ -837,10 +800,12 @@
                     <div class="article-content">
                         <p>AI Insights require Apple Intelligence, which needs:</p>
                         <ul>
-                            <li><strong>iOS 26.0 or later</strong></li>
-                            <li><strong>Device with Apple Intelligence support</strong> (A17 Pro or later, M-series chip)</li>
+                            <li><strong>iOS 26.0+ with compatible devices</strong> (A17 Pro or later, M-series chip)</li>
                             <li><strong>Apple Intelligence enabled</strong> in device settings</li>
                         </ul>
+                        <div class="highlight-box">
+                            <p><strong>Note:</strong> OneScribe works on iOS 17.6+ with standard OCR and text extraction. Apple Intelligence features (AI insights, summaries, mood analysis) require iOS 26.0+ and compatible hardware.</p>
+                        </div>
                         <p>If AI Insights aren't available:</p>
                         <ul>
                             <li>Check your iOS version (Settings → General → About)</li>
@@ -946,12 +911,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="/index.html" class="footer-link">Home</a>
-                <a href="/about.html" class="footer-link">About</a>
+                <a href="/" class="footer-link">Home</a>
                 <a href="/privacy.html" class="footer-link">Privacy Policy</a>
                 <a href="/support.html" class="footer-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="footer-link">Join Beta</a>
-                <a href="mailto:hello@getonescribe.app" class="footer-link">Feedback</a>
             </div>
             <p class="footer-copyright">
                 © 2025 OneScribe. All rights reserved.
