@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneScribe - Turn Any Paper Into a Smart Notebook</title>
-    <meta name="description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. No special notebooks. No cloud processing. Privacy-first document scanning for iPhone and iPad.">
-    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, NotebookLM, RAG optimization">
+    <meta name="description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. Export to PDF or Markdown. No special notebooks. No cloud processing. Privacy-first document scanning for iPhone and iPad.">
+    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, NotebookLM, RAG optimization, PDF export, Markdown export">
     <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook">
     <meta property="og:description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. Privacy-first document scanning.">
     <meta property="og:type" content="website">
@@ -501,7 +501,11 @@
                 <h1 class="hero-headline">Turn Any Paper Into a Smart Notebook</h1>
                 <p class="hero-subheadline">
                     Scan any paper, preserve layout and structure, get AI insights—all on-device. 
-                    No special notebooks. No cloud processing. Just your iPhone and any piece of paper.
+                    Upload to OneNote or Google Docs, or export as PDF or Markdown. No special notebooks. 
+                    No cloud processing. Just your iPhone and any piece of paper.
+                    <br><span style="font-size: 0.9em; color: var(--text-light); margin-top: 0.5rem; display: block;">
+                    (iOS 17.6+ for OCR; iOS 26.0+ with compatible devices for Apple Intelligence features)
+                    </span>
                 </p>
                 <div class="cta-buttons">
                     <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-primary">
@@ -559,7 +563,9 @@
                     <p class="feature-description">
                         Get summaries, action item extraction, mood analysis, and smart categorization—all 
                         processed securely on-device using Apple's FoundationModels framework. AI analysis typically 
-                        takes 30-60 seconds for multi-page documents.
+                        takes 30-60 seconds for multi-page documents. <strong>Requires iOS 26.0+ with compatible devices 
+                        (A17 Pro or later, M-series chip).</strong> On iOS 17.6-25.x, standard OCR and text extraction 
+                        are still available.
                     </p>
                 </div>
 
@@ -578,8 +584,20 @@
                     <p class="feature-description">
                         No middleman cloud. OneScribe sends your formatted notes directly to Microsoft OneNote 
                         or Google Docs via native APIs. Google Docs exports are NotebookLM-ready with semantic 
-                        knowledge headers for optimal AI indexing. Uses minimal API permissions—only what's 
-                        needed to create and manage your documents.
+                        knowledge headers for optimal AI indexing. Enhanced upload reliability with automatic 
+                        batch splitting and comprehensive error handling for large documents. Uses minimal API 
+                        permissions—only what's needed to create and manage your documents.
+                    </p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="feature-icon">📄</div>
+                    <h3 class="feature-title">Export to PDF & Markdown</h3>
+                    <p class="feature-description">
+                        Export your documents in multiple formats. Generate PDF files with preserved layout 
+                        and formatting, perfect for sharing or archiving. Export to Markdown for easy editing, 
+                        version control, or integration with other tools. Both formats include AI insights 
+                        when available.
                     </p>
                 </div>
 
@@ -610,6 +628,10 @@
                 <div>
                     <div class="stat-number">∞</div>
                     <div class="stat-label">Any Paper Works</div>
+                </div>
+                <div>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Export Formats (PDF, Markdown)</div>
                 </div>
                 <div>
                     <div class="stat-number">1</div>
@@ -663,6 +685,11 @@
                             <td><strong>Multi-Page</strong></td>
                             <td><span class="check">✓</span> Multi-Page Support (6-8 pages optimal)</td>
                             <td><span class="cross">✗</span> Limited Pages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Export Formats</strong></td>
+                            <td><span class="check">✓</span> PDF & Markdown Export</td>
+                            <td><span class="cross">✗</span> Limited Export Options</td>
                         </tr>
                     </tbody>
                 </table>

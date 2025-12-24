@@ -441,6 +441,7 @@
                             <li>Layout preservation with the Layout Preservation Engine</li>
                             <li>On-device AI insights powered by Apple Intelligence</li>
                             <li>Direct upload to OneNote or Google Docs</li>
+                            <li>Export to PDF and Markdown formats</li>
                             <li>100% on-device processing—your data never leaves your device</li>
                         </ul>
                     </div>
@@ -692,7 +693,7 @@
 
             <!-- Uploading & Cloud -->
             <section class="article-section" id="uploading">
-                <h2 class="section-title">Uploading & Cloud</h2>
+                <h2 class="section-title">Uploading, Export & Cloud</h2>
 
                 <article class="article">
                     <h3 class="article-title">Connecting Microsoft OneNote</h3>
@@ -705,7 +706,7 @@
                             <li><strong>Select a notebook</strong> and section</li>
                             <li><strong>Set as default</strong> (optional) for one-tap uploads</li>
                         </ol>
-                        <p>Your authentication token is stored securely in your device's Secure Enclave. You can revoke access anytime through your Microsoft account settings.</p>
+                        <p>Your authentication token is encrypted with Secure Enclave-backed keys. You can revoke access anytime through your Microsoft account settings.</p>
                     </div>
                 </article>
 
@@ -774,6 +775,27 @@
                         </div>
                     </div>
                 </article>
+
+                <article class="article">
+                    <h3 class="article-title">Exporting to PDF and Markdown</h3>
+                    <div class="article-content">
+                        <p>OneScribe supports exporting your documents in two additional formats:</p>
+                        <ul>
+                            <li><strong>PDF Export:</strong> Generate PDF files with preserved layout and formatting. Perfect for sharing, archiving, or printing. PDFs include AI insights when available.</li>
+                            <li><strong>Markdown Export:</strong> Export to Markdown format for easy editing, version control, or integration with other tools. Markdown exports preserve document structure including headers, lists, and formatting.</li>
+                        </ul>
+                        <p><strong>How to Export:</strong></p>
+                        <ol>
+                            <li>Scan your document and run OCR</li>
+                            <li>Tap the "Export" card that appears after scanning</li>
+                            <li>Choose either "PDF" or "Markdown"</li>
+                            <li>Share the exported file using iOS Share Sheet</li>
+                        </ol>
+                        <div class="highlight-box">
+                            <p><strong>Note:</strong> Export features require completed OCR processing. Make sure to run OCR on your scanned pages before exporting.</p>
+                        </div>
+                    </div>
+                </article>
             </section>
 
             <!-- Troubleshooting -->
@@ -818,10 +840,12 @@
                 <article class="article">
                     <h3 class="article-title">Upload Failures</h3>
                     <div class="article-content">
-                        <p>If uploads fail:</p>
+                        <p>OneScribe includes enhanced error handling and automatic batch splitting for large Google Docs uploads. If uploads fail:</p>
                         <ul>
                             <li><strong>Check internet connection:</strong> Uploads require network access</li>
                             <li><strong>Verify authentication:</strong> Reconnect your cloud service if tokens expired</li>
+                            <li><strong>Large documents:</strong> OneScribe automatically splits large uploads into batches for reliability</li>
+                            <li><strong>Error messages:</strong> Check the error message for specific details about what went wrong</li>
                             <li><strong>Check permissions:</strong> Ensure OneScribe has permission to access your cloud account</li>
                             <li><strong>Try manual upload:</strong> Disable auto-upload and try uploading manually</li>
                             <li><strong>Check cloud service status:</strong> Verify OneNote or Google Docs is accessible</li>
@@ -858,7 +882,7 @@
                             <li><strong>No data collection:</strong> We don't collect, store, or transmit your documents or text</li>
                             <li><strong>No cloud servers:</strong> We don't operate any servers that process your data</li>
                             <li><strong>Direct API connections:</strong> Uploads go directly to your cloud service, not through us</li>
-                            <li><strong>Secure token storage:</strong> Authentication tokens stored in Secure Enclave</li>
+                            <li><strong>Secure token storage:</strong> Authentication tokens encrypted with Secure Enclave-backed keys</li>
                         </ul>
                         <p>Your notes never leave your device except when you explicitly choose to upload them.</p>
                     </div>
@@ -886,11 +910,12 @@
                 <article class="article">
                     <h3 class="article-title">How Are Authentication Tokens Stored?</h3>
                     <div class="article-content">
-                        <p>Authentication tokens for Microsoft and Google accounts are stored in your device's Secure Enclave:</p>
+                        <p>Authentication tokens for Microsoft and Google accounts are encrypted using keys managed by your device's Secure Enclave:</p>
                         <ul>
-                            <li><strong>Hardware encryption:</strong> Tokens are encrypted and isolated from the rest of the system</li>
+                            <li><strong>Hardware encryption:</strong> Tokens are encrypted with Secure Enclave-backed keys and isolated from the rest of the system</li>
                             <li><strong>Developer access:</strong> Even we (the developers) cannot access your tokens</li>
                             <li><strong>Local only:</strong> Tokens never leave your device except for API calls</li>
+                            <li><strong>Device-bound:</strong> Tokens cannot be transferred to other devices or accessed when your device is locked</li>
                             <li><strong>Revocable:</strong> You can revoke access anytime through your account settings</li>
                         </ul>
                         <p>This is the same security technology used by Apple Pay and Face ID.</p>
