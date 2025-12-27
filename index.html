@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneScribe - Turn Any Paper Into a Smart Notebook</title>
-    <meta name="description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. Export to PDF or Markdown. No special notebooks. No cloud processing. Privacy-first document scanning for iPhone and iPad.">
-    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, NotebookLM, RAG optimization, PDF export, Markdown export">
+    <meta name="description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. No special notebooks. No cloud processing. Privacy-first document scanning for iPhone and iPad.">
+    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, NotebookLM, RAG optimization, Kindle Scribe">
     <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook">
     <meta property="og:description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. Privacy-first document scanning.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getonescribe.app">
+    <meta property="og:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">
     <link rel="canonical" href="https://getonescribe.app">
     <style>
         * {
@@ -19,15 +20,28 @@
         }
 
         :root {
-            --midnight-purple: #1C122E;
-            --glow-purple: #8B5CF6;
-            --accent-purple: #A78BFA;
-            --text-white: #FFFFFF;
-            --text-gray: rgba(255, 255, 255, 0.8);
-            --text-light: rgba(255, 255, 255, 0.6);
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --gradient-purple: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+            --system-background: #FFFFFF;
+            --system-background-secondary: #FBFBFD;
+            --label: #1D1D1F;
+            --label-secondary: #86868B;
+            --label-tertiary: #C7C7CC;
+            --accent: #8B5CF6;
+            --accent-light: #A78BFA;
+            --separator: rgba(0, 0, 0, 0.08);
+            --shadow: rgba(0, 0, 0, 0.08);
+            --material-blur: blur(40px) saturate(180%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --system-background: #000000;
+                --system-background-secondary: #1C1C1E;
+                --label: #F5F5F7;
+                --label-secondary: #98989D;
+                --label-tertiary: #636366;
+                --separator: rgba(255, 255, 255, 0.08);
+                --shadow: rgba(0, 0, 0, 0.6);
+            }
         }
 
         html {
@@ -35,38 +49,21 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: var(--midnight-purple);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated gradient background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--system-background);
+            color: var(--label);
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
+            padding: 0 44px;
         }
 
         /* Navigation */
@@ -75,294 +72,342 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(28, 18, 46, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(251, 251, 253, 0.72);
+            backdrop-filter: var(--material-blur);
+            -webkit-backdrop-filter: var(--material-blur);
+            border-bottom: 0.5px solid var(--separator);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background: rgba(28, 28, 30, 0.72);
+            }
         }
 
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-purple);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--label);
             text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
+            letter-spacing: -0.022em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 30px;
             align-items: center;
         }
 
         .nav-link {
-            color: var(--text-gray);
+            color: var(--label);
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
         .nav-link:hover {
-            color: var(--text-white);
+            opacity: 0.65;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--label);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-cta:hover {
+            opacity: 0.8;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 0 4rem;
-            position: relative;
-        }
-
-        .hero-content {
+            padding: 160px 0 120px;
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .hero-badge {
             display: inline-block;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--accent-purple);
-            margin-bottom: 2rem;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            padding: 6px 14px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 16px;
+            text-transform: uppercase;
         }
 
-        .hero-headline {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+        @media (prefers-color-scheme: dark) {
+            .hero-badge {
+                background: rgba(139, 92, 246, 0.15);
+                border-color: rgba(139, 92, 246, 0.3);
+            }
+        }
+
+        .new-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.02em;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        .new-highlight {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background-color: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            margin: 0 4px;
+            font-size: 0.95em;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .new-highlight {
+                background-color: rgba(139, 92, 246, 0.15);
+                border-color: rgba(139, 92, 246, 0.3);
+            }
+        }
+
+        .hero-headline {
+            font-size: 64px;
+            font-weight: 600;
+            line-height: 1.0625;
+            letter-spacing: -0.009em;
+            margin-bottom: 12px;
+            color: var(--label);
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-subheadline {
-            font-size: clamp(1.125rem, 3vw, 1.5rem);
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-            line-height: 1.6;
-            max-width: 700px;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.125;
+            letter-spacing: 0.004em;
+            color: var(--label-secondary);
+            margin-bottom: 24px;
+            max-width: 680px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
+        .hero-description {
+            font-size: 19px;
+            line-height: 1.42105;
+            letter-spacing: 0.011em;
+            color: var(--label-secondary);
+            margin-bottom: 48px;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
         }
 
-        .cta-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--gradient-purple);
-            color: var(--text-white);
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            font-size: 1.125rem;
-            font-weight: 600;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-size: 19px;
+            font-weight: 400;
+            color: var(--accent);
             text-decoration: none;
-            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: pulse-glow 2s ease-in-out infinite;
+            letter-spacing: -0.022em;
+            margin-bottom: 12px;
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
         }
 
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
-            }
-            50% {
-                box-shadow: 0 8px 40px rgba(139, 92, 246, 0.6), 0 0 0 8px rgba(139, 92, 246, 0.1);
-            }
+        .cta-button:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
         }
 
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 48px rgba(139, 92, 246, 0.6);
+        .cta-button::after {
+            content: ' →';
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
         }
 
-        .app-store-badge {
-            height: 60px;
-            width: auto;
-        }
-
-        .hero-image {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .hero-image-container {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .phone-mockup {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        .cta-button:hover::after {
+            transform: translateX(4px);
         }
 
         /* Features Section */
         .features-section {
-            padding: 6rem 0;
+            padding: 140px 0;
         }
 
         .section-headline {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07143;
+            letter-spacing: -0.005em;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
+            color: var(--label);
         }
 
         .section-subheadline {
-            font-size: 1.25rem;
-            color: var(--text-gray);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.33333;
+            letter-spacing: 0.009em;
             text-align: center;
-            margin-bottom: 4rem;
-            max-width: 600px;
+            color: var(--label-secondary);
+            margin-bottom: 80px;
+            max-width: 680px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-bottom: 0;
         }
 
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .feature-card {
+            padding: 0;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-purple);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .glass-card:hover {
+        .feature-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
-        }
-
-        .glass-card:hover::before {
-            opacity: 1;
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 56px;
+            margin-bottom: 20px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.05);
         }
 
         .feature-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-white);
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.14286;
+            letter-spacing: 0.007em;
+            margin-bottom: 12px;
+            color: var(--label);
         }
 
         .feature-description {
-            font-size: 1.125rem;
-            color: var(--text-gray);
-            line-height: 1.7;
+            font-size: 19px;
+            line-height: 1.42105;
+            letter-spacing: 0.011em;
+            color: var(--label-secondary);
         }
 
         .feature-highlight {
-            color: var(--accent-purple);
-            font-weight: 600;
+            color: var(--accent);
         }
 
         /* Stats Section */
         .stats-section {
-            padding: 4rem 0;
-            background: rgba(139, 92, 246, 0.05);
-            border-radius: 32px;
-            margin: 4rem 0;
+            padding: 120px 0;
+            background: var(--system-background-secondary);
+            border-radius: 24px;
+            margin: 140px 0;
+            backdrop-filter: blur(20px);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
             text-align: center;
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient-purple);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
+            font-size: 72px;
+            font-weight: 600;
+            line-height: 1.05556;
+            letter-spacing: -0.013em;
+            margin-bottom: 8px;
+            color: var(--label);
         }
 
         .stat-label {
-            font-size: 1.125rem;
-            color: var(--text-gray);
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 1.381;
+            letter-spacing: 0.011em;
+            color: var(--label-secondary);
         }
 
         /* Comparison Section */
         .comparison-section {
-            padding: 6rem 0;
+            padding: 140px 0;
         }
 
         .comparison-table {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            background: var(--system-background-secondary);
             border-radius: 24px;
-            padding: 2rem;
+            padding: 60px;
             overflow-x: auto;
+            backdrop-filter: blur(20px);
         }
 
         table {
@@ -371,108 +416,478 @@
         }
 
         th, td {
-            padding: 1.5rem;
+            padding: 20px 0;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 0.5px solid var(--separator);
         }
 
         th {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-white);
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--label);
+            letter-spacing: -0.022em;
         }
 
         td {
-            font-size: 1.125rem;
-            color: var(--text-gray);
+            font-size: 19px;
+            font-weight: 400;
+            color: var(--label-secondary);
+            letter-spacing: -0.022em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
         }
 
         .check {
             color: #34C759;
-            font-weight: 700;
-            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .cross {
             color: #FF3B30;
-            font-size: 1.5rem;
         }
 
         /* Privacy Section */
         .privacy-section {
-            padding: 6rem 0;
+            padding: 120px 0;
             text-align: center;
-            background: rgba(139, 92, 246, 0.05);
-            border-radius: 32px;
-            margin: 4rem 0;
+            background: var(--system-background-secondary);
+            border-radius: 24px;
+            margin: 140px 0;
+            backdrop-filter: blur(20px);
         }
 
         .privacy-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
+            font-size: 72px;
+            margin-bottom: 24px;
         }
 
         /* Footer */
         .footer {
-            padding: 4rem 0 2rem;
+            padding: 60px 0;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 4rem;
+            border-top: 0.5px solid var(--separator);
+            margin-top: 140px;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 30px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
 
         .footer-link {
-            color: var(--accent-purple);
+            color: var(--label-secondary);
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            transition: opacity 0.3s ease;
         }
 
         .footer-link:hover {
-            color: var(--text-white);
+            opacity: 0.6;
         }
 
         .footer-copyright {
-            color: var(--text-light);
-            font-size: 0.9375rem;
+            color: var(--label-tertiary);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1068px) {
+            .container {
+                padding: 0 32px;
+            }
+        }
+
+        @media (max-width: 834px) {
+            .container {
+                padding: 0 24px;
+            }
+
             .nav-links {
-                display: none;
+                gap: 24px;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: stretch;
+            .hero {
+                padding: 140px 0 100px;
             }
 
-            .cta-primary {
-                justify-content: center;
+            .hero-headline {
+                font-size: 48px;
+            }
+
+            .hero-subheadline {
+                font-size: 28px;
+            }
+
+            .section-headline {
+                font-size: 48px;
+            }
+
+            .section-subheadline {
+                font-size: 21px;
+            }
+
+            .features-section {
+                padding: 120px 0;
             }
 
             .feature-grid {
                 grid-template-columns: 1fr;
+                gap: 80px;
+            }
+
+            .stats-section {
+                margin: 120px 0;
+                padding: 100px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 60px;
+            }
+
+            .comparison-section {
+                padding: 120px 0;
             }
 
             .comparison-table {
-                padding: 1rem;
+                padding: 40px;
             }
 
-            table {
-                font-size: 0.875rem;
+            .whats-new-section {
+                margin: 120px 0;
+                padding: 100px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
             }
 
-            th, td {
-                padding: 1rem 0.5rem;
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero-headline {
+                font-size: 40px;
+            }
+
+            .hero-subheadline {
+                font-size: 24px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .section-headline {
+                font-size: 40px;
+            }
+
+            .section-subheadline {
+                font-size: 19px;
+            }
+
+            .features-section {
+                padding: 100px 0;
+            }
+
+            .feature-grid {
+                gap: 60px;
+            }
+
+            .feature-icon {
+                font-size: 48px;
+            }
+
+            .feature-title {
+                font-size: 24px;
+            }
+
+            .feature-description {
+                font-size: 17px;
+            }
+
+            .stats-section {
+                margin: 100px 0;
+                padding: 80px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .stat-number {
+                font-size: 56px;
+            }
+
+            .stat-label {
+                font-size: 19px;
+            }
+
+            .comparison-section {
+                padding: 100px 0;
+            }
+
+            .comparison-table {
+                padding: 32px 20px;
+            }
+
+            .whats-new-section {
+                margin: 100px 0;
+                padding: 80px 0;
+            }
+
+            .whats-new-section .section-headline {
+                font-size: 40px;
+            }
+
+            .whats-new-section .section-subheadline {
+                font-size: 19px;
+            }
+        }
+
+        /* What's New Section Styling - Major Feature Highlight */
+        .whats-new-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 32px;
+            margin: 160px 0;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .whats-new-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+            backdrop-filter: blur(40px);
+        }
+
+        .whats-new-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .whats-new-badge-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .whats-new-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .whats-new-section .section-subheadline {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .whats-new-section .feature-grid {
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .whats-new-section .feature-card {
+            padding: 50px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whats-new-section .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .whats-new-section .feature-card {
+                background: rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4); 
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 0 8px 28px rgba(139, 92, 246, 0.5); 
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .whats-new-badge {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background-size: 200% auto;
+            color: white;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite, shimmer 3s linear infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* App Showcase Section */
+        .app-showcase-section {
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .app-showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 44px;
+        }
+
+        .app-showcase-headline {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07143;
+            letter-spacing: -0.005em;
+            margin-bottom: 12px;
+            color: var(--label);
+        }
+
+        .app-showcase-subheadline {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.33333;
+            letter-spacing: 0.009em;
+            color: var(--label-secondary);
+            margin-bottom: 80px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .app-screenshot-container {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+            max-width: 375px;
+            width: 100%;
+            border-radius: 40px;
+            padding: 12px;
+            background: linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .app-screenshot-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-screenshot {
+            width: 100%;
+            height: auto;
+            border-radius: 32px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-screenshot-placeholder {
+            width: 100%;
+            aspect-ratio: 9 / 19.5;
+            background: var(--system-background-secondary);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--label-secondary);
+            font-size: 17px;
+            letter-spacing: -0.022em;
+            border: 1px solid var(--separator);
+        }
+
+        @media (max-width: 834px) {
+            .app-showcase-section {
+                padding: 120px 0;
+            }
+
+            .app-showcase-headline {
+                font-size: 48px;
+            }
+
+            .app-showcase-subheadline {
+                font-size: 21px;
+            }
+
+            .app-screenshot-container {
+                max-width: 320px;
+                padding: 10px;
+                border-radius: 32px;
+            }
+
+            .app-screenshot {
+                border-radius: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-showcase-section {
+                padding: 100px 0;
+            }
+
+            .app-showcase-headline {
+                font-size: 40px;
+            }
+
+            .app-showcase-subheadline {
+                font-size: 19px;
+            }
+
+            .app-screenshot-container {
+                max-width: 280px;
+                padding: 8px;
+                border-radius: 28px;
             }
         }
     </style>
@@ -488,7 +903,7 @@
                 <a href="/about.html" class="nav-link">About</a>
                 <a href="/privacy.html" class="nav-link">Privacy</a>
                 <a href="/support.html" class="nav-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Join Beta</a>
+                <a href="https://testflight.apple.com/join/TqtMN8F7" class="nav-cta">Join Beta</a>
             </div>
         </div>
     </nav>
@@ -496,36 +911,77 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">✨ Powered by Apple Intelligence</div>
-                <h1 class="hero-headline">Turn Any Paper Into a Smart Notebook</h1>
-                <p class="hero-subheadline">
-                    Scan any paper, preserve layout and structure, get AI insights—all on-device. 
-                    Upload to OneNote or Google Docs, or export as PDF or Markdown. No special notebooks. 
-                    No cloud processing. Just your iPhone and any piece of paper.
-                    <br><span style="font-size: 0.9em; color: var(--text-light); margin-top: 0.5rem; display: block;">
-                    (iOS 17.6+ for OCR; iOS 26.0+ with compatible devices for Apple Intelligence features)
-                    </span>
-                </p>
-                <div class="cta-buttons">
-                    <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-primary">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
-                        </svg>
-                        Join Public Beta
-                    </a>
-                    <p style="margin-top: 1.5rem; font-size: 0.9375rem; color: var(--text-light); max-width: 500px; margin-left: auto; margin-right: auto;">
-                        This is a beta release. We'd love your feedback! Questions or issues? <a href="mailto:hello@getonescribe.app" style="color: var(--accent-purple); text-decoration: underline;">Email us</a>.
+            <div class="hero-badge">Build 27 "Luna"</div>
+            <h1 class="hero-headline">Turn Any Paper Into a Smart Notebook</h1>
+            <p class="hero-subheadline">
+                Scan any paper, preserve layout and structure, get AI insights—all on-device.
+            </p>
+            <p class="hero-description">
+                No special notebooks. No cloud processing. Just your iPhone and any piece of paper.
+            </p>
+            <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-button">Join Public Beta</a>
+        </div>
+    </section>
+
+    <!-- App Showcase -->
+    <section class="app-showcase-section">
+        <div class="app-showcase-container">
+            <h2 class="app-showcase-headline">See OneScribe in Action</h2>
+            <p class="app-showcase-subheadline">A real app, built for real workflows. Scan, analyze, and organize—all on your device.</p>
+            <div class="app-screenshot-container">
+                <img src="app-screenshot.png" alt="OneScribe app interface showing document scanning, OCR processing, and AI insights with action items" class="app-screenshot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Major Feature: Build 27 "Luna" -->
+    <section class="whats-new-section">
+        <div class="whats-new-overlay"></div>
+        <div class="container whats-new-content">
+            <div class="whats-new-badge-container">
+                <span class="whats-new-badge">✨ NEW IN LUNA</span>
+            </div>
+            <h2 class="section-headline">Introducing Build 27 "Luna"</h2>
+            <p class="section-subheadline">A major update with unified intelligence architecture, CoreML-powered layout detection, and enhanced action items management</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <h3 class="feature-title">Unified Intelligence Architecture</h3>
+                    <p class="feature-description">
+                        OneScribe now uses a single, unified intelligence system. Removed legacy services for cleaner 
+                        architecture and consistent performance across all iOS versions. The same great AI analysis, 
+                        now with a more reliable foundation.
                     </p>
                 </div>
-                <div class="hero-image">
-                    <div class="hero-image-container">
-                        <div style="background: linear-gradient(135deg, #1C122E 0%, #2D1B4E 100%); padding: 2rem; border-radius: 12px; text-align: center;">
-                            <div style="font-size: 4rem; margin-bottom: 1rem;">📱</div>
-                            <div style="color: var(--accent-purple); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">OneScribe</div>
-                            <div style="color: var(--text-gray); font-size: 1rem;">Scan • OCR • AI Insights</div>
-                        </div>
-                    </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">CoreML Document Layout Detection</h3>
+                    <p class="feature-description">
+                        OneScribe can now understand document structure using machine learning. Detects headers, tables, 
+                        lists, images, and text regions powered by DocLayNet-trained CoreML model. Better document 
+                        structure recognition for more accurate layout preservation.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">Enhanced Action Items</h3>
+                    <p class="feature-description">
+                        Action items are now more prominent and easier to manage. New global section showing all action 
+                        items at the top of AI Insights. Every action item has a reminder button (➕) for one-tap access 
+                        to Apple Reminders. Always visible—no need to expand pages.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Better Organization</h3>
+                    <p class="feature-description">
+                        Improved visual hierarchy with count badges, clear section headers, and consistent reminder 
+                        functionality throughout. Action items grouped in a dedicated section for easier task management.
+                    </p>
                 </div>
             </div>
         </div>
@@ -538,17 +994,18 @@
             <p class="section-subheadline">The last scanning app you'll ever need</p>
             
             <div class="feature-grid">
-                <div class="glass-card">
+                <div class="feature-card">
                     <div class="feature-icon">📐</div>
                     <h3 class="feature-title">The <span class="feature-highlight">Layout Preservation</span> Engine</h3>
                     <p class="feature-description">
                         Preserves indentation, lists, and code block structures. Your code blocks stay code blocks. 
                         Your lists stay lists. Most scanners dump text into a messy blob—OneScribe calculates 
-                        and replicates your handwriting's physical layout digitally.
+                        and replicates your handwriting's physical layout digitally. CoreML-powered document structure 
+                        detection identifies headers, tables, lists, and images for even better layout understanding.
                     </p>
                 </div>
 
-                <div class="glass-card">
+                <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h3 class="feature-title">100% On-Device Processing</h3>
                     <p class="feature-description">
@@ -557,19 +1014,18 @@
                     </p>
                 </div>
 
-                <div class="glass-card">
+                <div class="feature-card">
                     <div class="feature-icon">🤖</div>
                     <h3 class="feature-title">Apple Intelligence Insights</h3>
                     <p class="feature-description">
                         Get summaries, action item extraction, mood analysis, and smart categorization—all 
                         processed securely on-device using Apple's FoundationModels framework. AI analysis typically 
-                        takes 30-60 seconds for multi-page documents. <strong>Requires iOS 26.0+ with compatible devices 
-                        (A17 Pro or later, M-series chip).</strong> On iOS 17.6-25.x, standard OCR and text extraction 
-                        are still available.
+                        takes 30-60 seconds for multi-page documents. Enhanced action items with one-tap Reminders 
+                        integration and CoreML-powered document layout detection.
                     </p>
                 </div>
 
-                <div class="glass-card">
+                <div class="feature-card">
                     <div class="feature-icon">📄</div>
                     <h3 class="feature-title">Multi-Page Sessions</h3>
                     <p class="feature-description">
@@ -578,37 +1034,25 @@
                     </p>
                 </div>
 
-                <div class="glass-card">
+                <div class="feature-card">
                     <div class="feature-icon">🔗</div>
                     <h3 class="feature-title">Direct Cloud Integration</h3>
                     <p class="feature-description">
                         No middleman cloud. OneScribe sends your formatted notes directly to Microsoft OneNote 
                         or Google Docs via native APIs. Google Docs exports are NotebookLM-ready with semantic 
-                        knowledge headers for optimal AI indexing. Enhanced upload reliability with automatic 
-                        batch splitting and comprehensive error handling for large documents. Uses minimal API 
-                        permissions—only what's needed to create and manage your documents.
+                        knowledge headers for optimal AI indexing.
                     </p>
                 </div>
 
-                <div class="glass-card">
-                    <div class="feature-icon">📄</div>
-                    <h3 class="feature-title">Export to PDF & Markdown</h3>
-                    <p class="feature-description">
-                        Export your documents in multiple formats. Generate PDF files with preserved layout 
-                        and formatting, perfect for sharing or archiving. Export to Markdown for easy editing, 
-                        version control, or integration with other tools. Both formats include AI insights 
-                        when available.
-                    </p>
-                </div>
-
-                <div class="glass-card">
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3 class="feature-title">Zero-Friction Workflow</h3>
                     <p class="feature-description">
                         Auto-scan. Auto-OCR. Auto-upload. Set a default destination and turn a 5-step chore 
-                        into a 1-tap reflex via Home Screen Quick Actions.
+                        into a 1-tap reflex via Home Screen Quick Actions or Siri Shortcuts.
                     </p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -628,10 +1072,6 @@
                 <div>
                     <div class="stat-number">∞</div>
                     <div class="stat-label">Any Paper Works</div>
-                </div>
-                <div>
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Export Formats (PDF, Markdown)</div>
                 </div>
                 <div>
                     <div class="stat-number">1</div>
@@ -673,23 +1113,18 @@
                         </tr>
                         <tr>
                             <td><strong>AI Insights</strong></td>
-                            <td><span class="check">✓</span> Summary, Mood, Actions, Tags</td>
+                            <td><span class="check">✓</span> Summary, Mood, Actions, Tags, Reminders Integration</td>
                             <td><span class="cross">✗</span> Basic Transcription Only</td>
                         </tr>
                         <tr>
-                            <td><strong>Cost</strong></td>
-                            <td><span class="check">✓</span> One-time App Purchase</td>
-                            <td><span class="cross">✗</span> $30+ per Notebook + Refills</td>
+                            <td><strong>Layout Detection</strong></td>
+                            <td><span class="check">✓</span> CoreML-Powered Structure Detection</td>
+                            <td><span class="cross">✗</span> Basic OCR Only</td>
                         </tr>
                         <tr>
                             <td><strong>Multi-Page</strong></td>
                             <td><span class="check">✓</span> Multi-Page Support (6-8 pages optimal)</td>
                             <td><span class="cross">✗</span> Limited Pages</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Export Formats</strong></td>
-                            <td><span class="check">✓</span> PDF & Markdown Export</td>
-                            <td><span class="cross">✗</span> Limited Export Options</td>
                         </tr>
                     </tbody>
                 </table>
@@ -702,16 +1137,15 @@
         <div class="container">
             <div class="privacy-icon">🔒</div>
             <h2 class="section-headline">Privacy Built for the Paranoid</h2>
-            <p class="section-subheadline" style="max-width: 700px; margin: 0 auto;">
+            <p class="section-subheadline">
                 We are an offline-first utility. Your authentication tokens live in your device's Secure Enclave. 
                 You are the only one reading your journal. All OCR and AI processing happens on your device—zero data 
                 sent to third-party servers. We use minimal API permissions—Google Docs only requests file creation 
-                access (drive.file scope), and OneNote only requests note creation/reading permissions. We never access 
-                your other files, contacts, or personal data.
+                access (drive.file scope), and OneNote only requests note creation/reading permissions.
             </p>
-            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="/privacy.html" class="cta-primary" style="text-decoration: none;">Read Our Privacy Policy →</a>
-                <a href="/support.html" class="cta-primary" style="text-decoration: none; background: rgba(139, 92, 246, 0.2); border: 1px solid var(--glow-purple);">Visit Support Center →</a>
+            <div class="cta-buttons-container">
+                <a href="/privacy.html" class="cta-button">Read Our Privacy Policy</a>
+                <a href="/support.html" class="cta-button">Visit Support Center</a>
             </div>
         </div>
     </section>
@@ -740,7 +1174,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 80; // Account for fixed nav
+                    const offset = 80;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({
                         top: targetPosition,
@@ -748,19 +1182,6 @@
                     });
                 }
             });
-        });
-
-        // Add scroll effect to nav
-        let lastScroll = 0;
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 100) {
-                nav.style.background = 'rgba(28, 18, 46, 0.95)';
-            } else {
-                nav.style.background = 'rgba(28, 18, 46, 0.8)';
-            }
-            lastScroll = currentScroll;
         });
     </script>
 </body>
