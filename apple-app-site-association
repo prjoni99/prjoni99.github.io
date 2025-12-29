@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "53MUTM55LC.com.prjoni99.onescribe",
+        "paths": ["/oauth2redirect/notion"]
+      }
+    ]
+  }
+}
+
