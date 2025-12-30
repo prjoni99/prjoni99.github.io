@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneScribe - Turn Any Paper Into a Smart Notebook</title>
-    <meta name="description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. No special notebooks. No cloud processing. Privacy-first document scanning for iPhone and iPad.">
-    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, NotebookLM, RAG optimization, Kindle Scribe">
+    <meta name="description" content="Scan any paper, preserve layout with CoreML detection, get AI insights, export to Markdown, share to Apple Notes, integrate with Reminders—all on-device. Privacy-first document scanning for iPhone and iPad.">
+    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, Notion, NotebookLM, RAG optimization, Kindle Scribe, CoreML, layout detection, export markdown, Apple Notes, Reminders integration">
     <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook">
     <meta property="og:description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. Privacy-first document scanning.">
     <meta property="og:type" content="website">
@@ -911,7 +911,6 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">Build 27 "Luna"</div>
             <h1 class="hero-headline">Turn Any Paper Into a Smart Notebook</h1>
             <p class="hero-subheadline">
                 Scan any paper, preserve layout and structure, get AI insights—all on-device.
@@ -934,15 +933,15 @@
         </div>
     </section>
 
-    <!-- Major Feature: Build 27 "Luna" -->
+    <!-- New Features Section -->
     <section class="whats-new-section">
         <div class="whats-new-overlay"></div>
         <div class="container whats-new-content">
             <div class="whats-new-badge-container">
-                <span class="whats-new-badge">✨ NEW IN LUNA</span>
+                <span class="whats-new-badge">✨ NEW FEATURES</span>
             </div>
-            <h2 class="section-headline">Introducing Build 27 "Luna"</h2>
-            <p class="section-subheadline">A major update with unified intelligence architecture, CoreML-powered layout detection, and enhanced action items management</p>
+            <h2 class="section-headline">What's New</h2>
+            <p class="section-subheadline">CoreML-powered layout detection, export to Markdown, Apple Notes integration, Reminders integration, and enhanced action items management</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
@@ -981,6 +980,25 @@
                     <p class="feature-description">
                         Improved visual hierarchy with count badges, clear section headers, and consistent reminder 
                         functionality throughout. Action items grouped in a dedicated section for easier task management.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Export to Markdown</h3>
+                    <p class="feature-description">
+                        Export your documents as Markdown files for maximum compatibility. Share to Obsidian, Bear, 
+                        iA Writer, or any Markdown-compatible app. Perfect for note-taking workflows that require 
+                        plain text formats.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Apple Notes Integration</h3>
+                    <p class="feature-description">
+                        Share your formatted documents directly to Apple Notes with rich text formatting preserved. 
+                        Headings, lists, and formatting are maintained for seamless integration with your Apple ecosystem.
                     </p>
                 </div>
             </div>
@@ -1035,12 +1053,43 @@
                 </div>
 
                 <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">CoreML Document Layout Detection</h3>
+                    <p class="feature-description">
+                        Advanced machine learning-powered document structure detection. Trained on DocLayNet dataset, 
+                        our CoreML model identifies headers, tables, lists, images, and text regions for superior 
+                        layout understanding and preservation.
+                    </p>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon">🔗</div>
                     <h3 class="feature-title">Direct Cloud Integration</h3>
                     <p class="feature-description">
                         No middleman cloud. OneScribe sends your formatted notes directly to Microsoft OneNote 
-                        or Google Docs via native APIs. Google Docs exports are NotebookLM-ready with semantic 
-                        knowledge headers for optimal AI indexing.
+                        or Google Docs via native APIs. <span class="feature-highlight">Experimental Notion integration</span> 
+                        available. <span class="feature-highlight">Google Docs includes images</span> uploaded to Google Drive with links in your documents. 
+                        Google Docs exports are NotebookLM-ready with semantic knowledge headers for optimal AI indexing.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3 class="feature-title">Universal Export & Share</h3>
+                    <p class="feature-description">
+                        Export your documents in multiple formats: HTML, Markdown, or plain text. Share directly 
+                        to Apple Notes with rich formatting preserved. Export as Markdown files for Obsidian, Bear, 
+                        or any Markdown-compatible app. Complete control over your document formats.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Apple Reminders Integration</h3>
+                    <p class="feature-description">
+                        Action items extracted by AI can be instantly added to Apple Reminders with one tap. 
+                        Never lose track of tasks from your notes. Seamless integration with your existing 
+                        reminder workflows and Siri shortcuts.
                     </p>
                 </div>
 
@@ -1120,6 +1169,16 @@
                             <td><strong>Layout Detection</strong></td>
                             <td><span class="check">✓</span> CoreML-Powered Structure Detection</td>
                             <td><span class="cross">✗</span> Basic OCR Only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Export Formats</strong></td>
+                            <td><span class="check">✓</span> HTML, Markdown, Plain Text, Apple Notes</td>
+                            <td><span class="cross">✗</span> Limited Export Options</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reminders</strong></td>
+                            <td><span class="check">✓</span> One-Tap Apple Reminders Integration</td>
+                            <td><span class="cross">✗</span> Not Available</td>
                         </tr>
                         <tr>
                             <td><strong>Multi-Page</strong></td>
