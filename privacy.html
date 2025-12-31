@@ -476,7 +476,7 @@
                 </p>
                 <ul>
                     <li>Scanned documents or images</li>
-                    <li>Extracted text from OCR</li>
+                    <li>Extracted text from transcription</li>
                     <li>AI analysis results (summaries, action items, etc.)</li>
                     <li>Authentication credentials</li>
                     <li>Usage analytics or telemetry</li>
@@ -495,7 +495,7 @@
                     All processing in OneScribe occurs entirely on your iPhone or iPad:
                 </p>
                 <ul>
-                    <li><strong>OCR (Optical Character Recognition):</strong> Uses Apple's Vision Framework, processing images locally on your device</li>
+                    <li><strong>Transcription:</strong> Uses Apple's Vision Framework (OCR), processing images locally on your device</li>
                     <li><strong>AI Analysis:</strong> Uses Apple Intelligence (FoundationModels), running completely on-device</li>
                     <li><strong>Text Extraction:</strong> All layout analysis and text extraction happens locally</li>
                     <li><strong>Image Processing:</strong> All image enhancement, cropping, and adjustments are done on-device</li>
@@ -509,16 +509,16 @@
                 <h2>4. Cloud Integration</h2>
                 <h3>Direct API Connections Only</h3>
                 <p>
-                    OneScribe integrates with Microsoft OneNote and Google Docs through their official APIs. When you choose to upload a document:
+                    OneScribe integrates with OneNote, Google Docs, and Notion through their official APIs. When you choose to upload a document:
                 </p>
                 <ul>
-                    <li>Your document is sent <strong>directly</strong> to your chosen service (OneNote or Google Docs)</li>
+                    <li>Your document is sent <strong>directly</strong> to your chosen service (OneNote, Google Docs, or Notion)</li>
                     <li>No intermediate servers or third-party services are involved</li>
                     <li>Authentication tokens are encrypted with Secure Enclave-backed keys</li>
                     <li>We never have access to your cloud account credentials</li>
                 </ul>
                 <p>
-                    Once uploaded, your documents are subject to the privacy policies of Microsoft OneNote or Google Docs, respectively.
+                    Once uploaded, your documents are subject to the privacy policies of your chosen service (Microsoft OneNote, Google Docs, or Notion).
                 </p>
             </div>
 
@@ -526,12 +526,12 @@
                 <h2>5. Authentication & Security</h2>
                 <h3>Secure Enclave Protection</h3>
                 <p>
-                    Authentication tokens for Microsoft and Google accounts are encrypted using keys managed by your device's Secure Enclave—Apple's hardware security module. This means:
+                    Authentication tokens for cloud services are encrypted using keys managed by your device's Secure Enclave—Apple's hardware security module. This means:
                 </p>
                 <ul>
                     <li>Tokens are encrypted with hardware-backed keys and isolated from the rest of the system</li>
                     <li>We cannot access your tokens, even if we wanted to</li>
-                    <li>Tokens never leave your device except for API calls to Microsoft/Google</li>
+                    <li>Tokens never leave your device except for API calls to your chosen service</li>
                     <li>Tokens cannot be transferred to other devices or accessed when your device is locked</li>
                     <li>You can revoke access at any time through your account settings</li>
                 </ul>
@@ -539,9 +539,9 @@
 
             <div class="section">
                 <h2>6. Third-Party Services</h2>
-                <h3>Microsoft OneNote & Google Docs</h3>
+                <h3>Cloud Service Providers</h3>
                 <p>
-                    When you use OneScribe to upload to OneNote or Google Docs, you are using their services directly. Please review their privacy policies:
+                    When you use OneScribe to upload to OneNote, Google Docs, or Notion, you are using their services directly. Please review their privacy policies:
                 </p>
                 <ul>
                     <li><a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Microsoft Privacy Statement</a></li>
@@ -558,7 +558,7 @@
                 <ul>
                     <li><strong>App Store:</strong> Standard App Store analytics (download counts, crash reports) are handled by Apple</li>
                     <li><strong>Apple Intelligence:</strong> All AI processing uses Apple's FoundationModels framework, which runs entirely on-device</li>
-                    <li><strong>Vision Framework:</strong> OCR uses Apple's Vision Framework, which processes images locally</li>
+                    <li><strong>Vision Framework:</strong> Transcription uses Apple's Vision Framework, which processes images locally</li>
                 </ul>
                 <p>
                     For more information, see <a href="https://www.apple.com/privacy/" target="_blank">Apple's Privacy Policy</a>.

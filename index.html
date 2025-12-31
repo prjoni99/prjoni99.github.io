@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneScribe - Turn Any Paper Into a Smart Notebook</title>
     <meta name="description" content="Scan any paper, preserve layout with CoreML detection, get AI insights, export to Markdown, share to Apple Notes, integrate with Reminders—all on-device. Privacy-first document scanning for iPhone and iPad.">
-    <meta name="keywords" content="document scanner, OCR, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, Notion, NotebookLM, RAG optimization, Kindle Scribe, CoreML, layout detection, export markdown, Apple Notes, Reminders integration">
+    <meta name="keywords" content="document scanner, transcription, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, Notion, NotebookLM, RAG optimization, Kindle Scribe, CoreML, layout detection, export markdown, Apple Notes, Reminders integration">
     <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook">
     <meta property="og:description" content="Scan any paper, preserve layout and structure, get AI insights—all on-device. Privacy-first document scanning.">
     <meta property="og:type" content="website">
@@ -224,7 +224,12 @@
             letter-spacing: -0.009em;
             margin-bottom: 12px;
             color: var(--label);
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-headline {
+                animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
         }
 
         .hero-subheadline {
@@ -237,7 +242,12 @@
             max-width: 680px;
             margin-left: auto;
             margin-right: auto;
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-subheadline {
+                animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+            }
         }
 
         .hero-description {
@@ -249,7 +259,12 @@
             max-width: 580px;
             margin-left: auto;
             margin-right: auto;
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-description {
+                animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+            }
         }
 
         @keyframes fadeInUp {
@@ -272,7 +287,12 @@
             letter-spacing: -0.022em;
             margin-bottom: 12px;
             transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .cta-button {
+                animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+            }
         }
 
         .cta-button:hover {
@@ -370,7 +390,6 @@
             background: var(--system-background-secondary);
             border-radius: 24px;
             margin: 140px 0;
-            backdrop-filter: blur(20px);
         }
 
         .stats-grid {
@@ -407,7 +426,6 @@
             border-radius: 24px;
             padding: 60px;
             overflow-x: auto;
-            backdrop-filter: blur(20px);
         }
 
         table {
@@ -455,7 +473,6 @@
             background: var(--system-background-secondary);
             border-radius: 24px;
             margin: 140px 0;
-            backdrop-filter: blur(20px);
         }
 
         .privacy-icon {
@@ -667,6 +684,8 @@
             overflow: hidden;
             box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
             border: 0.5px solid rgba(255, 255, 255, 0.12);
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .whats-new-overlay {
@@ -678,7 +697,6 @@
             background: var(--system-background-secondary);
             opacity: 0.88;
             border-radius: 32px;
-            backdrop-filter: blur(40px);
         }
 
         .whats-new-content {
@@ -763,8 +781,13 @@
             text-transform: uppercase;
             box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
             display: inline-block;
-            animation: pulse 2s ease-in-out infinite, shimmer 3s linear infinite;
             border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .whats-new-badge {
+                animation: pulse 2s ease-in-out infinite, shimmer 3s linear infinite;
+            }
         }
 
         .cta-buttons-container {
@@ -928,7 +951,7 @@
             <h2 class="app-showcase-headline">See OneScribe in Action</h2>
             <p class="app-showcase-subheadline">A real app, built for real workflows. Scan, analyze, and organize—all on your device.</p>
             <div class="app-screenshot-container">
-                <img src="app-screenshot.png" alt="OneScribe app interface showing document scanning, OCR processing, and AI insights with action items" class="app-screenshot">
+                <img src="app-screenshot.png" alt="OneScribe app interface showing document scanning, transcription processing, and AI insights with action items" class="app-screenshot">
             </div>
         </div>
     </section>
@@ -941,26 +964,40 @@
                 <span class="whats-new-badge">✨ NEW FEATURES</span>
             </div>
             <h2 class="section-headline">What's New</h2>
-            <p class="section-subheadline">Offline-first privacy, CoreML-powered layout detection, export to Markdown, Apple Notes integration, Reminders integration, and enhanced action items management</p>
+            <p class="section-subheadline">Native iOS design, improved OAuth flows, and enhanced destination management</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Offline-First - Privacy by Design</h3>
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Monochrome Design</h3>
                     <p class="feature-description">
-                        OneScribe is now fully usable without any cloud account sign-in. Scan, OCR, AI insights, and export work immediately. 
-                        All processing happens on your device. Your notes never leave your device unless you choose to upload. 
-                        Sign in to OneNote, Google Docs, or Notion only when you want cloud uploads.
+                        Settings integrations now use uniform icons and semantic colors. Clean, professional interface throughout.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🏗️</div>
-                    <h3 class="feature-title">Unified Intelligence Architecture</h3>
+                    <div class="feature-icon">📂</div>
+                    <h3 class="feature-title">Improved Destination Picker</h3>
                     <p class="feature-description">
-                        OneScribe now uses a single, unified intelligence system. Removed legacy services for cleaner 
-                        architecture and consistent performance across all iOS versions. The same great AI analysis, 
-                        now with a more reliable foundation.
+                        Recent destinations as vertical rows. Swipe to delete. Familiar iOS interface.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <h3 class="feature-title">Google Docs with Images</h3>
+                    <p class="feature-description">
+                        Google Docs uploads now include your scanned images. Images are uploaded to Google Drive with links in your documents.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Offline-First - Privacy by Design</h3>
+                    <p class="feature-description">
+                        OneScribe is fully usable without any cloud account sign-in. Scan, transcribe, AI insights, and export work immediately. 
+                        All processing happens on your device. Your notes never leave your device unless you choose to upload. 
+                        Sign in to OneNote, Google Docs, or Notion only when you want cloud uploads.
                     </p>
                 </div>
 
@@ -981,15 +1018,6 @@
                         Action items are now more prominent and easier to manage. New global section showing all action 
                         items at the top of AI Insights. Every action item has a reminder button (➕) for one-tap access 
                         to Apple Reminders. Always visible—no need to expand pages.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">Better Organization</h3>
-                    <p class="feature-description">
-                        Improved visual hierarchy with count badges, clear section headers, and consistent reminder 
-                        functionality throughout. Action items grouped in a dedicated section for easier task management.
                     </p>
                 </div>
 
@@ -1037,7 +1065,7 @@
                     <div class="feature-icon">🔒</div>
                     <h3 class="feature-title">100% On-Device Processing</h3>
                     <p class="feature-description">
-                        All OCR and AI processing happens on your device. Your notes never touch a server. 
+                        All transcription and AI processing happens on your device. Your notes never touch a server. 
                         Privacy built for the paranoid. Authentication tokens live in your device's Secure Enclave.
                     </p>
                 </div>
@@ -1076,9 +1104,8 @@
                     <div class="feature-icon">🔗</div>
                     <h3 class="feature-title">Direct Cloud Integration</h3>
                     <p class="feature-description">
-                        No middleman cloud. OneScribe sends your formatted notes directly to Microsoft OneNote 
-                        or Google Docs via native APIs. <span class="feature-highlight">Experimental Notion integration</span> 
-                        available. <span class="feature-highlight">Google Docs includes images</span> uploaded to Google Drive with links in your documents. 
+                        No middleman cloud. OneScribe sends your formatted notes directly to OneNote, Google Docs, or Notion via native APIs. 
+                        <span class="feature-highlight">Google Docs includes images</span> uploaded to Google Drive with links in your documents. 
                         Google Docs exports are NotebookLM-ready with semantic knowledge headers for optimal AI indexing.
                     </p>
                 </div>
@@ -1107,7 +1134,7 @@
                     <div class="feature-icon">⚡</div>
                     <h3 class="feature-title">Zero-Friction Workflow</h3>
                     <p class="feature-description">
-                        Auto-scan. Auto-OCR. Auto-upload. Set a default destination and turn a 5-step chore 
+                        Auto-scan. Auto-transcribe. Auto-upload. Set a default destination and turn a 5-step chore 
                         into a 1-tap reflex via Home Screen Quick Actions or Siri Shortcuts.
                     </p>
                 </div>
@@ -1178,7 +1205,7 @@
                         <tr>
                             <td><strong>Layout Detection</strong></td>
                             <td><span class="check">✓</span> CoreML-Powered Structure Detection</td>
-                            <td><span class="cross">✗</span> Basic OCR Only</td>
+                            <td><span class="cross">✗</span> Basic Transcription Only</td>
                         </tr>
                         <tr>
                             <td><strong>Export Formats</strong></td>
@@ -1208,9 +1235,9 @@
             <h2 class="section-headline">Privacy Built for the Paranoid</h2>
             <p class="section-subheadline">
                 We are an offline-first utility. Your authentication tokens live in your device's Secure Enclave. 
-                You are the only one reading your journal. All OCR and AI processing happens on your device—zero data 
-                sent to third-party servers. We use minimal API permissions—Google Docs only requests file creation 
-                access (drive.file scope), and OneNote only requests note creation/reading permissions.
+                You are the only one reading your journal. All transcription and AI processing happens on your device—zero data 
+                sent to third-party servers. We use minimal API permissions—each service only requests the minimum access needed 
+                for document uploads.
             </p>
             <div class="cta-buttons-container">
                 <a href="/privacy.html" class="cta-button">Read Our Privacy Policy</a>
