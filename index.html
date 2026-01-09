@@ -3,15 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneScribe - Turn Any Paper Into a Smart Notebook | Public Beta</title>
-    <meta name="description" content="Join the public beta! First 150 testers get Pro free forever. Scan any paper, export to Obsidian, Apple Notes, Notion. AI insights, CoreML layout detection, Siri shortcuts—all on-device. Privacy-first document scanning for iPhone and iPad.">
-    <meta name="keywords" content="document scanner, transcription, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, Notion, Obsidian, Apple Notes, Bear, NotebookLM, RAG optimization, Kindle Scribe, CoreML, layout detection, export markdown, Markdown export, Reminders integration, Siri shortcuts, voice commands, automation, iOS shortcuts, beta testing, TestFlight, quick share sheet">
-    <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook | Public Beta">
-    <meta property="og:description" content="Join the public beta! First 150 testers get Pro free forever. Scan any paper, export to Obsidian, Apple Notes, Notion—all on-device.">
+    <title>OneScribe - Turn Any Paper Into a Smart Notebook | Now on App Store</title>
+    <meta name="description" content="The privacy-first iOS scanner that preserves indentation and code blocks. Convert handwriting to formatted HTML for OneNote and Google Docs. 100% On-Device processing.">
+    <meta name="description" content="Now live on the App Store! Scan any paper, preserve layout, get AI insights—all on-device. Export to Obsidian, Apple Notes, Notion. Privacy-first document scanning for iPhone and iPad with Apple Intelligence.">
+    <meta name="keywords" content="document scanner, transcription, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, Notion, Obsidian, Apple Notes, Bear, NotebookLM, RAG optimization, Rocketbook Alternative, Kindle Scribe, CoreML, layout detection, export markdown, Markdown export, Reminders integration, Siri shortcuts, voice commands, automation, iOS shortcuts, App Store, iOS app, quick share sheet">
+    <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook | Now on App Store">
+    <meta property="og:description" content="Now live on the App Store! Scan any paper, preserve layout, get AI insights. Export to Obsidian, Apple Notes, Notion—all on-device with Apple Intelligence.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getonescribe.app">
     <meta property="og:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">
     <link rel="canonical" href="https://getonescribe.app">
+        <!-- Apple Smart App Banner (CRITICAL for Conversion) -->
+    <!-- This creates the native 'Open' or 'Get' banner at the top of Safari -->
+    <meta name="apple-itunes-app" content="app-id=6782469918, app-argument=onescribe://">
+        <!-- Open Graph (Social Sharing - e.g. for your DTNS mention) -->
+    <meta property="og:title" content="OneScribe: Analog Input, Digital Native.">
+    <meta property="og:description" content="Finally, an OCR engine that respects your layout. Code blocks stay code blocks. Lists stay lists. 100% Offline.">
+    <meta property="og:image" content="https://getonescribe.app/assets/social-preview.jpg">
+    <meta property="og:url" content="https://getonescribe.app">
+    <meta property="og:type" content="website">
+    <!-- Open Graph (Social Sharing - e.g. for your DTNS mention) -->
+    <meta property="og:title" content="OneScribe: Analog Input, Digital Native.">
+    <meta property="og:description" content="Finally, an OCR engine that respects your layout. Code blocks stay code blocks. Lists stay lists. 100% Offline.">
+    <meta property="og:image" content="https://getonescribe.app/assets/social-preview.jpg">
+    <meta property="og:url" content="https://getonescribe.app">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://getonescribe.app/assets/social-preview.jpg">    
+
     <style>
         * {
             margin: 0;
@@ -914,41 +935,8 @@
             }
         }
 
-        /* Beta Banner */
-        .beta-banner {
-            background: linear-gradient(135deg, #FF9500 0%, #FF6B00 100%);
-            padding: 12px 0;
-            text-align: center;
-            position: fixed;
-            top: 44px;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .beta-banner-content {
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .beta-banner-emoji {
-            font-size: 16px;
-        }
-
-        .beta-banner-text {
-            display: inline;
-        }
-
-        /* Adjust hero padding for fixed banner */
         body {
-            padding-top: 44px;
+            padding-top: 0;
         }
 
         /* Promo Card */
@@ -1046,7 +1034,7 @@
         }
 
         @media (max-width: 834px) {
-            .beta-banner-content {
+            .launch-banner-content {
                 font-size: 12px;
                 padding: 0 20px;
             }
@@ -1066,7 +1054,7 @@
         }
 
         @media (max-width: 480px) {
-            .beta-banner-content {
+            .launch-banner-content {
                 font-size: 11px;
                 flex-direction: column;
                 gap: 4px;
@@ -1091,6 +1079,7 @@
                 padding: 12px 24px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -1101,59 +1090,38 @@
             <div class="nav-links">
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#comparison" class="nav-link">Why OneScribe</a>
-                <a href="#beta-info" class="nav-link">Beta Info</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
                 <a href="/about.html" class="nav-link">About</a>
                 <a href="/privacy.html" class="nav-link">Privacy</a>
                 <a href="/support.html" class="nav-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="nav-cta">Join Beta</a>
+                <a href="https://apps.apple.com/app/onescribe/id[YOUR_APP_ID]" class="nav-cta">Download</a>
             </div>
         </div>
     </nav>
 
-    <!-- Beta Banner -->
-    <div class="beta-banner">
-        <div class="beta-banner-content">
-            <span class="beta-banner-emoji">🚧</span>
-            <span class="beta-banner-text">Public Beta • Some features may be in development • Help us build the future of document scanning</span>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-headline">Turn Any Paper Into a Smart Notebook</h1>
+            <h1 class="hero-headline">Turn Paper Into Text</h1>
             <p class="hero-subheadline">
-                Scan any paper, preserve layout and structure, get AI insights—all on-device.
-            </p>
-            <p class="hero-description">
-                No special notebooks. No cloud processing. Control with your voice using Siri. Just your iPhone and any piece of paper.
+                Scan. Transcribe. Export. All on your device.
             </p>
 
-            <!-- Limited Time Promo -->
-            <div class="promo-card">
-                <div class="promo-card-content">
-                    <div class="promo-badge">🎉 Limited Time Offer</div>
-                    <h2 class="promo-title">First 150 Beta Testers Get Pro Free</h2>
-                    <p class="promo-description">
-                        Join the public beta now and unlock all Pro features forever. No subscription. No catch. 
-                        Just our way of saying thanks for helping us build something great.
-                    </p>
-                    <a href="https://testflight.apple.com/join/TqtMN8F7" class="promo-cta">Claim Your Free Pro Access →</a>
-                    <p class="promo-fine-print">Limited to first 150 testers • Lifetime Pro access • No credit card required</p>
-                </div>
-            </div>
-
-            <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-button">Join Public Beta</a>
+            <a href="https://apps.apple.com/app/onescribe/id[YOUR_APP_ID]" class="cta-button">Download from App Store</a>
+            <p class="hero-description" style="margin-top: 20px; margin-bottom: 0;">
+                Try 3 scans free. Lifetime Pro available.
+            </p>
         </div>
     </section>
 
     <!-- App Showcase -->
     <section class="app-showcase-section">
         <div class="app-showcase-container">
-            <h2 class="app-showcase-headline">See OneScribe in Action</h2>
-            <p class="app-showcase-subheadline">Scan, analyze, and export to Obsidian, Apple Notes, Notion—all on your device. One tap to any app you use.</p>
+            <h2 class="app-showcase-headline">Simple to use</h2>
+            <p class="app-showcase-subheadline">Scan. Transcribe. Export. That's it.</p>
             <div class="app-screenshot-container">
-                <img src="app-screenshot.png" alt="OneScribe app interface showing document scanning, transcription processing, and AI insights with action items" class="app-screenshot">
+                <img src="app-screenshot.png" alt="OneScribe app interface" class="app-screenshot">
             </div>
         </div>
     </section>
@@ -1462,21 +1430,13 @@
         </div>
     </section>
 
-    <!-- Beta Notice Section -->
-    <section class="privacy-section" id="beta-info" style="background: var(--system-background); border-radius: 24px; margin: 140px 0; padding: 80px 0;">
+    <!-- About Section -->
+    <section class="privacy-section" id="achievements" style="background: var(--system-background); border-radius: 24px; margin: 140px 0; padding: 80px 0;">
         <div class="container">
-            <div class="privacy-icon">🧪</div>
-            <h2 class="section-headline">Beta Testing Information</h2>
-            <p class="section-subheadline">
-                OneScribe is currently in <strong>public beta</strong> via Apple's TestFlight program. 
-                While the core features are stable and production-ready, some features are still being refined based on user feedback. 
-                You may encounter occasional bugs or incomplete features—that's expected! Your feedback helps us build a better product. 
-                Report issues via the in-app feedback button or email us at hello@getonescribe.app.
+            <h2 class="section-headline">How it works</h2>
+            <p class="section-subheadline" style="max-width: 680px; margin-left: auto; margin-right: auto;">
+                OneScribe does one thing well: it turns paper into digital text. Everything else is optional.
             </p>
-            <div class="cta-buttons-container" style="margin-top: 32px;">
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-button" style="color: #8B5CF6;">Join the Beta</a>
-                <a href="/support.html" class="cta-button">Report an Issue</a>
-            </div>
         </div>
     </section>
 
@@ -1492,8 +1452,8 @@
                 for document uploads.
             </p>
             <div class="cta-buttons-container">
+                <a href="https://apps.apple.com/app/onescribe/id[YOUR_APP_ID]" class="cta-button" style="color: var(--accent);">Download from App Store</a>
                 <a href="/privacy.html" class="cta-button">Read Our Privacy Policy</a>
-                <a href="/support.html" class="cta-button">Visit Support Center</a>
             </div>
         </div>
     </section>
@@ -1504,14 +1464,14 @@
             <div class="footer-links">
                 <a href="/index.html" class="footer-link">Home</a>
                 <a href="/about.html" class="footer-link">About</a>
-                <a href="#beta-info" class="footer-link">Beta Info</a>
+                <a href="#achievements" class="footer-link">Achievements</a>
                 <a href="/privacy.html" class="footer-link">Privacy Policy</a>
                 <a href="/support.html" class="footer-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="footer-link">Join Beta</a>
-                <a href="mailto:hello@getonescribe.app" class="footer-link">Feedback</a>
+                <a href="https://apps.apple.com/app/onescribe/id[YOUR_APP_ID]" class="footer-link">Download App</a>
+                <a href="mailto:hello@getonescribe.app" class="footer-link">Contact</a>
             </div>
             <p class="footer-copyright">
-                © 2025 OneScribe. Currently in Public Beta • The last scanning app you'll ever need.
+                © 2025 OneScribe • Now Available on the App Store • The last scanning app you'll ever need.
             </p>
         </div>
     </footer>
