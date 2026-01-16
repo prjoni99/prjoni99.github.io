@@ -11,16 +11,51 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getonescribe.app">
     <meta property="og:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:site_name" content="OneScribe">
     <link rel="canonical" href="https://getonescribe.app">
     
-    <!-- Apple Smart App Banner -->
+    <!-- Apple Smart App Banner - Shows "Get" button in Safari on iOS -->
     <meta name="apple-itunes-app" content="app-id=6756506734, app-argument=onescribe://">
+    
+    <!-- iOS Web App Capabilities -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="OneScribe">
+    <link rel="apple-touch-icon" href="press_kit/OneScribe-AppIcon-1024.png">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OneScribe - Turn Handwritten Notes Into Searchable Text">
     <meta name="twitter:description" content="Scan handwritten notes and get searchable digital text. Export to OneNote, Google Docs, Notion, Kindle, and more.">
-    <meta name="twitter:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">    
+    <meta name="twitter:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">
+    <meta name="twitter:site" content="@OneScribeApp">
+    <meta name="twitter:creator" content="@OneScribeApp">
+    
+    <!-- App Store Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "OneScribe - AI Note Scanner",
+      "operatingSystem": "iOS 17.6 or later",
+      "applicationCategory": "ProductivityApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "ratingCount": "1"
+      },
+      "description": "Scan handwritten notes and get searchable digital text. Export to OneNote, Google Docs, Notion, Kindle, and more. Your notes stay private—everything happens on your device.",
+      "screenshot": "https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png",
+      "downloadUrl": "https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734"
+    }
+    </script>    
 
     <style>
         * {
@@ -354,10 +389,6 @@
             transform: translateX(4px);
         }
 
-        /* Features Section */
-        .features-section {
-            padding: 140px 0;
-        }
 
         .section-headline {
             font-size: 56px;
@@ -390,12 +421,27 @@
         }
 
         .feature-card {
-            padding: 0;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 40px;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .feature-card:hover {
             transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            background: rgba(139, 92, 246, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .feature-card {
+                background: rgba(255, 255, 255, 0.03);
+            }
+
+            .feature-card:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
         }
 
         .feature-icon {
@@ -431,16 +477,38 @@
         /* Stats Section */
         .stats-section {
             padding: 120px 0;
-            background: var(--system-background-secondary);
-            border-radius: 24px;
             margin: 140px 0;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 60px;
+            gap: 32px;
             text-align: center;
+        }
+
+        .stat-card {
+            padding: 40px 24px;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            background: rgba(139, 92, 246, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .stat-card {
+                background: rgba(255, 255, 255, 0.03);
+            }
+
+            .stat-card:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
         }
 
         .stat-number {
@@ -460,16 +528,24 @@
             color: var(--label-secondary);
         }
 
-        /* Comparison Section */
-        .comparison-section {
-            padding: 140px 0;
-        }
 
         .comparison-table {
-            background: var(--system-background-secondary);
+            background: rgba(139, 92, 246, 0.05);
             border-radius: 24px;
             padding: 60px;
             overflow-x: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .comparison-table:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .comparison-table {
+                background: rgba(255, 255, 255, 0.03);
+            }
         }
 
         table {
@@ -514,13 +590,9 @@
             color: #FF3B30;
         }
 
-        /* Privacy Section */
-        .privacy-section {
-            padding: 120px 0;
+        .privacy-card {
+            padding: 80px 60px;
             text-align: center;
-            background: var(--system-background-secondary);
-            border-radius: 24px;
-            margin: 140px 0;
         }
 
         .privacy-icon {
@@ -576,6 +648,10 @@
                 padding: 0 24px;
             }
 
+            .privacy-card {
+                padding: 60px 40px;
+            }
+
             .nav-links {
                 gap: 16px;
             }
@@ -610,10 +686,6 @@
                 font-size: 21px;
             }
 
-            .features-section {
-                padding: 120px 0;
-            }
-
             .feature-grid {
                 grid-template-columns: 1fr;
                 gap: 80px;
@@ -624,13 +696,42 @@
                 padding: 100px 0;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 60px;
+            .features-section {
+                margin: 120px 0;
+                padding: 120px 0;
             }
 
             .comparison-section {
+                margin: 120px 0;
                 padding: 120px 0;
+            }
+
+            .use-cases-section {
+                margin: 120px 0;
+                padding: 100px 0;
+            }
+
+            .privacy-info-section {
+                margin: 120px 0 80px;
+                padding: 100px 0;
+            }
+
+            .download-cta-section {
+                margin: 120px 24px 60px;
+                padding: 100px 0;
+            }
+
+            .download-cta-section .section-headline {
+                font-size: 40px;
+            }
+
+            .download-cta-section .section-subheadline {
+                font-size: 19px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
             }
 
             .comparison-table {
@@ -651,6 +752,10 @@
         @media (max-width: 480px) {
             .container {
                 padding: 0 20px;
+            }
+
+            .privacy-card {
+                padding: 40px 24px;
             }
 
             nav {
@@ -701,10 +806,6 @@
                 font-size: 19px;
             }
 
-            .features-section {
-                padding: 100px 0;
-            }
-
             .feature-grid {
                 gap: 60px;
             }
@@ -726,9 +827,38 @@
                 padding: 80px 0;
             }
 
+            .features-section {
+                margin: 100px 0;
+                padding: 100px 0;
+            }
+
+            .comparison-section {
+                margin: 100px 0;
+                padding: 100px 0;
+            }
+
+            .use-cases-section {
+                margin: 100px 0;
+                padding: 80px 0;
+            }
+
+            .privacy-info-section {
+                margin: 100px 0 80px;
+                padding: 80px 0;
+            }
+
+            .download-cta-section {
+                margin: 100px 20px 60px;
+                padding: 80px 0;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 20px;
+            }
+
+            .stat-card {
+                padding: 32px 20px;
             }
 
             .stat-number {
@@ -737,10 +867,6 @@
 
             .stat-label {
                 font-size: 19px;
-            }
-
-            .comparison-section {
-                padding: 100px 0;
             }
 
             .comparison-table {
@@ -762,6 +888,22 @@
             }
 
             .whats-new-section .section-subheadline {
+                font-size: 19px;
+            }
+
+            .features-section .section-headline,
+            .eink-section .section-headline,
+            .comparison-section .section-headline,
+            .use-cases-section .section-headline,
+            .privacy-info-section .section-headline {
+                font-size: 40px;
+            }
+
+            .features-section .section-subheadline,
+            .eink-section .section-subheadline,
+            .comparison-section .section-subheadline,
+            .use-cases-section .section-subheadline,
+            .privacy-info-section .section-subheadline {
                 font-size: 19px;
             }
         }
@@ -858,12 +1000,307 @@
 
         /* E-Ink Section Styling */
         .eink-section {
-            background: var(--system-background);
+            background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+            border-radius: 32px;
+            margin: 160px 0;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .eink-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+        }
+
+        .eink-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eink-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .eink-section .section-subheadline {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .eink-section .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .eink-section .feature-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
         @media (prefers-color-scheme: dark) {
             .eink-section .feature-card {
-                background: var(--system-background-secondary);
+                background: rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        /* Features Section Enhanced Styling */
+        .features-section {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+            border-radius: 32px;
+            margin: 160px 0;
+            padding: 140px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .features-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+        }
+
+        .features-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .features-section .section-subheadline {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .features-section .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .features-section .feature-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .features-section .feature-card {
+                background: rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        /* Stats Section Enhanced Styling */
+        .stats-section {
+            background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+            border-radius: 32px;
+            margin: 160px 0;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .stats-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+        }
+
+        .stats-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-section .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-section .stat-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .stats-section .stat-card {
+                background: rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        /* Comparison Section Enhanced Styling */
+        .comparison-section {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+            border-radius: 32px;
+            margin: 160px 0;
+            padding: 140px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .comparison-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+        }
+
+        .comparison-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .comparison-section .section-subheadline {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .comparison-section .comparison-table {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .comparison-section .comparison-table {
+                background: rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        /* Use Cases Section Enhanced Styling */
+        .use-cases-section {
+            background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+            border-radius: 32px;
+            margin: 160px 0;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .use-cases-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+        }
+
+        .use-cases-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .use-cases-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .use-cases-section .section-subheadline {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .use-cases-section .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .use-cases-section .feature-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .use-cases-section .feature-card {
+                background: rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        /* Privacy Info Section Enhanced Styling */
+        .privacy-info-section {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+            border-radius: 32px;
+            margin: 160px 0 80px;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .privacy-info-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+        }
+
+        .privacy-info-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .privacy-info-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 16px;
+        }
+
+        .privacy-info-section .section-subheadline {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        .privacy-info-section .privacy-card {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .privacy-info-section .privacy-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .privacy-info-section .privacy-card {
+                background: rgba(255, 255, 255, 0.03);
             }
         }
 
@@ -886,6 +1323,66 @@
             .whats-new-badge {
                 animation: pulse 2s ease-in-out infinite, shimmer 3s linear infinite;
             }
+        }
+
+        .section-badge {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background-size: 200% auto;
+            color: white;
+            font-size: 13px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            margin-bottom: 24px;
+        }
+
+        .badge-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Download CTA Section Enhanced Styling */
+        .download-cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 32px;
+            margin: 160px 44px 80px;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+            text-align: center;
+        }
+
+        .download-cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
+        }
+
+        .download-cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-cta-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .download-cta-section .section-subheadline {
+            font-size: 24px;
+            margin-bottom: 40px;
         }
 
         .cta-buttons-container {
@@ -1318,10 +1815,13 @@
     </section>
 
     <!-- E-Ink Notebooks Section -->
-    <section class="eink-section" style="padding: 100px 0; margin: 140px 0;">
-        <div class="container">
+    <section class="eink-section">
+        <div class="eink-overlay"></div>
+        <div class="container eink-content">
+            <div class="badge-container">
+                <span class="section-badge">📱 E-Ink Compatible</span>
+            </div>
             <div style="text-align: center; margin-bottom: 60px;">
-                <div style="display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 12px; padding: 6px 14px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 16px; text-transform: uppercase;">📱 E-Ink Compatible</div>
                 <h2 class="section-headline" style="margin-bottom: 16px;">
                     Works with Your <span style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Kindle Scribe</span>
                 </h2>
@@ -1360,7 +1860,11 @@
 
     <!-- Features Section -->
     <section class="features-section" id="features">
-        <div class="container">
+        <div class="features-overlay"></div>
+        <div class="container features-content">
+            <div class="badge-container">
+                <span class="section-badge">⭐ KEY FEATURES</span>
+            </div>
             <h2 class="section-headline">What Makes OneScribe Different</h2>
             <p class="section-subheadline">Simple scanning with smart features</p>
             
@@ -1443,21 +1947,25 @@
 
     <!-- Stats Section -->
     <section class="stats-section">
-        <div class="container">
+        <div class="stats-overlay"></div>
+        <div class="container stats-content">
+            <div class="badge-container">
+                <span class="section-badge">📊 BY THE NUMBERS</span>
+            </div>
             <div class="stats-grid">
-                <div>
+                <div class="stat-card">
                     <div class="stat-number">Any</div>
                     <div class="stat-label">Paper, any pen</div>
                 </div>
-                <div>
+                <div class="stat-card">
                     <div class="stat-number">8</div>
                     <div class="stat-label">Export destinations</div>
                 </div>
-                <div>
+                <div class="stat-card">
                     <div class="stat-number">100%</div>
                     <div class="stat-label">Private & on-device</div>
                 </div>
-                <div>
+                <div class="stat-card">
                     <div class="stat-number">$10</div>
                     <div class="stat-label">One-time purchase</div>
                 </div>
@@ -1467,7 +1975,11 @@
 
     <!-- Comparison Section -->
     <section class="comparison-section" id="comparison">
-        <div class="container">
+        <div class="comparison-overlay"></div>
+        <div class="container comparison-content">
+            <div class="badge-container">
+                <span class="section-badge">⚖️ COMPARE</span>
+            </div>
             <h2 class="section-headline">Why Switch to OneScribe?</h2>
             <p class="section-subheadline">Use the paper you already have</p>
             <div class="comparison-table">
@@ -1527,43 +2039,47 @@
     </section>
 
     <!-- Use Cases Section -->
-    <section class="privacy-section" id="use-cases" style="background: var(--system-background); margin: 140px 0; padding: 80px 0;">
-        <div class="container" style="max-width: 1200px;">
+    <section class="use-cases-section" id="use-cases">
+        <div class="use-cases-overlay"></div>
+        <div class="container use-cases-content" style="max-width: 1200px;">
+            <div class="badge-container">
+                <span class="section-badge">👥 USE CASES</span>
+            </div>
             <h2 class="section-headline">Made For Everyone</h2>
             <p class="section-subheadline" style="margin-bottom: 60px;">Whether you're in class, at work, or just capturing ideas</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 60px;">
-                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 60px;">
+                <div class="feature-card" style="text-align: center;">
                     <div style="font-size: 48px; margin-bottom: 16px;">🎓</div>
                     <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Students</h3>
                     <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Turn lecture notes into searchable text. Export to Notion or Google Docs for easy studying.</p>
                 </div>
                 
-                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                <div class="feature-card" style="text-align: center;">
                     <div style="font-size: 48px; margin-bottom: 16px;">👨‍🏫</div>
                     <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Teachers</h3>
                     <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Digitize lesson plans and handouts. Share with students in their preferred format.</p>
                 </div>
                 
-                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                <div class="feature-card" style="text-align: center;">
                     <div style="font-size: 48px; margin-bottom: 16px;">💼</div>
                     <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Professionals</h3>
                     <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Capture meeting notes and brainstorming sessions. Export to OneNote or your workflow.</p>
                 </div>
                 
-                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                <div class="feature-card" style="text-align: center;">
                     <div style="font-size: 48px; margin-bottom: 16px;">📓</div>
                     <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Journalers</h3>
                     <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Keep the joy of handwriting, gain the power of search. Your entries, beautifully preserved.</p>
                 </div>
                 
-                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                <div class="feature-card" style="text-align: center;">
                     <div style="font-size: 48px; margin-bottom: 16px;">🔬</div>
                     <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Researchers</h3>
                     <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Organize research notes and citations. Tag findings and export to your reference manager.</p>
                 </div>
                 
-                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                <div class="feature-card" style="text-align: center;">
                     <div style="font-size: 48px; margin-bottom: 16px;">📱</div>
                     <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Content Creators</h3>
                     <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Plan videos and scripts on paper. Turn handwritten ideas into polished digital content.</p>
@@ -1573,25 +2089,35 @@
     </section>
 
     <!-- Privacy Section -->
-    <section class="privacy-section" id="privacy" style="margin-bottom: 80px;">
-        <div class="container">
-            <div class="privacy-icon">🔒</div>
-            <h2 class="section-headline">Your Notes Are Yours</h2>
-            <p class="section-subheadline">
-                Everything happens on your iPhone. Your handwritten notes never leave your device unless you choose to export them. 
-                No servers, no tracking, no data collection. Just you and your notes.
-            </p>
-            <div class="cta-buttons-container">
-                <a href="privacy.html" class="cta-button">Privacy Policy</a>
+    <section class="privacy-info-section" id="privacy">
+        <div class="privacy-info-overlay"></div>
+        <div class="container privacy-info-content">
+            <div class="privacy-card">
+                <div class="badge-container">
+                    <span class="section-badge">🔒 PRIVACY FIRST</span>
+                </div>
+                <div class="privacy-icon">🔒</div>
+                <h2 class="section-headline">Your Notes Are Yours</h2>
+                <p class="section-subheadline">
+                    Everything happens on your iPhone. Your handwritten notes never leave your device unless you choose to export them. 
+                    No servers, no tracking, no data collection. Just you and your notes.
+                </p>
+                <div class="cta-buttons-container">
+                    <a href="privacy.html" class="cta-button">Privacy Policy</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Download CTA Section -->
-    <section class="hero" style="padding: 100px 0; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); border-radius: 32px; margin: 0 44px 80px;">
-        <div class="container">
-            <h2 class="section-headline" style="color: white; margin-bottom: 20px;">Ready to Digitize Your Notes?</h2>
-            <p class="section-subheadline" style="color: rgba(255, 255, 255, 0.95); margin-bottom: 40px;">
+    <section class="download-cta-section">
+        <div class="download-cta-overlay"></div>
+        <div class="container download-cta-content">
+            <div class="badge-container">
+                <span class="section-badge">📲 GET STARTED</span>
+            </div>
+            <h2 class="section-headline">Ready to Digitize Your Notes?</h2>
+            <p class="section-subheadline">
                 Download OneScribe today and turn any paper into searchable text
             </p>
 
@@ -1601,7 +2127,7 @@
                 </a>
             </div>
 
-            <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); margin-top: 24px;">
+            <p style="font-size: 17px; color: var(--label-secondary); margin-top: 24px;">
                 For iPhone and iPad • iOS 17.6 or later • $9.99
             </p>
         </div>
