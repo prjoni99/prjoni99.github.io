@@ -30,8 +30,8 @@
     <meta name="twitter:title" content="OneScribe - Turn Handwritten Notes Into Searchable Text">
     <meta name="twitter:description" content="Scan handwritten notes and get searchable digital text. Export to OneNote, Google Docs, Notion, Kindle, and more.">
     <meta name="twitter:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">
-    <meta name="twitter:site" content="@OneScribeApp">
-    <meta name="twitter:creator" content="@OneScribeApp">
+    <meta name="twitter:site" content="@OneScribeiOS">
+    <meta name="twitter:creator" content="@OneScribeiOS">
     
     <!-- App Store Schema Markup -->
     <script type="application/ld+json">
@@ -1411,31 +1411,42 @@
 
         /* App Showcase Section */
         .app-showcase-section {
+            background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+            border-radius: 32px;
+            margin: 160px 0;
             padding: 140px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
             text-align: center;
         }
 
-        .app-showcase-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 44px;
+        .app-showcase-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--system-background-secondary);
+            opacity: 0.88;
+            border-radius: 32px;
         }
 
-        .app-showcase-headline {
-            font-size: 56px;
-            font-weight: 600;
-            line-height: 1.07143;
-            letter-spacing: -0.005em;
-            margin-bottom: 12px;
-            color: var(--label);
+        .app-showcase-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .app-showcase-subheadline {
+        .app-showcase-section .section-headline {
+            font-size: 52px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .app-showcase-section .section-subheadline {
             font-size: 24px;
-            font-weight: 400;
-            line-height: 1.33333;
-            letter-spacing: 0.009em;
-            color: var(--label-secondary);
+            text-align: center;
             margin-bottom: 80px;
             max-width: 680px;
             margin-left: auto;
@@ -1450,21 +1461,40 @@
             max-width: 1200px;
         }
 
-        .app-screenshot-container {
+        .screenshot-gallery .app-screenshot-container:nth-child(7) {
+            grid-column: 2;
+        }
+
+        @media (max-width: 834px) {
+            .screenshot-gallery .app-screenshot-container:nth-child(7) {
+                grid-column: 1;
+            }
+        }
+
+        .app-showcase-section .app-screenshot-container {
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             border-radius: 40px;
             padding: 12px;
-            background: linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
             box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .app-screenshot-container:hover {
-            transform: translateY(-8px);
+        @media (prefers-color-scheme: dark) {
+            .app-showcase-section .app-screenshot-container {
+                background: rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        .app-showcase-section .app-screenshot-container:hover {
+            transform: translateY(-8px) scale(1.02);
             box-shadow: 0 32px 100px rgba(0, 0, 0, 0.5);
+            border-color: rgba(139, 92, 246, 0.3);
         }
 
         .app-screenshot {
@@ -1473,6 +1503,11 @@
             border-radius: 32px;
             display: block;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .app-screenshot-container:hover .app-screenshot {
+            transform: scale(1.01);
         }
 
         .screenshot-caption {
@@ -1482,6 +1517,11 @@
             color: var(--label-secondary);
             text-align: center;
             letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .app-screenshot-container:hover .screenshot-caption {
+            color: var(--accent);
         }
 
         .app-screenshot-placeholder {
@@ -1501,13 +1541,14 @@
         @media (max-width: 834px) {
             .app-showcase-section {
                 padding: 120px 0;
+                margin: 120px 0;
             }
 
-            .app-showcase-headline {
+            .app-showcase-section .section-headline {
                 font-size: 48px;
             }
 
-            .app-showcase-subheadline {
+            .app-showcase-section .section-subheadline {
                 font-size: 21px;
             }
 
@@ -1535,13 +1576,14 @@
         @media (max-width: 480px) {
             .app-showcase-section {
                 padding: 100px 0;
+                margin: 100px 0;
             }
 
-            .app-showcase-headline {
+            .app-showcase-section .section-headline {
                 font-size: 40px;
             }
 
-            .app-showcase-subheadline {
+            .app-showcase-section .section-subheadline {
                 font-size: 19px;
             }
 
@@ -1731,6 +1773,9 @@
             <p class="hero-subheadline">
                 Scan your notes. Get searchable text. Keep your formatting.
             </p>
+            <div style="margin-top: 24px; margin-bottom: 0;">
+                <span class="hero-badge" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white; border: 1px solid rgba(255, 255, 255, 0.2);">Built for iOS 26 & Apple Intelligence</span>
+            </div>
 
             <div style="margin: 40px 0;">
                 <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" style="display: inline-block;">
@@ -1744,6 +1789,52 @@
         </div>
     </section>
 
+    <!-- App Screenshots Gallery -->
+    <section class="app-showcase-section">
+        <div class="app-showcase-overlay"></div>
+        <div class="container app-showcase-content">
+            <h2 class="section-headline">See OneScribe in Action</h2>
+            <p class="section-subheadline">Beautiful, intuitive, and powerful—experience the app that turns your handwritten notes into searchable text</p>
+            
+            <div class="screenshot-gallery">
+                <div class="app-screenshot-container">
+                    <img src="Screenshots/Screenshot1.png" alt="OneScribe Screenshot 1" class="app-screenshot" loading="lazy">
+                    <div class="screenshot-caption">Scan & Capture</div>
+                </div>
+                
+                <div class="app-screenshot-container">
+                    <img src="Screenshots/Screenshot2.png" alt="OneScribe Screenshot 2" class="app-screenshot" loading="lazy">
+                    <div class="screenshot-caption">Smart Recognition</div>
+                </div>
+                
+                <div class="app-screenshot-container">
+                    <img src="Screenshots/Screenshot3.png" alt="OneScribe Screenshot 3" class="app-screenshot" loading="lazy">
+                    <div class="screenshot-caption">Organized Results</div>
+                </div>
+                
+                <div class="app-screenshot-container">
+                    <img src="Screenshots/Screenshot4.png" alt="OneScribe Screenshot 4" class="app-screenshot" loading="lazy">
+                    <div class="screenshot-caption">AI Insights</div>
+                </div>
+                
+                <div class="app-screenshot-container">
+                    <img src="Screenshots/Screenshot5.png" alt="OneScribe Screenshot 5" class="app-screenshot" loading="lazy">
+                    <div class="screenshot-caption">Export Options</div>
+                </div>
+                
+                <div class="app-screenshot-container">
+                    <img src="Screenshots/Screenshot6.png" alt="OneScribe Screenshot 6" class="app-screenshot" loading="lazy">
+                    <div class="screenshot-caption">Seamless Integration</div>
+                </div>
+                
+                <div class="app-screenshot-container">
+                    <img src="Screenshots/Screenshot7.png" alt="OneScribe Screenshot 7" class="app-screenshot" loading="lazy">
+                    <div class="screenshot-caption">Your Notes, Your Way</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- New Features Section -->
     <section class="whats-new-section">
         <div class="whats-new-overlay"></div>
@@ -1752,6 +1843,15 @@
             <p class="section-subheadline">New features that make your notes even more useful</p>
             
             <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">Apple Intelligence Powered<span class="new-badge">NEW</span></h3>
+                    <p class="feature-description">
+                        Built for iOS 26 and Apple Intelligence. Experience the most advanced handwriting recognition with on-device AI that understands context, 
+                        extracts insights, and delivers smarter summaries—all while keeping your data completely private.
+                    </p>
+                </div>
+
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
                     <h3 class="feature-title">Better Table Recognition<span class="new-badge">NEW</span></h3>
@@ -1781,10 +1881,10 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3 class="feature-title">Works on All iPhones</h3>
+                    <h3 class="feature-title">Built for iOS 26 & Apple Intelligence</h3>
                     <p class="feature-description">
-                        OneScribe works great on every iPhone back to iOS 17.6. Newer devices get smarter insights, but everyone gets 
-                        summaries, action items, and smart organization. No device left behind.
+                        OneScribe is optimized for iOS 26 and Apple Intelligence, delivering the most advanced handwriting recognition and insights. 
+                        Works great on every iPhone back to iOS 17.6, with enhanced AI capabilities on iOS 26+ devices.
                     </p>
                 </div>
 
@@ -1898,8 +1998,8 @@
                     <div class="feature-icon">🧠</div>
                     <h3 class="feature-title">Get Smart Summaries</h3>
                     <p class="feature-description">
-                        OneScribe reads your notes and pulls out the important stuff: what it's about, 
-                        what you need to do, and key points. Works on every iPhone from iOS 17.6 and up.
+                        Powered by Apple Intelligence on iOS 26+, OneScribe reads your notes and pulls out the important stuff: what it's about, 
+                        what you need to do, and key points. Enhanced AI capabilities deliver deeper insights on compatible devices.
                     </p>
                 </div>
 
