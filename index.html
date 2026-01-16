@@ -423,24 +423,21 @@
         .feature-card {
             padding: 40px;
             background: rgba(139, 92, 246, 0.05);
-            border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 0.5px solid var(--separator);
+            border-radius: 24px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-            background: rgba(139, 92, 246, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: rgba(139, 92, 246, 0.3);
         }
 
         @media (prefers-color-scheme: dark) {
             .feature-card {
-                background: rgba(255, 255, 255, 0.03);
-            }
-
-            .feature-card:hover {
-                background: rgba(255, 255, 255, 0.05);
+                background: var(--system-background-secondary);
             }
         }
 
@@ -490,24 +487,21 @@
         .stat-card {
             padding: 40px 24px;
             background: rgba(139, 92, 246, 0.05);
-            border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 0.5px solid var(--separator);
+            border-radius: 24px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-            background: rgba(139, 92, 246, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: rgba(139, 92, 246, 0.3);
         }
 
         @media (prefers-color-scheme: dark) {
             .stat-card {
-                background: rgba(255, 255, 255, 0.03);
-            }
-
-            .stat-card:hover {
-                background: rgba(255, 255, 255, 0.05);
+                background: var(--system-background-secondary);
             }
         }
 
@@ -531,15 +525,18 @@
 
         .comparison-table {
             background: rgba(139, 92, 246, 0.05);
+            border: 0.5px solid var(--separator);
             border-radius: 24px;
             padding: 60px;
             overflow-x: auto;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .comparison-table:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: rgba(139, 92, 246, 0.3);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -593,6 +590,18 @@
         .privacy-card {
             padding: 80px 60px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 0.5px solid var(--separator);
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+        }
+
+        .privacy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: rgba(139, 92, 246, 0.3);
         }
 
         .privacy-icon {
@@ -653,17 +662,12 @@
             }
 
             .nav-links {
-                gap: 16px;
+                gap: 20px;
             }
 
             .nav-link {
-                font-size: 11px;
-                padding: 5px 10px;
-            }
-
-            .nav-cta {
-                font-size: 11px;
-                padding: 6px 14px;
+                font-size: 12px;
+                padding: 6px 12px;
             }
 
             .hero {
@@ -760,26 +764,22 @@
 
             nav {
                 height: auto;
-                padding: 8px 0;
+                padding: 10px 0;
             }
 
             .nav-links {
-                gap: 8px;
-                flex-wrap: wrap;
+                gap: 12px;
+                flex-wrap: nowrap;
             }
 
             .nav-link {
-                font-size: 10px;
-                padding: 4px 8px;
-            }
-
-            .nav-cta {
-                font-size: 10px;
-                padding: 5px 12px;
+                font-size: 11px;
+                padding: 6px 10px;
+                white-space: nowrap;
             }
 
             .logo {
-                font-size: 15px;
+                font-size: 16px;
             }
 
             .hero {
@@ -870,7 +870,50 @@
             }
 
             .comparison-table {
-                padding: 32px 20px;
+                padding: 24px 16px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                position: relative;
+            }
+
+            .comparison-table::after {
+                content: '← Scroll →';
+                position: absolute;
+                bottom: 8px;
+                right: 50%;
+                transform: translateX(50%);
+                font-size: 11px;
+                color: var(--label-tertiary);
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                opacity: 0.6;
+            }
+
+            .comparison-table table {
+                min-width: 600px;
+                font-size: 14px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 14px 12px;
+                font-size: 14px;
+            }
+
+            .comparison-table th:first-child,
+            .comparison-table td:first-child {
+                position: sticky;
+                left: 0;
+                background: rgba(139, 92, 246, 0.05);
+                z-index: 1;
+                padding-left: 12px;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .comparison-table th:first-child,
+                .comparison-table td:first-child {
+                    background: rgba(255, 255, 255, 0.03);
+                }
             }
 
             .eink-section {
@@ -964,16 +1007,9 @@
         }
 
         .whats-new-section .feature-card {
-            padding: 50px 0;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
             padding: 40px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .whats-new-section .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -1040,10 +1076,7 @@
 
         .eink-section .feature-card {
             background: rgba(255, 255, 255, 0.05);
-        }
-
-        .eink-section .feature-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -1094,10 +1127,7 @@
 
         .features-section .feature-card {
             background: rgba(255, 255, 255, 0.05);
-        }
-
-        .features-section .feature-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -1136,10 +1166,7 @@
 
         .stats-section .stat-card {
             background: rgba(255, 255, 255, 0.05);
-        }
-
-        .stats-section .stat-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -1190,6 +1217,7 @@
 
         .comparison-section .comparison-table {
             background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -1240,10 +1268,7 @@
 
         .use-cases-section .feature-card {
             background: rgba(255, 255, 255, 0.05);
-        }
-
-        .use-cases-section .feature-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -1288,14 +1313,6 @@
         .privacy-info-section .section-subheadline {
             font-size: 24px;
             margin-bottom: 40px;
-        }
-
-        .privacy-info-section .privacy-card {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .privacy-info-section .privacy-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -1695,13 +1712,12 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="/" class="logo">OneScribe</a>
+            <a href="index.html" class="logo">OneScribe</a>
             <div class="nav-links">
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#use-cases" class="nav-link">Use Cases</a>
                 <a href="privacy.html" class="nav-link">Privacy</a>
                 <a href="support.html" class="nav-link">Support</a>
-                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="nav-cta">Download</a>
             </div>
         </div>
     </nav>
@@ -1732,9 +1748,6 @@
     <section class="whats-new-section">
         <div class="whats-new-overlay"></div>
         <div class="container whats-new-content">
-            <div class="whats-new-badge-container">
-                <span class="whats-new-badge">✨ WHAT'S NEW</span>
-            </div>
             <h2 class="section-headline">Recent Updates</h2>
             <p class="section-subheadline">New features that make your notes even more useful</p>
             
@@ -1818,9 +1831,6 @@
     <section class="eink-section">
         <div class="eink-overlay"></div>
         <div class="container eink-content">
-            <div class="badge-container">
-                <span class="section-badge">📱 E-Ink Compatible</span>
-            </div>
             <div style="text-align: center; margin-bottom: 60px;">
                 <h2 class="section-headline" style="margin-bottom: 16px;">
                     Works with Your <span style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Kindle Scribe</span>
@@ -1862,9 +1872,6 @@
     <section class="features-section" id="features">
         <div class="features-overlay"></div>
         <div class="container features-content">
-            <div class="badge-container">
-                <span class="section-badge">⭐ KEY FEATURES</span>
-            </div>
             <h2 class="section-headline">What Makes OneScribe Different</h2>
             <p class="section-subheadline">Simple scanning with smart features</p>
             
@@ -1949,9 +1956,7 @@
     <section class="stats-section">
         <div class="stats-overlay"></div>
         <div class="container stats-content">
-            <div class="badge-container">
-                <span class="section-badge">📊 BY THE NUMBERS</span>
-            </div>
+            <h2 class="section-headline" style="margin-bottom: 60px;">By The Numbers</h2>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">Any</div>
@@ -1977,9 +1982,6 @@
     <section class="comparison-section" id="comparison">
         <div class="comparison-overlay"></div>
         <div class="container comparison-content">
-            <div class="badge-container">
-                <span class="section-badge">⚖️ COMPARE</span>
-            </div>
             <h2 class="section-headline">Why Switch to OneScribe?</h2>
             <p class="section-subheadline">Use the paper you already have</p>
             <div class="comparison-table">
@@ -2042,9 +2044,6 @@
     <section class="use-cases-section" id="use-cases">
         <div class="use-cases-overlay"></div>
         <div class="container use-cases-content" style="max-width: 1200px;">
-            <div class="badge-container">
-                <span class="section-badge">👥 USE CASES</span>
-            </div>
             <h2 class="section-headline">Made For Everyone</h2>
             <p class="section-subheadline" style="margin-bottom: 60px;">Whether you're in class, at work, or just capturing ideas</p>
             
@@ -2093,9 +2092,6 @@
         <div class="privacy-info-overlay"></div>
         <div class="container privacy-info-content">
             <div class="privacy-card">
-                <div class="badge-container">
-                    <span class="section-badge">🔒 PRIVACY FIRST</span>
-                </div>
                 <div class="privacy-icon">🔒</div>
                 <h2 class="section-headline">Your Notes Are Yours</h2>
                 <p class="section-subheadline">
@@ -2113,9 +2109,6 @@
     <section class="download-cta-section">
         <div class="download-cta-overlay"></div>
         <div class="container download-cta-content">
-            <div class="badge-container">
-                <span class="section-badge">📲 GET STARTED</span>
-            </div>
             <h2 class="section-headline">Ready to Digitize Your Notes?</h2>
             <p class="section-subheadline">
                 Download OneScribe today and turn any paper into searchable text
@@ -2137,7 +2130,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="/" class="footer-link">Home</a>
+                <a href="index.html" class="footer-link">Home</a>
                 <a href="about.html" class="footer-link">About</a>
                 <a href="#features" class="footer-link">Features</a>
                 <a href="privacy.html" class="footer-link">Privacy</a>
