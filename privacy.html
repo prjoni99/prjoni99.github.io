@@ -6,6 +6,8 @@
     <title>Privacy Policy - OneScribe</title>
     <meta name="description" content="OneScribe Privacy Policy - 100% on-device processing, zero cloud servers, complete privacy.">
     <link rel="canonical" href="https://getonescribe.app/privacy">
+    <!-- Apple Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=6756506734, app-argument=onescribe://">
     <style>
         * {
             margin: 0;
@@ -55,7 +57,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 44px;
         }
@@ -97,35 +99,13 @@
             color: var(--label);
             text-decoration: none;
             letter-spacing: -0.022em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
         }
 
-        .nav-link {
-            color: var(--label);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .nav-link:hover {
-            opacity: 0.65;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--label);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
+        .logo:hover {
+            color: var(--accent);
+            transform: translateY(-1px);
         }
 
         .nav-links {
@@ -134,22 +114,82 @@
             align-items: center;
         }
 
-        .nav-cta {
+        .nav-link {
+            color: var(--label);
+            text-decoration: none;
             font-size: 12px;
             font-weight: 500;
+            letter-spacing: -0.01em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
             color: var(--accent);
+            background: rgba(139, 92, 246, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 12px;
+            right: 12px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .nav-cta {
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
             text-decoration: none;
             letter-spacing: -0.01em;
-            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
         }
 
         .nav-cta:hover {
-            opacity: 0.8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+        }
+
+        .nav-cta:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .nav-link:hover {
+                background: rgba(139, 92, 246, 0.12);
+            }
         }
 
         /* Content */
         .content {
             padding: 160px 0 120px;
+        }
+
+        .content .container {
+            max-width: 900px;
         }
 
         .header {
@@ -212,6 +252,17 @@
 
         .section {
             margin-bottom: 80px;
+            background: var(--system-background-secondary);
+            border: 0.5px solid var(--separator);
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .section h2 {
@@ -266,12 +317,15 @@
         }
 
         .highlight-box {
-            background: var(--system-background-secondary);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(167, 139, 250, 0.05) 100%);
+            border-left: 4px solid var(--accent);
+            border: 0.5px solid rgba(139, 92, 246, 0.2);
             border-left: 4px solid var(--accent);
             border-radius: 16px;
             padding: 32px;
             margin: 48px 0;
             backdrop-filter: blur(20px);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.1);
         }
 
         .highlight-box p {
@@ -281,11 +335,43 @@
         }
 
         .contact-info {
-            background: var(--system-background-secondary);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
             border-radius: 24px;
             padding: 60px;
             margin-top: 80px;
-            backdrop-filter: blur(20px);
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-info * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h3 {
+            color: white !important;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        .contact-info a {
+            color: white !important;
+            text-decoration: underline;
         }
 
         .contact-info h3 {
@@ -299,6 +385,10 @@
             text-align: center;
             border-top: 0.5px solid var(--separator);
             margin-top: 140px;
+        }
+
+        .footer .container {
+            max-width: 1200px;
         }
 
         .footer-links {
@@ -339,6 +429,20 @@
         @media (max-width: 834px) {
             .container {
                 padding: 0 24px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-link {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .nav-cta {
+                font-size: 11px;
+                padding: 6px 14px;
             }
 
             .content {
@@ -393,6 +497,30 @@
                 padding: 0 20px;
             }
 
+            nav {
+                height: auto;
+                padding: 8px 0;
+            }
+
+            .nav-links {
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .nav-cta {
+                font-size: 10px;
+                padding: 5px 12px;
+            }
+
+            .logo {
+                font-size: 15px;
+            }
+
             .content {
                 padding: 120px 0 80px;
             }
@@ -407,6 +535,7 @@
 
             .section {
                 margin-bottom: 60px;
+                padding: 40px 24px;
             }
 
             .section h2 {
@@ -435,13 +564,13 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="/index.html" class="logo">OneScribe</a>
+            <a href="/" class="logo">OneScribe</a>
             <div class="nav-links">
-                <a href="/index.html" class="nav-link">Home</a>
-                <a href="/about.html" class="nav-link">About</a>
-                <a href="/privacy.html" class="nav-link">Privacy</a>
-                <a href="/support.html" class="nav-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="nav-cta">Join Beta</a>
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#use-cases" class="nav-link">Use Cases</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="support.html" class="nav-link">Support</a>
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="nav-cta">Download</a>
             </div>
         </div>
     </nav>
@@ -626,9 +755,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="/index.html" class="footer-link">Home</a>
-                <a href="/privacy.html" class="footer-link">Privacy Policy</a>
-                <a href="/support.html" class="footer-link">Support</a>
+                <a href="/" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About</a>
+                <a href="privacy.html" class="footer-link">Privacy</a>
+                <a href="support.html" class="footer-link">Support</a>
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="footer-link">Download</a>
+                <a href="mailto:hello@getonescribe.app" class="footer-link">Contact</a>
             </div>
             <p class="footer-copyright">
                 © 2025 OneScribe. All rights reserved.

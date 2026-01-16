@@ -3,35 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneScribe - Turn Any Paper Into a Smart Notebook | Join Public Beta</title>
-    <meta name="description" content="The privacy-first iOS scanner that preserves indentation and code blocks. Convert handwriting to formatted HTML for OneNote and Google Docs. 100% On-Device processing.">
-    <meta name="description" content="Join the public beta on TestFlight! Scan any paper, preserve layout, get AI insights—all on-device. Export to Obsidian, Apple Notes, Notion. Privacy-first document scanning for iPhone and iPad with Apple Intelligence.">
-    <meta name="keywords" content="document scanner, transcription, handwriting recognition, Apple Intelligence, privacy, on-device AI, OneNote, Google Docs, Notion, Obsidian, Apple Notes, Bear, Kindle, Send to Kindle, OCR search, NotebookLM, RAG optimization, Rocketbook Alternative, Kindle Scribe, CoreML, layout detection, export markdown, Markdown export, Reminders integration, Siri shortcuts, voice commands, automation, iOS shortcuts, App Store, iOS app, quick share sheet">
-    <meta property="og:title" content="OneScribe - Turn Any Paper Into a Smart Notebook | Join Public Beta">
-    <meta property="og:description" content="Join the public beta on TestFlight! Scan any paper, preserve layout, get AI insights. Export to Obsidian, Apple Notes, Notion—all on-device with Apple Intelligence.">
+    <title>OneScribe - Turn Handwritten Notes Into Searchable Text</title>
+    <meta name="description" content="Scan handwritten notes and get searchable digital text. Export to OneNote, Google Docs, Notion, Kindle, and more. Your notes stay private—everything happens on your device.">
+    <meta name="keywords" content="document scanner, handwriting recognition, scan notes, OneNote, Google Docs, Notion, Kindle, handwriting to text, OCR scanner, iPhone scanner, privacy, Rocketbook alternative">
+    <meta property="og:title" content="OneScribe - Turn Handwritten Notes Into Searchable Text">
+    <meta property="og:description" content="Scan handwritten notes and get searchable digital text. Export to OneNote, Google Docs, Notion, Kindle, and more. Your notes stay private.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getonescribe.app">
     <meta property="og:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">
     <link rel="canonical" href="https://getonescribe.app">
-        <!-- Apple Smart App Banner (CRITICAL for Conversion) -->
-    <!-- This creates the native 'Open' or 'Get' banner at the top of Safari -->
-    <meta name="apple-itunes-app" content="app-id=6782469918, app-argument=onescribe://">
-        <!-- Open Graph (Social Sharing - e.g. for your DTNS mention) -->
-    <meta property="og:title" content="OneScribe: Analog Input, Digital Native.">
-    <meta property="og:description" content="Finally, an OCR engine that respects your layout. Code blocks stay code blocks. Lists stay lists. 100% Offline.">
-    <meta property="og:image" content="https://getonescribe.app/assets/social-preview.jpg">
-    <meta property="og:url" content="https://getonescribe.app">
-    <meta property="og:type" content="website">
-    <!-- Open Graph (Social Sharing - e.g. for your DTNS mention) -->
-    <meta property="og:title" content="OneScribe: Analog Input, Digital Native.">
-    <meta property="og:description" content="Finally, an OCR engine that respects your layout. Code blocks stay code blocks. Lists stay lists. 100% Offline.">
-    <meta property="og:image" content="https://getonescribe.app/assets/social-preview.jpg">
-    <meta property="og:url" content="https://getonescribe.app">
-    <meta property="og:type" content="website">
+    
+    <!-- Apple Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=6756506734, app-argument=onescribe://">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://getonescribe.app/assets/social-preview.jpg">    
+    <meta name="twitter:title" content="OneScribe - Turn Handwritten Notes Into Searchable Text">
+    <meta name="twitter:description" content="Scan handwritten notes and get searchable digital text. Export to OneNote, Google Docs, Notion, Kindle, and more.">
+    <meta name="twitter:image" content="https://getonescribe.app/press_kit/OneScribe-AppIcon-1024.png">    
 
     <style>
         * {
@@ -124,6 +113,13 @@
             color: var(--label);
             text-decoration: none;
             letter-spacing: -0.022em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .logo:hover {
+            color: var(--accent);
+            transform: translateY(-1px);
         }
 
         .nav-links {
@@ -136,42 +132,69 @@
             color: var(--label);
             text-decoration: none;
             font-size: 12px;
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: -0.01em;
-            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            padding: 6px 12px;
+            border-radius: 8px;
         }
 
         .nav-link:hover {
-            opacity: 0.65;
+            color: var(--accent);
+            background: rgba(139, 92, 246, 0.08);
+            transform: translateY(-1px);
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--label);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            bottom: 2px;
+            left: 12px;
+            right: 12px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-link:hover::after {
-            width: 100%;
+            opacity: 1;
+            transform: scaleX(1);
         }
 
         .nav-cta {
             font-size: 12px;
-            font-weight: 500;
-            color: var(--accent);
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
             text-decoration: none;
             letter-spacing: -0.01em;
-            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
         }
 
         .nav-cta:hover {
-            opacity: 0.8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+        }
+
+        .nav-cta:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .nav-link:hover {
+                background: rgba(139, 92, 246, 0.12);
+            }
         }
 
         /* Hero Section */
@@ -455,9 +478,13 @@
         }
 
         th, td {
-            padding: 20px 0;
+            padding: 20px 24px;
             text-align: left;
             border-bottom: 0.5px solid var(--separator);
+        }
+
+        th:first-child, td:first-child {
+            padding-left: 0;
         }
 
         th {
@@ -550,7 +577,17 @@
             }
 
             .nav-links {
-                gap: 24px;
+                gap: 16px;
+            }
+
+            .nav-link {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .nav-cta {
+                font-size: 11px;
+                padding: 6px 14px;
             }
 
             .hero {
@@ -604,11 +641,40 @@
                 margin: 120px 0;
                 padding: 100px 0;
             }
+
+            .eink-section {
+                padding: 80px 0;
+                margin: 120px 0;
+            }
         }
 
         @media (max-width: 480px) {
             .container {
                 padding: 0 20px;
+            }
+
+            nav {
+                height: auto;
+                padding: 8px 0;
+            }
+
+            .nav-links {
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .nav-cta {
+                font-size: 10px;
+                padding: 5px 12px;
+            }
+
+            .logo {
+                font-size: 15px;
             }
 
             .hero {
@@ -679,6 +745,11 @@
 
             .comparison-table {
                 padding: 32px 20px;
+            }
+
+            .eink-section {
+                padding: 60px 0;
+                margin: 100px 0;
             }
 
             .whats-new-section {
@@ -785,9 +856,15 @@
             100% { background-position: 200% center; }
         }
 
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+        /* E-Ink Section Styling */
+        .eink-section {
+            background: var(--system-background);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .eink-section .feature-card {
+                background: var(--system-background-secondary);
+            }
         }
 
         .whats-new-badge {
@@ -1124,10 +1201,10 @@
             <a href="/" class="logo">OneScribe</a>
             <div class="nav-links">
                 <a href="#features" class="nav-link">Features</a>
-                <a href="#comparison" class="nav-link">Why OneScribe</a>
+                <a href="#use-cases" class="nav-link">Use Cases</a>
                 <a href="privacy.html" class="nav-link">Privacy</a>
                 <a href="support.html" class="nav-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="nav-cta">Join Beta</a>
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="nav-cta">Download</a>
             </div>
         </div>
     </nav>
@@ -1136,14 +1213,20 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-headline">Turn Paper Into Text</h1>
+            <div class="hero-badge">NOW AVAILABLE ON THE APP STORE</div>
+            <h1 class="hero-headline">Turn Handwriting Into Text</h1>
             <p class="hero-subheadline">
-                Scan. Transcribe. Export. All on your device.
+                Scan your notes. Get searchable text. Keep your formatting.
             </p>
 
-            <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-button">Join Public Beta on TestFlight</a>
+            <div style="margin: 40px 0;">
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" style="display: inline-block;">
+                    <img src="AppStore.svg" alt="Download on the App Store" style="height: 54px; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                </a>
+            </div>
+
             <p class="hero-description" style="margin-top: 20px; margin-bottom: 0;">
-                <span class="feature-highlight">Free unlimited access during beta.</span> Help shape the future of OneScribe.
+                For iPhone and iPad • iOS 17.6 or later
             </p>
         </div>
     </section>
@@ -1153,106 +1236,122 @@
         <div class="whats-new-overlay"></div>
         <div class="container whats-new-content">
             <div class="whats-new-badge-container">
-                <span class="whats-new-badge">✨ NEW FEATURES</span>
+                <span class="whats-new-badge">✨ WHAT'S NEW</span>
             </div>
-            <h2 class="section-headline">What's New in v1.0.1</h2>
-            <p class="section-subheadline">Send to Kindle with OCR search, perfect table rendering, Action Button support, 6 cloud destinations, universal AI, and smarter shortcuts</p>
+            <h2 class="section-headline">Recent Updates</h2>
+            <p class="section-subheadline">New features that make your notes even more useful</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Perfect Table Rendering<span class="new-badge">NEW</span></h3>
+                    <h3 class="feature-title">Better Table Recognition<span class="new-badge">NEW</span></h3>
                     <p class="feature-description">
-                        <span class="feature-highlight">Build 28.1 - Critical Fix:</span> Row-Primary Anchor Solver ensures technical tables render perfectly. 
-                        Multi-row entries stay in separate rows (no column blobbing). Network diagrams, IT specs, and data tables export flawlessly to 
-                        Markdown, HTML, and all cloud destinations with proper <code>&lt;thead&gt;</code>/<code>&lt;tbody&gt;</code> structure.
+                        Tables in your notes stay organized exactly as you wrote them. 
+                        Rows stay in rows, columns stay in columns. Perfect for data tables, meeting schedules, and comparison charts.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Action Button Support</h3>
+                    <h3 class="feature-title">iPhone Action Button</h3>
                     <p class="feature-description">
-                        <span class="feature-highlight">iPhone 15 Pro & 16 Pro:</span> Assign OneScribe to your Action Button for instant scanning. 
-                        Press the button, camera launches. Zero taps. Also works with Spotlight search, Siri, and Home Screen Quick Actions on all devices.
+                        <span class="feature-highlight">iPhone 15 Pro & 16 Pro:</span> Set your Action Button to instantly scan notes. 
+                        Press and scan—that's it. No unlocking, no tapping, no waiting.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">📚</div>
-                    <h3 class="feature-title">Send to Kindle with Full OCR<span class="new-badge">NEW</span></h3>
+                    <h3 class="feature-title">Send to Kindle<span class="new-badge">NEW</span></h3>
                     <p class="feature-description">
-                        Export directly to <span class="feature-highlight">Kindle</span> with full OCR embedded in PDFs. 
-                        Search your handwritten notes on any Kindle device or app. Perfect for research, study notes, and 
-                        building a searchable knowledge library. Plus Dropbox (formatted PDFs) and Bear notes integration.
+                        Send your scanned notes directly to your Kindle. The text is searchable, so you can find anything later. 
+                        Great for research notes, study materials, or building your own knowledge library.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3 class="feature-title">Universal AI (Works on All Devices)</h3>
+                    <h3 class="feature-title">Works on All iPhones</h3>
                     <p class="feature-description">
-                        <span class="feature-highlight">3-Tier Intelligence System:</span> Apple Intelligence devices get full AI. 
-                        iOS 18-25 devices get NaturalLanguage ML. iOS 17.6+ devices get Fast Path extraction. 
-                        Everyone gets smart insights—no device left behind.
+                        OneScribe works great on every iPhone back to iOS 17.6. Newer devices get smarter insights, but everyone gets 
+                        summaries, action items, and smart organization. No device left behind.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Offline-First - Privacy by Design</h3>
+                    <h3 class="feature-title">No Account Required</h3>
                     <p class="feature-description">
-                        OneScribe is fully usable without any cloud account sign-in. Scan, transcribe, AI insights, and export work immediately. 
-                        All processing happens on your device. Your notes never leave your device unless you choose to upload. 
-                        Sign in to OneNote, Google Docs, or Notion only when you want cloud uploads.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3 class="feature-title">Device-Aware Onboarding</h3>
-                    <p class="feature-description">
-                        Smart first-run experience detects your device and shows relevant features. iPhone Pro users see Action Button setup. 
-                        All users get contextual tips for Siri, Spotlight, and Quick Actions.
+                        Start scanning immediately—no sign-up needed. Everything happens on your iPhone. 
+                        Your notes stay private. Only sign in to cloud services when you're ready to export.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">📋</div>
-                    <h3 class="feature-title">Enhanced Action Items</h3>
+                    <h3 class="feature-title">Smart To-Do Detection</h3>
                     <p class="feature-description">
-                        Action items are now more prominent and easier to manage. New global section showing all action 
-                        items at the top of AI Insights. Every action item has a reminder button (➕) for one-tap access 
-                        to Apple Reminders. Always visible—no need to expand pages.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📝</div>
-                    <h3 class="feature-title">NotebookLM Ready</h3>
-                    <p class="feature-description">
-                        All exports include <span class="feature-highlight">RAG-optimized knowledge headers</span> with semantic metadata, 
-                        summaries, and structured insights. Perfect for Google's NotebookLM, ChatGPT, Claude, or any AI assistant. 
-                        Your notes become AI-searchable knowledge bases.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔐</div>
-                    <h3 class="feature-title">Secure OAuth Lifecycle</h3>
-                    <p class="feature-description">
-                        Dropbox sessions persist with automatic token refresh. Google Docs and OneNote use secure token storage. 
-                        All credentials stored in Keychain/Secure Enclave. Never log in twice—sessions just work.
+                        OneScribe finds action items in your notes automatically. Add them to Apple Reminders with one tap. 
+                        Never lose track of tasks buried in meeting notes or lecture notes.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🎤</div>
-                    <h3 class="feature-title">Siri Shortcuts & Voice Commands</h3>
+                    <h3 class="feature-title">Voice Control</h3>
                     <p class="feature-description">
-                        Control OneScribe hands-free with Siri. Say "Scan to OneNote in OneScribe" or "Quick upload in OneScribe" 
-                        for instant document scanning and uploading. New in-app tip view makes discovering shortcuts easier. 
-                        Perfect for on-the-go workflows and accessibility.
+                        Say "Scan to OneNote" or "Send to Kindle" and OneScribe does the rest. 
+                        Perfect for when you're busy or driving. Works with Siri and iPhone shortcuts.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3 class="feature-title">Export Anywhere</h3>
+                    <p class="feature-description">
+                        Send notes to OneNote, Google Docs, Notion, Bear, Dropbox, Kindle, Apple Notes, or Obsidian. 
+                        Your notes go where you work. No middleman, no extra steps.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Ink Notebooks Section -->
+    <section class="eink-section" style="padding: 100px 0; margin: 140px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div style="display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 12px; padding: 6px 14px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 16px; text-transform: uppercase;">📱 E-Ink Compatible</div>
+                <h2 class="section-headline" style="margin-bottom: 16px;">
+                    Works with Your <span style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Kindle Scribe</span>
+                </h2>
+                <p class="section-subheadline" style="max-width: 680px; margin: 0 auto;">
+                    Love your Kindle Scribe, reMarkable, or Supernote? Simply scan your pages with your iPhone.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 60px;">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3 class="feature-title">Any E-Ink Device</h3>
+                    <p class="feature-description">
+                        Works with Kindle Scribe, reMarkable, Supernote, and any paper notebook. No special hardware required.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">Smart Organization</h3>
+                    <p class="feature-description">
+                        AI-powered insights extract summaries, action items, and key concepts from your handwritten notes.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Export Everywhere</h3>
+                    <p class="feature-description">
+                        Send to OneNote, Google Docs, Notion, or keep searchable in the app. Your notes, your way.
                     </p>
                 </div>
             </div>
@@ -1262,107 +1361,79 @@
     <!-- Features Section -->
     <section class="features-section" id="features">
         <div class="container">
-            <h2 class="section-headline">Why OneScribe?</h2>
-            <p class="section-subheadline">The last scanning app you'll ever need</p>
+            <h2 class="section-headline">What Makes OneScribe Different</h2>
+            <p class="section-subheadline">Simple scanning with smart features</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📐</div>
-                    <h3 class="feature-title">The <span class="feature-highlight">Layout Preservation</span> Engine</h3>
+                    <h3 class="feature-title">Keeps Your <span class="feature-highlight">Formatting</span></h3>
                     <p class="feature-description">
-                        Preserves indentation, lists, code blocks, and <span class="feature-highlight">technical tables</span>. Your code blocks stay code blocks. 
-                        Your lists stay lists. Your tables maintain perfect row/column integrity with our Row-Primary Anchor Solver. 
-                        Most scanners dump text into a messy blob—OneScribe calculates and replicates your handwriting's physical layout digitally. 
-                        CoreML-powered document structure detection identifies headers, tables, lists, and images for even better layout understanding.
+                        Your indented lists stay indented. Your tables stay organized. 
+                        Most scanners turn everything into a messy block of text. OneScribe preserves how your notes actually look.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">100% On-Device Processing</h3>
+                    <h3 class="feature-title">Your Notes Stay Private</h3>
                     <p class="feature-description">
-                        All transcription and AI processing happens on your device. Your notes never touch a server. 
-                        Privacy built for the paranoid. Authentication tokens live in your device's Secure Enclave.
+                        Everything happens on your iPhone. Your handwriting never goes to a cloud server. 
+                        No one can read your notes except you. That's a promise.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3 class="feature-title">Universal AI Insights</h3>
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Get Smart Summaries</h3>
                     <p class="feature-description">
-                        <span class="feature-highlight">Works on all devices, iOS 17.6+.</span> Get summaries, action items, mood analysis, 
-                        and smart categorization. Apple Intelligence devices get full AI. Older devices get NaturalLanguage ML or Fast Path extraction. 
-                        Everyone gets insights—3-tier system adapts to your hardware.
+                        OneScribe reads your notes and pulls out the important stuff: what it's about, 
+                        what you need to do, and key points. Works on every iPhone from iOS 17.6 and up.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">📄</div>
-                    <h3 class="feature-title">Multi-Page Sessions</h3>
+                    <h3 class="feature-title">Scan Multiple Pages</h3>
                     <p class="feature-description">
-                        Scan multi-page documents in one session (optimized for 6-8 pages). AI analyzes all pages 
-                        together for comprehensive insights. Perfect for meeting notes, lecture notes, journals, and more.
+                        Working through a whole notebook? Scan 6-8 pages at once. OneScribe analyzes them together 
+                        so you get better summaries and insights about the whole document.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3 class="feature-title">CoreML Document Layout Detection</h3>
+                    <div class="feature-icon">☁️</div>
+                    <h3 class="feature-title">Send to Your Favorite Apps</h3>
                     <p class="feature-description">
-                        Advanced machine learning-powered document structure detection. Trained on DocLayNet dataset, 
-                        our CoreML model identifies headers, tables, lists, images, and text regions for superior 
-                        layout understanding and preservation.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
-                    <h3 class="feature-title">6 Direct Cloud Integrations</h3>
-                    <p class="feature-description">
-                        No middleman cloud. OneScribe sends formatted notes directly to <span class="feature-highlight">OneNote, Google Docs, Notion, Bear, 
-                        Dropbox, or Kindle</span> via native APIs. Google Docs includes images uploaded to Drive. Dropbox creates formatted PDFs with proper markdown rendering. 
-                        Kindle exports include full OCR for searchable handwritten notes. All destinations get NotebookLM-ready RAG headers.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📤</div>
-                    <h3 class="feature-title">Universal Export & 6 Cloud Destinations</h3>
-                    <p class="feature-description">
-                        <span class="feature-highlight">Direct cloud upload:</span> OneNote, Google Docs, Notion, Bear, Dropbox, Kindle (all with native APIs). 
-                        <span class="feature-highlight">Universal export:</span> Share to Obsidian (Markdown), Apple Notes (rich text), 
-                        or any app via iOS share sheet. Choose HTML, Markdown, or plain text. Kindle exports include full OCR for searchable handwritten notes. 
-                        Your notes flow seamlessly into your workflow—no middleman, no vendor lock-in.
+                        Export to OneNote, Google Docs, Notion, Bear, Dropbox, Kindle, Apple Notes, or Obsidian. 
+                        Works with images too. OneScribe fits into your workflow, not the other way around.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🔔</div>
-                    <h3 class="feature-title">Apple Reminders Integration</h3>
+                    <h3 class="feature-title">Never Miss a To-Do</h3>
                     <p class="feature-description">
-                        Action items extracted by AI can be instantly added to Apple Reminders with one tap. 
-                        Never lose track of tasks from your notes. Seamless integration with your existing 
-                        reminder workflows and Siri shortcuts.
+                        OneScribe finds tasks in your notes automatically. Tap to add them to Apple Reminders. 
+                        No more forgetting about that important thing you wrote down last week.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Zero-Friction Workflow</h3>
+                    <h3 class="feature-title">Scan in Seconds</h3>
                     <p class="feature-description">
-                        Auto-scan. Auto-transcribe. Auto-upload. <span class="feature-highlight">iPhone 15 Pro/16 Pro:</span> Press Action Button to scan instantly. 
-                        <span class="feature-highlight">All devices:</span> Use Spotlight search, Siri voice commands, or Home Screen Quick Actions. 
-                        Set a default destination and scanning becomes a reflex.
+                        Open the app, point your camera, done. Or use your iPhone's Action Button (iPhone 15 Pro/16 Pro) for even faster scanning. 
+                        Set up voice commands with Siri for hands-free operation.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🎤</div>
-                    <h3 class="feature-title">Siri Shortcuts & Voice Control</h3>
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Perfect for Students</h3>
                     <p class="feature-description">
-                        Control OneScribe completely hands-free. Say "Scan to OneNote," "Send to Kindle," or "Quick upload" 
-                        to trigger instant actions. Works with all 6 cloud destinations (OneNote, Google Docs, Notion, Bear, Dropbox, Kindle). 
-                        <span class="feature-highlight">Perfect for accessibility and on-the-go workflows.</span>
+                        Scan lecture notes, textbook pages, and study guides. Search through them later on your Kindle. 
+                        Get auto-generated summaries for quick review before exams.
                     </p>
                 </div>
 
@@ -1375,20 +1446,20 @@
         <div class="container">
             <div class="stats-grid">
                 <div>
+                    <div class="stat-number">Any</div>
+                    <div class="stat-label">Paper, any pen</div>
+                </div>
+                <div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Export destinations</div>
+                </div>
+                <div>
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">On-Device Processing</div>
+                    <div class="stat-label">Private & on-device</div>
                 </div>
                 <div>
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Cloud Servers</div>
-                </div>
-                <div>
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Any Paper Works</div>
-                </div>
-                <div>
-                    <div class="stat-number">1</div>
-                    <div class="stat-label">One-Time Purchase</div>
+                    <div class="stat-number">$10</div>
+                    <div class="stat-label">One-time purchase</div>
                 </div>
             </div>
         </div>
@@ -1397,77 +1468,57 @@
     <!-- Comparison Section -->
     <section class="comparison-section" id="comparison">
         <div class="container">
-            <h2 class="section-headline">The Smart Switch</h2>
-            <p class="section-subheadline">Why OneScribe beats proprietary notebooks</p>
+            <h2 class="section-headline">Why Switch to OneScribe?</h2>
+            <p class="section-subheadline">Use the paper you already have</p>
             <div class="comparison-table">
                 <table>
                     <thead>
                         <tr>
                             <th>Feature</th>
                             <th>OneScribe</th>
-                            <th>Rocketbook / Others</th>
+                            <th>Smart Notebooks</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>Works with...</strong></td>
-                            <td><span class="check">✓</span> Any Paper, Any Pen, Any Device (iOS 17.6+)</td>
-                            <td><span class="cross">✗</span> Only Their Paper & Pens</td>
+                            <td><span class="check">✓</span> Any paper, any pen</td>
+                            <td><span class="cross">✗</span> Only their special paper</td>
                         </tr>
                         <tr>
-                            <td><strong>Text Layout</strong></td>
-                            <td><span class="check">✓</span> Preserved (Indentation Aware)</td>
-                            <td><span class="cross">✗</span> Often garbled text blobs</td>
+                            <td><strong>Keeps formatting</strong></td>
+                            <td><span class="check">✓</span> Lists, tables, indents preserved</td>
+                            <td><span class="cross">✗</span> Often messy blocks of text</td>
                         </tr>
                         <tr>
                             <td><strong>Privacy</strong></td>
-                            <td><span class="check">✓</span> 100% On-Device Processing</td>
-                            <td><span class="cross">✗</span> Sent to 3rd Party Clouds</td>
+                            <td><span class="check">✓</span> Everything on your device</td>
+                            <td><span class="cross">✗</span> Goes through their servers</td>
                         </tr>
                         <tr>
-                            <td><strong>AI Insights</strong></td>
-                            <td><span class="check">✓</span> Summary, Mood, Actions, Tags, Reminders Integration</td>
-                            <td><span class="cross">✗</span> Basic Transcription Only</td>
+                            <td><strong>Smart features</strong></td>
+                            <td><span class="check">✓</span> Summaries, tasks, reminders</td>
+                            <td><span class="cross">✗</span> Just text transcription</td>
                         </tr>
                         <tr>
-                            <td><strong>Layout Detection</strong></td>
-                            <td><span class="check">✓</span> CoreML-Powered Structure Detection</td>
-                            <td><span class="cross">✗</span> Basic Transcription Only</td>
+                            <td><strong>Export to...</strong></td>
+                            <td><span class="check">✓</span> OneNote, Google Docs, Notion, Kindle, and more</td>
+                            <td><span class="cross">✗</span> Usually limited options</td>
                         </tr>
                         <tr>
-                            <td><strong>Export Formats</strong></td>
-                            <td><span class="check">✓</span> HTML, Markdown, Plain Text, Apple Notes</td>
-                            <td><span class="cross">✗</span> Limited Export Options</td>
+                            <td><strong>Voice commands</strong></td>
+                            <td><span class="check">✓</span> Full Siri control</td>
+                            <td><span class="cross">✗</span> Not available</td>
                         </tr>
                         <tr>
-                            <td><strong>Reminders</strong></td>
-                            <td><span class="check">✓</span> One-Tap Apple Reminders Integration</td>
-                            <td><span class="cross">✗</span> Not Available</td>
+                            <td><strong>Multi-page scanning</strong></td>
+                            <td><span class="check">✓</span> 6-8 pages at once</td>
+                            <td><span class="cross">✗</span> Often limited</td>
                         </tr>
                         <tr>
-                            <td><strong>Multi-Page</strong></td>
-                            <td><span class="check">✓</span> Multi-Page Support (6-8 pages optimal)</td>
-                            <td><span class="cross">✗</span> Limited Pages</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Siri & Voice Control</strong></td>
-                            <td><span class="check">✓</span> Full Siri Shortcuts & Voice Commands</td>
-                            <td><span class="cross">✗</span> Limited or No Voice Control</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cloud Destinations</strong></td>
-                            <td><span class="check">✓</span> OneNote, Google Docs, Notion, Bear, Dropbox, Kindle</td>
-                            <td><span class="cross">✗</span> Limited Integrations</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Action Button</strong></td>
-                            <td><span class="check">✓</span> iPhone 15 Pro/16 Pro Support</td>
-                            <td><span class="cross">✗</span> Not Available</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Universal Export</strong></td>
-                            <td><span class="check">✓</span> Obsidian, Apple Notes, Markdown, HTML, Plain Text</td>
-                            <td><span class="cross">✗</span> Limited Export Options</td>
+                            <td><strong>Cost</strong></td>
+                            <td><span class="check">✓</span> One-time purchase</td>
+                            <td><span class="cross">✗</span> Expensive notebooks you have to keep buying</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1475,31 +1526,84 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="privacy-section" id="achievements" style="background: var(--system-background); border-radius: 24px; margin: 140px 0; padding: 80px 0;">
-        <div class="container">
-            <h2 class="section-headline">How it works</h2>
-            <p class="section-subheadline" style="max-width: 680px; margin-left: auto; margin-right: auto;">
-                OneScribe does one thing well: it turns paper into digital text. Everything else is optional.
-            </p>
+    <!-- Use Cases Section -->
+    <section class="privacy-section" id="use-cases" style="background: var(--system-background); margin: 140px 0; padding: 80px 0;">
+        <div class="container" style="max-width: 1200px;">
+            <h2 class="section-headline">Made For Everyone</h2>
+            <p class="section-subheadline" style="margin-bottom: 60px;">Whether you're in class, at work, or just capturing ideas</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 60px;">
+                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">🎓</div>
+                    <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Students</h3>
+                    <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Turn lecture notes into searchable text. Export to Notion or Google Docs for easy studying.</p>
+                </div>
+                
+                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">👨‍🏫</div>
+                    <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Teachers</h3>
+                    <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Digitize lesson plans and handouts. Share with students in their preferred format.</p>
+                </div>
+                
+                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">💼</div>
+                    <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Professionals</h3>
+                    <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Capture meeting notes and brainstorming sessions. Export to OneNote or your workflow.</p>
+                </div>
+                
+                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">📓</div>
+                    <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Journalers</h3>
+                    <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Keep the joy of handwriting, gain the power of search. Your entries, beautifully preserved.</p>
+                </div>
+                
+                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">🔬</div>
+                    <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Researchers</h3>
+                    <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Organize research notes and citations. Tag findings and export to your reference manager.</p>
+                </div>
+                
+                <div style="text-align: center; padding: 40px 24px; background: var(--system-background-secondary); border-radius: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">📱</div>
+                    <h3 style="font-size: 21px; font-weight: 600; color: var(--label); margin-bottom: 12px;">Content Creators</h3>
+                    <p style="font-size: 17px; color: var(--label-secondary); line-height: 1.5;">Plan videos and scripts on paper. Turn handwritten ideas into polished digital content.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Privacy Section -->
-    <section class="privacy-section" id="privacy">
+    <section class="privacy-section" id="privacy" style="margin-bottom: 80px;">
         <div class="container">
             <div class="privacy-icon">🔒</div>
-            <h2 class="section-headline">Privacy Built for the Paranoid</h2>
+            <h2 class="section-headline">Your Notes Are Yours</h2>
             <p class="section-subheadline">
-                We are an offline-first utility. Your authentication tokens live in your device's Secure Enclave. 
-                You are the only one reading your journal. All transcription and AI processing happens on your device—zero data 
-                sent to third-party servers. We use minimal API permissions—each service only requests the minimum access needed 
-                for document uploads.
+                Everything happens on your iPhone. Your handwritten notes never leave your device unless you choose to export them. 
+                No servers, no tracking, no data collection. Just you and your notes.
             </p>
             <div class="cta-buttons-container">
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-button" style="color: var(--accent);">Join Beta on TestFlight</a>
                 <a href="privacy.html" class="cta-button">Privacy Policy</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Download CTA Section -->
+    <section class="hero" style="padding: 100px 0; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); border-radius: 32px; margin: 0 44px 80px;">
+        <div class="container">
+            <h2 class="section-headline" style="color: white; margin-bottom: 20px;">Ready to Digitize Your Notes?</h2>
+            <p class="section-subheadline" style="color: rgba(255, 255, 255, 0.95); margin-bottom: 40px;">
+                Download OneScribe today and turn any paper into searchable text
+            </p>
+
+            <div style="margin: 0;">
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" style="display: inline-block;">
+                    <img src="AppStore-Light.svg" alt="Download on the App Store" style="height: 54px; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                </a>
+            </div>
+
+            <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); margin-top: 24px;">
+                For iPhone and iPad • iOS 17.6 or later • $9.99
+            </p>
         </div>
     </section>
 
@@ -1508,14 +1612,15 @@
         <div class="container">
             <div class="footer-links">
                 <a href="/" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About</a>
                 <a href="#features" class="footer-link">Features</a>
                 <a href="privacy.html" class="footer-link">Privacy</a>
                 <a href="support.html" class="footer-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="footer-link">Join Beta</a>
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="footer-link">Download</a>
                 <a href="mailto:hello@getonescribe.app" class="footer-link">Contact</a>
             </div>
             <p class="footer-copyright">
-                © 2025 OneScribe • Public Beta on TestFlight • The last scanning app you'll ever need.
+                © 2025 OneScribe • Available on the App Store • For iPhone and iPad
             </p>
         </div>
     </footer>

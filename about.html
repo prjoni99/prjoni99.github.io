@@ -10,6 +10,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getonescribe.app/about.html">
     <link rel="canonical" href="https://getonescribe.app/about.html">
+    <!-- Apple Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=6756506734, app-argument=onescribe://">
     <style>
         * {
             margin: 0;
@@ -57,9 +59,9 @@
         }
 
         .container {
-            max-width: 1024px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 22px;
+            padding: 0 44px;
         }
 
         /* Navigation */
@@ -98,6 +100,13 @@
             color: var(--label);
             text-decoration: none;
             letter-spacing: -0.022em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .logo:hover {
+            color: var(--accent);
+            transform: translateY(-1px);
         }
 
         .nav-links {
@@ -110,25 +119,69 @@
             color: var(--label);
             text-decoration: none;
             font-size: 12px;
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: -0.01em;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 6px 12px;
+            border-radius: 8px;
         }
 
         .nav-link:hover {
-            opacity: 0.6;
+            color: var(--accent);
+            background: rgba(139, 92, 246, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 12px;
+            right: 12px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
         }
 
         .nav-cta {
             font-size: 12px;
-            font-weight: 400;
-            color: var(--accent);
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
             text-decoration: none;
             letter-spacing: -0.01em;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
         }
 
         .nav-cta:hover {
-            opacity: 0.7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+        }
+
+        .nav-cta:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .nav-link:hover {
+                background: rgba(139, 92, 246, 0.12);
+            }
         }
 
         /* Hero Section */
@@ -137,33 +190,73 @@
             text-align: center;
         }
 
+        .about-badge {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            padding: 6px 14px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 16px;
+            text-transform: uppercase;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .about-badge {
+                background: rgba(139, 92, 246, 0.15);
+                border-color: rgba(139, 92, 246, 0.3);
+            }
+        }
+
         .hero-icon {
             font-size: 64px;
             margin-bottom: 16px;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
         }
 
         .hero-title {
-            font-size: 56px;
+            font-size: 64px;
             font-weight: 600;
-            line-height: 1.07143;
-            letter-spacing: -0.005em;
-            margin-bottom: 6px;
+            line-height: 1.0625;
+            letter-spacing: -0.009em;
+            margin-bottom: 12px;
             color: var(--label);
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
         }
 
         .hero-subtitle {
-            font-size: 28px;
+            font-size: 21px;
             font-weight: 400;
-            line-height: 1.14286;
-            letter-spacing: 0.007em;
+            line-height: 1.381;
+            letter-spacing: 0.011em;
             color: var(--label-secondary);
-            max-width: 700px;
+            max-width: 680px;
             margin: 0 auto;
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Story Section */
         .story-section {
             padding: 100px 0;
+        }
+
+        .story-section .container {
+            max-width: 900px;
         }
 
         .story-content {
@@ -193,12 +286,22 @@
             display: flex;
             gap: 24px;
             align-items: flex-start;
-            padding: 40px 0;
-            border-bottom: 0.5px solid var(--separator);
+            padding: 40px;
+            margin-bottom: 24px;
+            background: var(--system-background-secondary);
+            border: 0.5px solid var(--separator);
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .timeline-item:last-child {
-            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .timeline-marker {
@@ -246,9 +349,15 @@
         /* Philosophy Section */
         .philosophy-section {
             padding: 100px 0;
-            background: var(--system-background-secondary);
-            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(167, 139, 250, 0.05) 100%);
+            border: 0.5px solid rgba(139, 92, 246, 0.2);
+            border-radius: 24px;
             margin: 100px 0;
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.1);
+        }
+
+        .philosophy-section .container {
+            max-width: 900px;
         }
 
         .philosophy-content {
@@ -278,9 +387,10 @@
         .philosophy-highlight {
             padding: 40px;
             background: var(--system-background);
-            border-radius: 18px;
+            border-radius: 20px;
             margin-top: 40px;
             border: 0.5px solid var(--separator);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
         }
 
         .philosophy-highlight p {
@@ -304,6 +414,10 @@
             padding: 100px 0;
         }
 
+        .values-section .container {
+            max-width: 1000px;
+        }
+
         .values-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -312,7 +426,18 @@
         }
 
         .value-card {
-            padding: 40px 0;
+            padding: 40px;
+            background: var(--system-background-secondary);
+            border: 0.5px solid var(--separator);
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
         }
 
         .value-icon {
@@ -340,20 +465,59 @@
         .cta-section {
             padding: 100px 0;
             text-align: center;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border: 0.5px solid rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+            margin: 100px 44px;
+            box-shadow: 0 24px 80px rgba(139, 92, 246, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-section * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            color: white !important;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.95) !important;
         }
 
         .cta-button {
             display: inline-block;
             font-size: 17px;
-            font-weight: 400;
-            color: var(--accent);
+            font-weight: 500;
+            color: white !important;
             text-decoration: none;
             letter-spacing: -0.022em;
             margin: 0 20px 12px 0;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .cta-button:hover {
-            opacity: 0.7;
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button::after {
@@ -366,6 +530,10 @@
             text-align: center;
             border-top: 0.5px solid var(--separator);
             margin-top: 100px;
+        }
+
+        .footer .container {
+            max-width: 1200px;
         }
 
         .footer-links {
@@ -398,12 +566,26 @@
 
         /* Responsive */
         @media (max-width: 834px) {
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-link {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .nav-cta {
+                font-size: 11px;
+                padding: 6px 14px;
+            }
+
             .hero-title {
-                font-size: 40px;
+                font-size: 48px;
             }
 
             .hero-subtitle {
-                font-size: 21px;
+                font-size: 19px;
             }
 
             .story-intro {
@@ -413,10 +595,20 @@
             .timeline-item {
                 flex-direction: column;
                 text-align: center;
+                padding: 32px 24px;
             }
 
             .timeline-marker {
                 margin: 0 auto;
+            }
+
+            .value-card {
+                padding: 32px 24px;
+            }
+
+            .cta-section {
+                margin: 80px 20px;
+                padding: 80px 24px;
             }
 
             .values-grid {
@@ -430,7 +622,31 @@
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 16px;
+                padding: 0 20px;
+            }
+
+            nav {
+                height: auto;
+                padding: 8px 0;
+            }
+
+            .nav-links {
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .nav-cta {
+                font-size: 10px;
+                padding: 5px 12px;
+            }
+
+            .logo {
+                font-size: 15px;
             }
 
             .hero {
@@ -438,11 +654,11 @@
             }
 
             .hero-title {
-                font-size: 32px;
+                font-size: 40px;
             }
 
             .hero-subtitle {
-                font-size: 19px;
+                font-size: 17px;
             }
 
             .philosophy-title {
@@ -459,15 +675,13 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="/index.html" class="logo">OneScribe</a>
+            <a href="/" class="logo">OneScribe</a>
             <div class="nav-links">
-                <a href="/index.html" class="nav-link">Home</a>
-                <a href="/index.html#features" class="nav-link">Features</a>
-                <a href="/index.html#comparison" class="nav-link">Why OneScribe</a>
-                <a href="/about.html" class="nav-link">About</a>
-                <a href="/privacy.html" class="nav-link">Privacy</a>
-                <a href="/support.html" class="nav-link">Support</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="nav-cta">Join Beta</a>
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#use-cases" class="nav-link">Use Cases</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+                <a href="support.html" class="nav-link">Support</a>
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="nav-cta">Download</a>
             </div>
         </div>
     </nav>
@@ -475,6 +689,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
+            <div class="about-badge">👋 Our Story</div>
             <div class="hero-icon">📱</div>
             <h1 class="hero-title">Built for the Kindle Scribe</h1>
             <p class="hero-subtitle">
@@ -610,7 +825,7 @@
                 OneScribe is production ready. We'd love your feedback, your use cases, and your ideas.
             </p>
             <div>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="cta-button">Join Public Beta</a>
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="cta-button">Download from App Store</a>
                 <a href="mailto:hello@getonescribe.app" class="cta-button">Get in Touch</a>
             </div>
         </div>
@@ -620,12 +835,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="/index.html" class="footer-link">Home</a>
-                <a href="/privacy.html" class="footer-link">Privacy Policy</a>
-                <a href="/support.html" class="footer-link">Support</a>
-                <a href="/about.html" class="footer-link">About</a>
-                <a href="https://testflight.apple.com/join/TqtMN8F7" class="footer-link">Join Beta</a>
-                <a href="mailto:hello@getonescribe.app" class="footer-link">Feedback</a>
+                <a href="/" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About</a>
+                <a href="privacy.html" class="footer-link">Privacy</a>
+                <a href="support.html" class="footer-link">Support</a>
+                <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="footer-link">Download</a>
+                <a href="mailto:hello@getonescribe.app" class="footer-link">Contact</a>
             </div>
             <p class="footer-copyright">
                 © 2025 OneScribe. The last scanning app you'll ever need.
