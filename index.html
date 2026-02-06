@@ -552,77 +552,109 @@
       color: var(--gray-400);
     }
 
-    /* Use Cases */
+    /* Use Cases - Premium Redesign */
     .use-cases {
       padding: 120px 24px;
-      background: rgba(255,255,255,0.01);
+      background: linear-gradient(180deg, rgba(139,92,246,0.03) 0%, transparent 50%);
+      position: relative;
+    }
+    .use-cases-header {
+      text-align: center;
+      margin-bottom: 80px;
     }
     .use-cases h2 {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 16px;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
     }
-    .use-cases > p {
-      font-size: 18px;
+    .use-cases-subtitle {
+      font-size: clamp(18px, 2vw, 22px);
       color: var(--gray-400);
-      text-align: center;
       max-width: 600px;
-      margin: 0 auto 64px;
+      margin: 0 auto;
     }
-    .use-case-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+    .use-case-showcase {
       max-width: 1200px;
       margin: 0 auto;
     }
-    .use-case {
-      background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 32px;
-      transition: transform 0.2s, border-color 0.2s;
+    .use-case-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
     }
-    .use-case:hover {
-      transform: translateY(-4px);
-      border-color: rgba(139,92,246,0.3);
+    @media (max-width: 900px) {
+      .use-case-row { grid-template-columns: 1fr; }
     }
-    .use-case-header {
+    .use-case-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 40px;
+      overflow: hidden;
+      min-height: 280px;
       display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .use-case-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
+    .use-case-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
     }
-    .use-case-icon.purple { background: rgba(139,92,246,0.2); }
-    .use-case-icon.green { background: rgba(16,185,129,0.2); }
-    .use-case-icon.orange { background: rgba(245,158,11,0.2); }
-    .use-case-icon.blue { background: rgba(59,130,246,0.2); }
-    .use-case-icon.red { background: rgba(239,68,68,0.2); }
-    .use-case h3 {
-      font-size: 20px;
-      font-weight: 600;
+    .use-case-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+      z-index: 1;
     }
-    .use-case-scenario {
-      font-size: 14px;
-      color: var(--gray-400);
+    .use-case-card.tax { background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); }
+    .use-case-card.lease { background: linear-gradient(135deg, #3d1f5c 0%, #1a0a2e 100%); }
+    .use-case-card.medical { background: linear-gradient(135deg, #5c1f1f 0%, #2e0a0a 100%); }
+    .use-case-card.travel { background: linear-gradient(135deg, #1f4d5c 0%, #0a2e3a 100%); }
+    .use-case-card.warranty { background: linear-gradient(135deg, #5c4d1f 0%, #2e2a0a 100%); }
+    .use-case-card.budget { background: linear-gradient(135deg, #1f5c3d 0%, #0a2e1a 100%); }
+    .use-case-card-content {
+      position: relative;
+      z-index: 2;
+    }
+    .use-case-emoji {
+      font-size: 48px;
       margin-bottom: 16px;
-      font-style: italic;
+      display: block;
     }
-    .use-case-result {
+    .use-case-card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .use-case-quote {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .use-case-answer {
       font-size: 15px;
-      color: var(--gray-300);
-      padding-left: 16px;
-      border-left: 2px solid var(--purple);
+      color: rgba(255,255,255,0.9);
+      padding: 16px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .use-case-answer strong {
+      color: #fff;
+    }
+    /* Large featured card */
+    .use-case-card.featured {
+      grid-column: span 2;
+      min-height: 320px;
+    }
+    @media (max-width: 900px) {
+      .use-case-card.featured { grid-column: span 1; }
     }
 
     /* Privacy Section */
@@ -1082,56 +1114,76 @@
   <!-- Use Cases -->
   <section class="use-cases">
     <div class="container">
-      <h2>Real scenarios. Real value.</h2>
-      <p>Here's how OneScribe transforms everyday document chaos into actionable intelligence.</p>
-      <div class="use-case-grid">
-        <div class="use-case">
-          <div class="use-case-header">
-            <div class="use-case-icon purple">🧾</div>
-            <h3>Tax Season</h3>
+      <div class="use-cases-header">
+        <h2>Real scenarios.<br><span class="text-gradient">Real value.</span></h2>
+        <p class="use-cases-subtitle">See how OneScribe transforms everyday document chaos into actionable intelligence.</p>
+      </div>
+      <div class="use-case-showcase">
+        <div class="use-case-row">
+          <div class="use-case-card tax">
+            <div class="use-case-card-content">
+              <span class="use-case-emoji">🧾</span>
+              <h3>Tax Season</h3>
+              <p class="use-case-quote">"I need all my business expense receipts from 2025..."</p>
+              <div class="use-case-answer">
+                <strong>OneScribe:</strong> Search "business expenses 2025" → Export to CSV → Done in seconds, not hours.
+              </div>
+            </div>
           </div>
-          <p class="use-case-scenario">"I need all my business expense receipts from 2025..."</p>
-          <p class="use-case-result">Search "business expenses 2025" → Export to CSV → Done. What used to take hours now takes seconds.</p>
+          <div class="use-case-card lease">
+            <div class="use-case-card-content">
+              <span class="use-case-emoji">📋</span>
+              <h3>Lease Renewal</h3>
+              <p class="use-case-quote">"I forgot my lease auto-renews next month..."</p>
+              <div class="use-case-answer">
+                <strong>OneScribe:</strong> Already flagged it. You got reminders 60 days, 30 days, and 7 days ago.
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="use-case">
-          <div class="use-case-header">
-            <div class="use-case-icon green">📋</div>
-            <h3>Lease Renewal</h3>
+        <div class="use-case-row">
+          <div class="use-case-card medical">
+            <div class="use-case-card-content">
+              <span class="use-case-emoji">🏥</span>
+              <h3>Doctor Visit</h3>
+              <p class="use-case-quote">"What medications am I currently taking?"</p>
+              <div class="use-case-answer">
+                <strong>OneScribe:</strong> Pulls from scanned prescriptions — names, dosages, and refill dates ready to share.
+              </div>
+            </div>
           </div>
-          <p class="use-case-scenario">"I forgot my lease auto-renews next month..."</p>
-          <p class="use-case-result">OneScribe already flagged it. You got a reminder 60 days ago, 30 days ago, and last week.</p>
+          <div class="use-case-card travel">
+            <div class="use-case-card-content">
+              <span class="use-case-emoji">✈️</span>
+              <h3>Travel Day</h3>
+              <p class="use-case-quote">"Just scanned my boarding pass..."</p>
+              <div class="use-case-answer">
+                <strong>OneScribe:</strong> Flight in Calendar. Airline app opens automatically. Hotel confirmation linked.
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="use-case">
-          <div class="use-case-header">
-            <div class="use-case-icon orange">🏥</div>
-            <h3>Doctor Visit</h3>
+        <div class="use-case-row">
+          <div class="use-case-card warranty">
+            <div class="use-case-card-content">
+              <span class="use-case-emoji">🛡️</span>
+              <h3>Warranty Claim</h3>
+              <p class="use-case-quote">"My TV broke. Is it still under warranty?"</p>
+              <div class="use-case-answer">
+                <strong>OneScribe:</strong> Search "TV warranty" → expiration date shown → export receipt + docs for claim.
+              </div>
+            </div>
           </div>
-          <p class="use-case-scenario">"What medications am I currently taking?"</p>
-          <p class="use-case-result">Ask OneScribe. It pulls from your scanned prescriptions and gives you the list, dosages, and refill dates.</p>
-        </div>
-        <div class="use-case">
-          <div class="use-case-header">
-            <div class="use-case-icon blue">✈️</div>
-            <h3>Travel Planning</h3>
+          <div class="use-case-card budget">
+            <div class="use-case-card-content">
+              <span class="use-case-emoji">💰</span>
+              <h3>Budget Check</h3>
+              <p class="use-case-quote">"How much did I spend on groceries this month?"</p>
+              <div class="use-case-answer">
+                <strong>OneScribe:</strong> Daily Briefing already told you. Plus trends and category breakdowns.
+              </div>
+            </div>
           </div>
-          <p class="use-case-scenario">"Scan this boarding pass..."</p>
-          <p class="use-case-result">Flight automatically added to Calendar. Airline app opens on departure day. Hotel confirmation linked.</p>
-        </div>
-        <div class="use-case">
-          <div class="use-case-header">
-            <div class="use-case-icon red">🛡️</div>
-            <h3>Warranty Claim</h3>
-          </div>
-          <p class="use-case-scenario">"My TV broke. Is it still under warranty?"</p>
-          <p class="use-case-result">Search "TV warranty" → See expiration date → Export receipt and warranty docs for the claim.</p>
-        </div>
-        <div class="use-case">
-          <div class="use-case-header">
-            <div class="use-case-icon purple">💰</div>
-            <h3>Budget Tracking</h3>
-          </div>
-          <p class="use-case-scenario">"How much did I spend on groceries this month?"</p>
-          <p class="use-case-result">Daily Briefing already told you. Plus spending trends, comparisons to last month, and category breakdowns.</p>
         </div>
       </div>
     </div>
