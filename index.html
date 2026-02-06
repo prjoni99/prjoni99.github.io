@@ -128,74 +128,106 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
+      padding: 100px 24px 60px;
       position: relative;
       overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute;
-      top: 50%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+      width: 1200px;
+      height: 1200px;
+      background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(99,102,241,0.1) 30%, transparent 70%);
       pointer-events: none;
+      animation: hero-glow 8s ease-in-out infinite;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 60%;
+      left: 30%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+      pointer-events: none;
+      animation: hero-glow 12s ease-in-out infinite reverse;
+    }
+    @keyframes hero-glow {
+      0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 900px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-phones { justify-content: center; }
+      .hero-text { order: -1; }
+    }
+    .hero-text { }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 16px;
-      background: rgba(139,92,246,0.1);
-      border: 1px solid rgba(139,92,246,0.3);
+      background: rgba(139,92,246,0.15);
+      border: 1px solid rgba(139,92,246,0.4);
       border-radius: 100px;
       font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: rgba(139,92,246,1);
-      margin-bottom: 32px;
+      color: #a855f7;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
     }
     .hero-badge .pulse {
       width: 8px;
       height: 8px;
-      background: var(--purple);
+      background: #a855f7;
       border-radius: 50%;
       animation: pulse 2s infinite;
+      box-shadow: 0 0 10px #a855f7;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
-    }
-    .hero-icon {
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 40px;
-      border-radius: 40px;
-      box-shadow: 0 40px 80px rgba(139,92,246,0.3);
+      50% { opacity: 0.5; transform: scale(1.3); }
     }
     .hero h1 {
-      font-size: clamp(56px, 12vw, 120px);
+      font-size: clamp(48px, 8vw, 80px);
       font-weight: 800;
       line-height: 1;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       letter-spacing: -0.03em;
     }
     .hero-tagline {
-      font-size: clamp(16px, 2vw, 20px);
-      color: var(--gray-400);
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--gray-300);
       max-width: 500px;
-      margin: 0 auto 40px;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+      .hero-tagline { margin: 0 auto 32px; }
     }
     .hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 16px 32px;
+      padding: 18px 36px;
       background: linear-gradient(135deg, var(--purple) 0%, var(--indigo) 100%);
       color: #fff;
       font-weight: 600;
@@ -203,16 +235,92 @@
       border-radius: 100px;
       text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(139,92,246,0.3);
     }
     .hero-cta:hover {
-      transform: scale(1.05);
-      box-shadow: 0 20px 60px rgba(139,92,246,0.4);
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 20px 60px rgba(139,92,246,0.5);
     }
     .hero-cta svg { width: 24px; height: 24px; }
     .hero-note {
       font-size: 14px;
       color: var(--gray-500);
+    }
+    /* Phone mockups */
+    .hero-phones {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      justify-content: flex-end;
+    }
+    .phone-mockup {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
+      background: #000;
+      transform-style: preserve-3d;
+    }
+    .phone-mockup img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .phone-1 {
+      width: 260px;
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+      animation: phone-float-1 6s ease-in-out infinite;
+      z-index: 2;
+    }
+    .phone-2 {
+      width: 240px;
+      transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) translateY(40px);
+      animation: phone-float-2 7s ease-in-out infinite;
+      opacity: 0.9;
+      z-index: 1;
+    }
+    @keyframes phone-float-1 {
+      0%, 100% { transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(0); }
+      50% { transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-15px); }
+    }
+    @keyframes phone-float-2 {
+      0%, 100% { transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) translateY(40px); }
+      50% { transform: perspective(1000px) rotateY(8deg) rotateX(-2deg) translateY(25px); }
+    }
+    @media (max-width: 900px) {
+      .phone-1 { width: 200px; }
+      .phone-2 { width: 180px; }
+    }
+    @media (max-width: 600px) {
+      .hero-phones { gap: 12px; }
+      .phone-1 { width: 160px; }
+      .phone-2 { width: 140px; }
+    }
+    /* Floating feature badges */
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    @media (max-width: 900px) {
+      .hero-features { justify-content: center; }
+    }
+    .hero-feature {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      font-size: 14px;
+      color: var(--gray-300);
+      backdrop-filter: blur(10px);
+    }
+    .hero-feature-icon {
+      font-size: 16px;
     }
 
     /* Stats Bar */
@@ -722,19 +830,33 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="pulse"></span>
-        Public Beta
+    <div class="hero-layout">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          Public Beta
+        </div>
+        <h1><span class="text-gradient">OneScribe</span></h1>
+        <p class="hero-tagline">Scan any document. AI extracts the data that matters. Track spending, get deadline alerts, search with natural language.</p>
+        <a href="https://testflight.apple.com/join/TqtMN8F7" class="hero-cta">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Join the Public Beta
+        </a>
+        <p class="hero-note">Requires iPhone with iOS 26 & Apple Intelligence</p>
+        <div class="hero-features">
+          <span class="hero-feature"><span class="hero-feature-icon">🔒</span> 100% On-Device</span>
+          <span class="hero-feature"><span class="hero-feature-icon">📄</span> 83 Document Types</span>
+          <span class="hero-feature"><span class="hero-feature-icon">🗣️</span> 14 Siri Commands</span>
+        </div>
       </div>
-      <img src="/app-icon.png" alt="OneScribe" class="hero-icon">
-      <h1><span class="text-gradient">OneScribe</span></h1>
-      <p class="hero-tagline">Document intelligence, redesigned. Scan once, know everything.</p>
-      <a href="https://testflight.apple.com/join/TqtMN8F7" class="hero-cta">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        Join the Public Beta
-      </a>
-      <p class="hero-note">Requires iPhone with iOS 26 & Apple Intelligence</p>
+      <div class="hero-phones">
+        <div class="phone-mockup phone-1">
+          <img src="/Screenshots/receipt.png" alt="Receipt scanning with AI extraction">
+        </div>
+        <div class="phone-mockup phone-2">
+          <img src="/Screenshots/contract.png" alt="Contract risk detection">
+        </div>
+      </div>
     </div>
   </section>
 
