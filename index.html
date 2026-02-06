@@ -334,6 +334,12 @@
       right: -200px;
       transform: translateY(-50%);
     }
+    .feature-section.red::before {
+      background: var(--red);
+      top: 50%;
+      left: -200px;
+      transform: translateY(-50%);
+    }
     .feature-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -359,6 +365,7 @@
     .feature-section.green .feature-label { color: var(--green); }
     .feature-section.orange .feature-label { color: var(--orange); }
     .feature-section.blue .feature-label { color: var(--blue); }
+    .feature-section.red .feature-label { color: var(--red); }
     .feature-title {
       font-size: clamp(32px, 5vw, 48px);
       font-weight: 700;
@@ -812,70 +819,139 @@
     </div>
   </section>
 
-  <!-- Feature 2: Natural Language Search -->
+  <!-- Feature 2: Receipts -->
   <section class="feature-section green">
     <div class="container">
       <div class="feature-grid reverse">
         <div class="feature-content">
-          <span class="feature-label">Find Anything</span>
-          <h2 class="feature-title">Search like you think.</h2>
-          <p class="feature-desc">Stop scrolling through folders. Just ask for what you need in plain English, and OneScribe finds it instantly.</p>
+          <span class="feature-label">Receipts</span>
+          <h2 class="feature-title">Every receipt, instantly organized.</h2>
+          <p class="feature-desc">AI extracts line items, totals, tax, payment method, and return deadlines. Track warranties automatically.</p>
           <ul class="feature-list">
-            <li>"Show me receipts over $100 from last month"</li>
-            <li>"Find contracts expiring this year"</li>
-            <li>"What medications am I on?"</li>
-            <li>"How much did I spend at Amazon?"</li>
-            <li>"Find the warranty for my TV"</li>
+            <li>Itemized purchases with prices</li>
+            <li>Automatic warranty tracking</li>
+            <li>Return policy reminders</li>
+            <li>Spending categorization</li>
+            <li>Export for expense reports</li>
           </ul>
         </div>
         <div class="feature-visual">
-          <img src="/Screenshots/IMG_1038.jpeg" alt="Natural Language Search" style="aspect-ratio: 9/16; object-fit: cover;">
+          <img src="/Screenshots/receipt.png" alt="Receipt Data Card" style="aspect-ratio: 9/19.5; object-fit: cover; border-radius: 32px;">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature 3: Smart Actions -->
+  <!-- Feature 3: Contracts -->
   <section class="feature-section orange">
     <div class="container">
       <div class="feature-grid">
         <div class="feature-content">
-          <span class="feature-label">Proactive Intelligence</span>
-          <h2 class="feature-title">Your documents work for you.</h2>
-          <p class="feature-desc">OneScribe doesn't just store documents — it watches them. Deadlines approaching? Warranties expiring? You'll know before it's too late.</p>
+          <span class="feature-label">Contracts & Leases</span>
+          <h2 class="feature-title">AI-powered risk detection.</h2>
+          <p class="feature-desc">Spot auto-renewals, penalties, and hidden clauses before they cost you. Never miss a cancellation deadline again.</p>
           <ul class="feature-list">
-            <li>Auto-create reminders from contracts and leases</li>
-            <li>Calendar events from meeting notes and tickets</li>
-            <li>Spending alerts when you exceed budgets</li>
-            <li>Daily briefings of what needs attention</li>
-            <li>Warranty expiration warnings</li>
+            <li>Auto-renewal clause detection</li>
+            <li>Penalty and fee warnings</li>
+            <li>Key dates and deadlines</li>
+            <li>Party identification</li>
+            <li>Cancellation reminders</li>
           </ul>
         </div>
         <div class="feature-visual">
-          <img src="/Screenshots/IMG_1045.jpeg" alt="Smart Actions" style="aspect-ratio: 9/16; object-fit: cover;">
+          <img src="/Screenshots/contract.png" alt="Contract Risk Detection" style="aspect-ratio: 9/19.5; object-fit: cover; border-radius: 32px;">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature 4: Export -->
-  <section class="feature-section blue">
+  <!-- Feature 4: Event Tickets -->
+  <section class="feature-section purple">
     <div class="container">
       <div class="feature-grid reverse">
         <div class="feature-content">
-          <span class="feature-label">No Lock-In</span>
-          <h2 class="feature-title">Export everywhere.</h2>
-          <p class="feature-desc">Your data belongs to you. Export to the apps you already use with context-aware formatting that actually makes sense.</p>
+          <span class="feature-label">Event Tickets</span>
+          <h2 class="feature-title">Your tickets, always ready.</h2>
+          <p class="feature-desc">Venue directions, seat info, and automatic calendar sync. One tap to add to Calendar, one tap to get directions.</p>
           <ul class="feature-list">
-            <li>Apple Notes, Reminders, Calendar — native integration</li>
-            <li>Notion databases with structured fields</li>
-            <li>Google Docs, Bear, Obsidian — formatted markdown</li>
-            <li>PDF, CSV, vCard, iCal — standard formats</li>
-            <li>Share Sheet with smart summaries</li>
+            <li>Venue, date, and seat details</li>
+            <li>One-tap calendar sync</li>
+            <li>QR code preservation</li>
+            <li>Price and ticket holder info</li>
+            <li>Event day reminders</li>
           </ul>
         </div>
         <div class="feature-visual">
-          <img src="/Screenshots/IMG_1046.jpeg" alt="Export Options" style="aspect-ratio: 9/16; object-fit: cover;">
+          <img src="/Screenshots/ticket.png" alt="Event Ticket Data Card" style="aspect-ratio: 9/19.5; object-fit: cover; border-radius: 32px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 5: Meeting Notes -->
+  <section class="feature-section blue">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-content">
+          <span class="feature-label">Meeting Notes</span>
+          <h2 class="feature-title">Notes that work for you.</h2>
+          <p class="feature-desc">Action items, decisions, and follow-ups extracted automatically. Assign tasks to attendees with due dates.</p>
+          <ul class="feature-list">
+            <li>Action items with assignees</li>
+            <li>Key decisions highlighted</li>
+            <li>Attendee extraction</li>
+            <li>Follow-up reminders</li>
+            <li>Export to task managers</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="/Screenshots/meeting.png" alt="Meeting Notes Data Card" style="aspect-ratio: 9/19.5; object-fit: cover; border-radius: 32px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 6: Medical -->
+  <section class="feature-section red">
+    <div class="container">
+      <div class="feature-grid reverse">
+        <div class="feature-content">
+          <span class="feature-label">Medical Records</span>
+          <h2 class="feature-title">Medical records made simple.</h2>
+          <p class="feature-desc">HSA eligibility, medications, diagnoses, and follow-up dates. Know exactly what you owe and when to return.</p>
+          <ul class="feature-list">
+            <li>Provider and patient info</li>
+            <li>Billing breakdown</li>
+            <li>Diagnoses and medications</li>
+            <li>Follow-up scheduling</li>
+            <li>Insurance coverage tracking</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="/Screenshots/medical.png" alt="Medical Records Data Card" style="aspect-ratio: 9/19.5; object-fit: cover; border-radius: 32px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 7: Recipes -->
+  <section class="feature-section orange">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-content">
+          <span class="feature-label">Recipes</span>
+          <h2 class="feature-title">Recipes at your fingertips.</h2>
+          <p class="feature-desc">Ingredients, steps, prep times, and nutrition info. Scale servings up or down with automatic ingredient adjustment.</p>
+          <ul class="feature-list">
+            <li>Ingredient lists with quantities</li>
+            <li>Step-by-step instructions</li>
+            <li>Prep, cook, and total times</li>
+            <li>Serving size scaling</li>
+            <li>Cuisine and difficulty tags</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="/Screenshots/recipe.png" alt="Recipe Data Card" style="aspect-ratio: 9/19.5; object-fit: cover; border-radius: 32px;">
         </div>
       </div>
     </div>
