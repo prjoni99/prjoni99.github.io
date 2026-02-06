@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OneScribe — Your documents have stories. We help you hear them.</title>
+  <title>OneScribe — Document Intelligence, Redesigned</title>
   <meta name="description" content="The intelligent document scanner that extracts actionable data from 83 document types. Track spending, get deadline alerts, search with natural language. 100% private, on-device AI.">
 
   <!-- Open Graph -->
@@ -65,10 +65,16 @@
     /* Utilities */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .text-gradient {
-      background: linear-gradient(135deg, var(--purple) 0%, var(--indigo) 100%);
+      background: linear-gradient(135deg, #a855f7 0%, #6366f1 25%, #8b5cf6 50%, #a855f7 75%, #6366f1 100%);
+      background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: gradient-shift 8s ease infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     /* Nav */
@@ -173,10 +179,11 @@
       box-shadow: 0 40px 80px rgba(139,92,246,0.3);
     }
     .hero h1 {
-      font-size: clamp(40px, 8vw, 72px);
+      font-size: clamp(56px, 12vw, 120px);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1;
       margin-bottom: 24px;
+      letter-spacing: -0.03em;
     }
     .hero-tagline {
       font-size: clamp(16px, 2vw, 20px);
@@ -714,8 +721,8 @@
         Public Beta
       </div>
       <img src="/app-icon.png" alt="OneScribe" class="hero-icon">
-      <h1>Your documents have stories.<br><span class="text-gradient">We help you hear them.</span></h1>
-      <p class="hero-tagline">The intelligent scanner that extracts actionable data, tracks your spending, and reminds you before deadlines hit. Powered by on-device AI.</p>
+      <h1><span class="text-gradient">OneScribe</span></h1>
+      <p class="hero-tagline">Document intelligence, redesigned. Scan once, know everything.</p>
       <a href="https://testflight.apple.com/join/TqtMN8F7" class="hero-cta">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         Join the Public Beta
