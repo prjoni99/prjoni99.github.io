@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>What's New — OneScribe</title><meta name="description" content="See what's new in OneScribe. Cinematic Intelligence redesign, weekly digests, document connections, Intelligence tab, and more."><meta name="keywords" content="document scanner app, AI document scanner, receipt scanner, contract scanner, OCR app, on-device AI, smart scanner, document intelligence, changelog, what's new"><meta name="robots" content="index, follow"><!-- Open Graph --><meta property="og:title" content="What's New — OneScribe"><meta property="og:description" content="See what's new in OneScribe. Cinematic Intelligence redesign, weekly digests, document connections, Intelligence tab, and more."><meta property="og:type" content="website"><meta property="og:url" content="https://getonescribe.app/changelog/"><meta property="og:image" content="https://getonescribe.app/app-icon.png"><meta property="og:site_name" content="OneScribe"><meta property="og:locale" content="en_US"><link rel="canonical" href="https://getonescribe.app/changelog/"><!-- Apple Smart App Banner --><meta name="apple-itunes-app" content="app-id=6756506734"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="apple-touch-icon" href="/app-icon.png"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="What's New — OneScribe"><meta name="twitter:description" content="See what's new in OneScribe. Cinematic Intelligence redesign, weekly digests, document connections, Intelligence tab, and more."><meta name="twitter:image" content="https://getonescribe.app/app-icon.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Schema.org --><script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "OneScribe",
+      "operatingSystem": "iOS 26 or later",
+      "applicationCategory": "ProductivityApplication",
+      "description": "Document intelligence platform with 83 AI-powered document types. On-device processing, 100% private. Receipts, contracts, medical records & more.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free tier — unlimited scans"
+        },
+        {
+          "@type": "Offer",
+          "price": "0.99",
+          "priceCurrency": "USD",
+          "description": "Pro Monthly"
+        },
+        {
+          "@type": "Offer",
+          "price": "9.99",
+          "priceCurrency": "USD",
+          "description": "Pro Lifetime"
+        }
+      ],
+      "downloadUrl": "https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734",
+      "softwareVersion": "1.1",
+      "author": {
+        "@type": "Organization",
+        "name": "Casa Vargas Digital"
+      }
+    }
+  </script><!-- Force dark mode --><script>
+    document.documentElement.classList.add('dark');
+  </script><link rel="stylesheet" href="/assets/index.D2Khmf9u.css">
+<link rel="stylesheet" href="/assets/index.CKyMGi6S.css"><script type="module">const s=document.querySelectorAll(".scroll-reveal"),t=new IntersectionObserver(e=>{e.forEach(r=>{r.isIntersecting&&r.target.classList.add("is-visible")})},{threshold:.15});s.forEach(e=>t.observe(e));
+</script>
+<style>
+  /* ── Changelog-specific styles ── */
+  .changelog-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    background: rgba(139,92,246,0.1);
+    border: 0.5px solid rgba(139,92,246,0.3);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #c4b5fd;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Featured splash card ── */
+  .featured-splash {
+    position: relative;
+    border-radius: 1.75rem;
+    background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(99,102,241,0.05) 50%, rgba(168,85,247,0.08) 100%);
+    border: 0.5px solid rgba(139,92,246,0.2);
+    overflow: hidden;
+    padding: 3rem 2.5rem 2.5rem;
+  }
+
+  .featured-splash::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .featured-splash::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .release-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .release-tag-featured {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(139,92,246,0.4);
+  }
+
+  /* ── Feature showcase cards ── */
+  .showcase-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(255,255,255,0.07);
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .showcase-card:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(139,92,246,0.2);
+    transform: translateY(-2px);
+  }
+
+  .showcase-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  /* ── Version timeline ── */
+  .timeline {
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(139,92,246,0.4), rgba(99,102,241,0.2), transparent);
+  }
+
+  .timeline-entry {
+    position: relative;
+    padding-left: 2.25rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-entry:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -5px;
+    top: 0.35rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139,92,246,0.2);
+  }
+
+  .timeline-dot-sm {
+    width: 7px;
+    height: 7px;
+    left: -3px;
+    background: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+  }
+
+  .timeline-date {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8b5cf6;
+    margin-bottom: 0.375rem;
+  }
+
+  .timeline-version-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .timeline-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .timeline-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    color: #98989D;
+    line-height: 1.5;
+  }
+
+  .timeline-bullets li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #6366f1;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  /* ── CTA section ── */
+  .cta-glass {
+    background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(99,102,241,0.05) 100%);
+    border: 0.5px solid rgba(139,92,246,0.15);
+    border-radius: 2rem;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 640px) {
+    .featured-splash {
+      padding: 2rem 1.5rem 2rem;
+    }
+    .timeline::before {
+      left: 0;
+    }
+  }
+</style>
+</head>
+
+<body class="bg-black text-white antialiased">
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- NAV                                      -->
+  <!-- ═══════════════════════════════════════ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-container" data-astro-cid-axwx3cei>
+    <div class="max-w-6xl mx-auto px-6" data-astro-cid-axwx3cei>
+      <div class="flex items-center justify-between h-16" data-astro-cid-axwx3cei>
+        <a href="/" class="flex items-center gap-2.5 font-semibold text-white" data-astro-cid-axwx3cei>
+          <img src="/app-icon.png" alt="OneScribe app icon" class="w-8 h-8 rounded-lg" data-astro-cid-axwx3cei>
+          <span data-astro-cid-axwx3cei>One<span class="nav-gradient" data-astro-cid-axwx3cei>Scribe</span></span>
+        </a>
+        <div class="flex items-center gap-6" data-astro-cid-axwx3cei>
+          <a href="/#features" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors" data-astro-cid-axwx3cei>Features</a>
+          <a href="/#pricing" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors" data-astro-cid-axwx3cei>Pricing</a>
+          <a href="/privacy" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors" data-astro-cid-axwx3cei>Privacy</a>
+          <a href="/support" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors" data-astro-cid-axwx3cei>Support</a>
+          <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="try-btn text-sm font-medium px-5 py-2 rounded-full transition-all" data-astro-cid-axwx3cei>
+            Try Free
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="bg-black">
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- HERO                                     -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="relative pt-32 pb-16 overflow-hidden">
+      <div class="absolute inset-0 hero-gradient"></div>
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="orb orb-1" style="opacity:0.15;"></div>
+        <div class="orb orb-2" style="opacity:0.1;"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center stagger-hero">
+        <div class="hero-el changelog-hero-badge">
+          <span style="width:6px;height:6px;border-radius:50%;background:#a78bfa;display:inline-block;"></span>
+          What's New
+        </div>
+        <h1 class="hero-el text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-5">
+          Every update makes your<br><span class="text-gradient">documents smarter.</span>
+        </h1>
+        <p class="hero-el text-xl text-[#98989D] max-w-2xl mx-auto leading-relaxed">
+          Follow along as OneScribe grows. New features, improved intelligence, and a constantly evolving understanding of your documents.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FEATURED RELEASE — CINEMATIC INTELLIGENCE -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-12 scroll-reveal">
+      <div class="max-w-4xl mx-auto px-6">
+
+        <div class="featured-splash">
+          <div class="relative z-10">
+            <!-- Header row -->
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+              <span class="release-tag release-tag-featured">Latest Release</span>
+              <span class="text-[#6E6E73] text-sm">April 2026</span>
+            </div>
+
+            <!-- Title block -->
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight">Cinematic Intelligence</h2>
+            <p class="text-xl text-[#98989D] mb-10 max-w-2xl leading-relaxed">
+              Your documents don't just sit there anymore. They connect, summarize, and brief you.
+            </p>
+
+            <!-- Feature showcase grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+
+              <!-- Intelligence Tab -->
+              <div class="showcase-card">
+                <div class="showcase-card-icon bg-purple-500/10 text-purple-400">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1.5">Intelligence Tab</h3>
+                <p class="text-sm text-[#98989D] leading-relaxed">A living dashboard that tracks entities — people, companies, vehicles — across all your documents. Hero stats show entity counts, series, and connections with animated counters. Activity feed surfaces everything your AI has found.</p>
+              </div>
+
+              <!-- Document Connections -->
+              <div class="showcase-card">
+                <div class="showcase-card-icon bg-indigo-500/10 text-indigo-400">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1.5">Document Connections</h3>
+                <p class="text-sm text-[#98989D] leading-relaxed">OneScribe now automatically detects relationships between your documents. A receipt linked to a warranty. An invoice matched to a payment. An insurance card tied to a vehicle registration. Connections appear in document details and the Intelligence tab.</p>
+              </div>
+
+              <!-- Weekly Digest -->
+              <div class="showcase-card">
+                <div class="showcase-card-icon bg-blue-500/10 text-blue-400">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1.5">Weekly Digest</h3>
+                <p class="text-sm text-[#98989D] leading-relaxed">A beautiful magazine-style summary of your week: documents scanned, spending tracked, connections discovered, and upcoming deadlines. Shareable with a privacy-safe card that never reveals amounts or personal details.</p>
+              </div>
+
+              <!-- Daily Briefing -->
+              <div class="showcase-card">
+                <div class="showcase-card-icon bg-emerald-500/10 text-emerald-400">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1.5">Daily Briefing Dashboard</h3>
+                <p class="text-sm text-[#98989D] leading-relaxed">Your new home screen. Time-aware greeting, urgent items, spending summary with animated counters, recent insights, and quick actions. Progressive — sections unlock as your library grows.</p>
+              </div>
+
+              <!-- Scan Reveal -->
+              <div class="showcase-card">
+                <div class="showcase-card-icon bg-amber-500/10 text-amber-400">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1.5">Scan Reveal Animation</h3>
+                <p class="text-sm text-[#98989D] leading-relaxed">A cinematic 4-phase animation plays when you scan a document: image capture, shimmer analysis sweep, cross-fade to Data Card, and narration bubbles that explain what was found. Plays once on your first scan.</p>
+              </div>
+
+              <!-- Unfold Cards -->
+              <div class="showcase-card">
+                <div class="showcase-card-icon bg-rose-500/10 text-rose-400">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1.5">Unfold Cards</h3>
+                <p class="text-sm text-[#98989D] leading-relaxed">Library cards now unfold with a subtle 3D tilt animation when you tap them. Paper-physics spring motion gives a satisfying tactile feel to browsing your documents.</p>
+              </div>
+
+            </div>
+
+            <!-- New Settings row (full width) -->
+            <div class="showcase-card" style="background: rgba(139,92,246,0.04); border-color: rgba(139,92,246,0.12);">
+              <div class="flex items-start gap-4">
+                <div class="showcase-card-icon bg-purple-500/10 text-purple-400" style="margin-bottom:0; flex-shrink:0;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-white mb-1">New Settings</h3>
+                  <p class="text-sm text-[#98989D] leading-relaxed">Weekly digest scheduling (day + time), connection scanning toggle, and a default tab preference — choose between Briefing, Library, or Intelligence as your home screen.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- VERSION HISTORY TIMELINE                 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-16 scroll-reveal">
+      <div class="max-w-4xl mx-auto px-6">
+
+        <!-- Section header -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-white mb-2">Version History</h2>
+          <p class="text-[#6E6E73] text-base">Every release, from the beginning.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline max-w-2xl">
+
+          <!-- April 2026 -->
+          <div class="timeline-entry">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">April 2026</span>
+            <div class="timeline-version-title">Cinematic Intelligence</div>
+            <ul class="timeline-bullets">
+              <li>Intelligence Tab with entity tracking and cross-document activity feed</li>
+              <li>Document Connections engine — automatic relationship detection</li>
+              <li>Weekly Digest with spending charts and privacy-safe sharing card</li>
+              <li>Daily Briefing dashboard as the new default home screen</li>
+              <li>Scan reveal animation — cinematic 4-phase sequence on first scan</li>
+              <li>Unfold cards — 3D paper-physics spring animation in Library</li>
+              <li>New settings for digest scheduling, connections toggle, and default tab</li>
+            </ul>
+          </div>
+
+          <!-- March 2026 -->
+          <div class="timeline-entry">
+            <div class="timeline-dot timeline-dot-sm" style="top: 0.4rem;"></div>
+            <span class="timeline-date">March 2026</span>
+            <div class="timeline-version-title">Simplified Pricing</div>
+            <ul class="timeline-bullets">
+              <li>New $0.99/month and $9.99 lifetime pricing — down to earth, no games</li>
+              <li>Removed Apple Intelligence requirement for basic AI features</li>
+              <li>On-device ML models for all devices running iOS 26</li>
+            </ul>
+          </div>
+
+          <!-- February 2026 -->
+          <div class="timeline-entry">
+            <div class="timeline-dot timeline-dot-sm" style="top: 0.4rem; background: #4f46e5; box-shadow: 0 0 0 2px rgba(79,70,229,0.2);"></div>
+            <span class="timeline-date" style="color: #818cf8;">February 2026</span>
+            <div class="timeline-version-title">Launch</div>
+            <ul class="timeline-bullets">
+              <li>83 document types, each with type-specific AI Data Cards</li>
+              <li>On-device AI processing — your documents never leave your device</li>
+              <li>Smart exports in 8 modes via the iOS Share Sheet</li>
+              <li>Document chat with 5 AI personas</li>
+              <li>Natural language search across your entire library</li>
+              <li>Proactive alerts and smart reminders via EventKit</li>
+              <li>14 Siri commands for hands-free document access</li>
+              <li>iCloud sync across all your Apple devices</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CTA                                      -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-12 pb-24 scroll-reveal">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="cta-glass">
+          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Available Now</p>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Ready to get started?</h2>
+          <p class="text-lg text-[#98989D] mb-10 max-w-md mx-auto leading-relaxed">
+            Download free and scan your first document in under 30 seconds.
+          </p>
+          <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="inline-block">
+            <img src="/app-store-badge-black.svg" alt="Download on the App Store" style="height: 52px;">
+          </a>
+          <p class="text-[#48484A] text-xs mt-6">Free to download · iOS 26 · iPhone &amp; iPad</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FOOTER                                    -->
+  <!-- ═══════════════════════════════════════ -->
+  <footer class="relative py-20 bg-black border-t border-white/5" data-astro-cid-lp2qgqf6>
+    <div class="max-w-4xl mx-auto px-6 text-center" data-astro-cid-lp2qgqf6>
+      <div class="flex items-center justify-center gap-2 mb-8" data-astro-cid-lp2qgqf6>
+        <img src="/app-icon.png" alt="OneScribe app icon" class="w-8 h-8 rounded-lg" data-astro-cid-lp2qgqf6>
+        <span class="text-white font-semibold" data-astro-cid-lp2qgqf6>One<span class="footer-gradient" data-astro-cid-lp2qgqf6>Scribe</span></span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8" data-astro-cid-lp2qgqf6>
+        <a href="/#features" class="text-[#6E6E73] text-sm hover:text-white transition-colors" data-astro-cid-lp2qgqf6>Features</a>
+        <a href="/#pricing" class="text-[#6E6E73] text-sm hover:text-white transition-colors" data-astro-cid-lp2qgqf6>Pricing</a>
+        <a href="/changelog/" class="text-[#6E6E73] text-sm hover:text-white transition-colors" data-astro-cid-lp2qgqf6>What's New</a>
+        <a href="/privacy" class="text-[#6E6E73] text-sm hover:text-white transition-colors" data-astro-cid-lp2qgqf6>Privacy Policy</a>
+        <a href="/support" class="text-[#6E6E73] text-sm hover:text-white transition-colors" data-astro-cid-lp2qgqf6>Support</a>
+        <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="text-[#6E6E73] text-sm hover:text-white transition-colors" data-astro-cid-lp2qgqf6>App Store</a>
+      </div>
+      <p class="text-[#48484A] text-sm mb-3" data-astro-cid-lp2qgqf6>
+        Available on iPhone &amp; iPad · Requires iOS 26 · No Apple Intelligence required
+      </p>
+      <p class="text-[#48484A] text-xs" data-astro-cid-lp2qgqf6>
+        &copy; 2025-2026 Casa Vargas Digital
+      </p>
+    </div>
+  </footer>
+
+</body></html>

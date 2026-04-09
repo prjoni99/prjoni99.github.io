@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — OneScribe</title>
+  <meta name="description" content="83 AI-powered document types. Data Cards, document connections, weekly digests, natural language search, smart exports, and more. All on-device, all private.">
+  <meta name="keywords" content="document scanner features, AI document types, data cards, document intelligence, on-device AI, receipt scanner, contract scanner, OCR app, natural language search, smart export">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Features — OneScribe">
+  <meta property="og:description" content="83 AI-powered document types. Data Cards, document connections, weekly digests, natural language search, smart exports, and more. All on-device, all private.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getonescribe.app/features/">
+  <meta property="og:image" content="https://getonescribe.app/app-icon.png">
+  <meta property="og:site_name" content="OneScribe">
+  <meta property="og:locale" content="en_US">
+  <link rel="canonical" href="https://getonescribe.app/features/">
+
+  <!-- Apple Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=6756506734">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/app-icon.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Features — OneScribe">
+  <meta name="twitter:description" content="83 AI-powered document types. Data Cards, document connections, weekly digests, natural language search, smart exports, and more. All on-device, all private.">
+  <meta name="twitter:image" content="https://getonescribe.app/app-icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "OneScribe",
+    "operatingSystem": "iOS 26 or later",
+    "applicationCategory": "ProductivityApplication",
+    "description": "Document intelligence platform with 83 AI-powered document types. On-device processing, 100% private. Receipts, contracts, medical records & more.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free tier — unlimited scans"
+      },
+      {
+        "@type": "Offer",
+        "price": "0.99",
+        "priceCurrency": "USD",
+        "description": "Pro Monthly"
+      },
+      {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "description": "Pro Lifetime"
+      }
+    ],
+    "downloadUrl": "https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734",
+    "softwareVersion": "1.0",
+    "author": {
+      "@type": "Organization",
+      "name": "Casa Vargas Digital"
+    }
+  }
+  </script>
+
+  <!-- Force dark mode -->
+  <script>document.documentElement.classList.add('dark');</script>
+
+  <link rel="stylesheet" href="/assets/index.D2Khmf9u.css">
+  <link rel="stylesheet" href="/assets/index.CKyMGi6S.css">
+
+  <script type="module">
+    const s = document.querySelectorAll(".scroll-reveal");
+    const t = new IntersectionObserver(e => {
+      e.forEach(r => { if (r.isIntersecting) r.target.classList.add("is-visible"); });
+    }, { threshold: 0.12 });
+    s.forEach(e => t.observe(e));
+
+    // Type directory search filter
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('type-search');
+      const pills = document.querySelectorAll('.type-pill');
+      if (!input) return;
+      input.addEventListener('input', () => {
+        const q = input.value.toLowerCase().trim();
+        pills.forEach(pill => {
+          pill.style.display = (!q || pill.textContent.toLowerCase().includes(q)) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* Nav gradient — matches homepage */
+    .nav-gradient {
+      background: linear-gradient(135deg, #a855f7, #818cf8, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-gradient {
+      background: linear-gradient(135deg, #a855f7, #818cf8, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Category cards */
+    .category-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .category-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .category-emoji {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .type-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #98989D;
+      white-space: nowrap;
+    }
+
+    /* Intelligence feature cards */
+    .intel-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .intel-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .intel-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Directory pills */
+    .type-pill {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #98989D;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      cursor: default;
+    }
+    .type-pill:hover {
+      background: rgba(168,85,247,0.12);
+      border-color: rgba(168,85,247,0.25);
+      color: #c4b5fd;
+    }
+
+    /* Search input */
+    .type-search-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0.75rem;
+      color: white;
+      padding: 0.65rem 1rem;
+      width: 100%;
+      max-width: 28rem;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .type-search-input::placeholder { color: #6E6E73; }
+    .type-search-input:focus { border-color: rgba(168,85,247,0.4); }
+
+    /* Hero sub-page adjustments */
+    .features-hero {
+      padding-top: 8rem;
+      padding-bottom: 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .features-hero-orb {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .features-hero-orb::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vw;
+      max-width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(168,85,247,0.10) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    /* Stat badges */
+    .stat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+      color: #98989D;
+      font-weight: 500;
+    }
+    .stat-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    /* Section label */
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* CTA section */
+    .features-cta {
+      background: linear-gradient(180deg, transparent 0%, rgba(168,85,247,0.06) 50%, transparent 100%);
+    }
+    .cta-primary-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: opacity 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .cta-primary-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  </style>
+</head>
+
+<body class="bg-black text-white antialiased">
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- NAV                                             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-container">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2.5 font-semibold text-white">
+          <img src="/app-icon.png" alt="OneScribe app icon" class="w-8 h-8 rounded-lg">
+          <span>One<span class="nav-gradient">Scribe</span></span>
+        </a>
+        <div class="flex items-center gap-6">
+          <a href="/#features" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors">Features</a>
+          <a href="/#pricing" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors">Pricing</a>
+          <a href="/privacy" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors">Privacy</a>
+          <a href="/support" class="hidden md:block text-sm text-[#98989D] hover:text-white transition-colors">Support</a>
+          <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="try-btn text-sm font-medium px-5 py-2 rounded-full transition-all">
+            Try Free
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="bg-black">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- HERO                                            -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="features-hero">
+      <div class="features-hero-orb"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-6">
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm mb-10">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75 animate-ping"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+          </span>
+          <span class="text-[#98989D] font-medium tracking-wide text-xs uppercase">83 document types · 100% on-device</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+          Every document type.<br><span class="text-gradient">One intelligent app.</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-[#98989D] max-w-2xl mx-auto mb-10 leading-relaxed">
+          83 AI-powered document categories. Structured Data Cards, cross-document intelligence, proactive alerts — all processing happens on your device. Private by design.
+        </p>
+
+        <!-- Stat badges -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <span class="stat-badge"><span class="stat-badge-dot bg-purple-400"></span>83 document types</span>
+          <span class="stat-badge"><span class="stat-badge-dot bg-green-400"></span>100% on-device AI</span>
+          <span class="stat-badge"><span class="stat-badge-dot bg-blue-400"></span>14 Siri commands</span>
+          <span class="stat-badge"><span class="stat-badge-dot bg-amber-400"></span>8 smart export modes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CATEGORY SHOWCASE                               -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="relative py-28 bg-black border-t border-white/5 scroll-reveal">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+          <span class="section-label text-purple-400">Document Categories</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white">
+            Whatever you scan,<br><span class="text-gradient">we understand it.</span>
+          </h2>
+          <p class="text-lg text-[#6E6E73] mt-4 max-w-xl mx-auto">
+            Each document type gets its own structured extraction — not a text blob, real structured data.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <!-- Financial -->
+          <div class="category-card">
+            <div class="category-emoji">💰</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Financial</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Expense tracking, spending trends, and statement summaries.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Receipt</span>
+              <span class="type-tag">Invoice</span>
+              <span class="type-tag">Bank Statement</span>
+              <span class="type-tag">Credit Card Statement</span>
+              <span class="type-tag">Check</span>
+              <span class="type-tag">Expense Report</span>
+              <span class="type-tag">Investment Statement</span>
+            </div>
+          </div>
+
+          <!-- Medical -->
+          <div class="category-card">
+            <div class="category-emoji">🏥</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Medical</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Provider info, medications, appointments, and coverage details.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Prescription</span>
+              <span class="type-tag">Lab Results</span>
+              <span class="type-tag">EOB</span>
+              <span class="type-tag">Dental Record</span>
+              <span class="type-tag">Health Insurance Card</span>
+              <span class="type-tag">Vaccination Record</span>
+              <span class="type-tag">Pet Record</span>
+              <span class="type-tag">Vision Prescription</span>
+            </div>
+          </div>
+
+          <!-- Legal -->
+          <div class="category-card">
+            <div class="category-emoji">⚖️</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Legal</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Parties, dates, renewal terms, and automatic red flag detection.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Contract</span>
+              <span class="type-tag">Lease</span>
+              <span class="type-tag">NDA</span>
+              <span class="type-tag">Power of Attorney</span>
+              <span class="type-tag">Will</span>
+              <span class="type-tag">Deed</span>
+              <span class="type-tag">Court Document</span>
+              <span class="type-tag">Support Order</span>
+            </div>
+          </div>
+
+          <!-- Travel -->
+          <div class="category-card">
+            <div class="category-emoji">✈️</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Travel</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Flight details, hotel confirmations, itinerary timelines.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Boarding Pass</span>
+              <span class="type-tag">Hotel Confirmation</span>
+              <span class="type-tag">Event Ticket</span>
+              <span class="type-tag">Travel Itinerary</span>
+            </div>
+          </div>
+
+          <!-- Home & Property -->
+          <div class="category-card">
+            <div class="category-emoji">🏡</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Home &amp; Property</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Coverage, inspection findings, mortgage details, and tax records.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Home Insurance</span>
+              <span class="type-tag">Home Inspection</span>
+              <span class="type-tag">Mortgage Statement</span>
+              <span class="type-tag">Property Tax</span>
+              <span class="type-tag">Appraisal</span>
+              <span class="type-tag">Closing Disclosure</span>
+            </div>
+          </div>
+
+          <!-- Vehicle -->
+          <div class="category-card">
+            <div class="category-emoji">🚗</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Vehicle</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Registration expiry alerts, service history, insurance cards.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Vehicle Registration</span>
+              <span class="type-tag">Vehicle Title</span>
+              <span class="type-tag">Vehicle Service</span>
+              <span class="type-tag">Auto Insurance Card</span>
+              <span class="type-tag">Parking Ticket</span>
+              <span class="type-tag">Traffic Citation</span>
+            </div>
+          </div>
+
+          <!-- Identity & Government -->
+          <div class="category-card">
+            <div class="category-emoji">🪪</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Identity &amp; Gov't</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Expiration tracking, renewal reminders, and government correspondence.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Identity</span>
+              <span class="type-tag">Immigration</span>
+              <span class="type-tag">Government Letter</span>
+              <span class="type-tag">Certificate</span>
+            </div>
+          </div>
+
+          <!-- Work & School -->
+          <div class="category-card">
+            <div class="category-emoji">💼</div>
+            <h3 class="text-white font-semibold text-lg mb-1">Work &amp; School</h3>
+            <p class="text-[#6E6E73] text-sm mb-4 leading-relaxed">Career milestones, academic records, and performance insights.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="type-tag">Resume</span>
+              <span class="type-tag">Offer Letter</span>
+              <span class="type-tag">Performance Review</span>
+              <span class="type-tag">Transcript</span>
+              <span class="type-tag">Pay Stub</span>
+              <span class="type-tag">Business Card</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- INTELLIGENCE FEATURES                           -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="relative py-28 bg-black border-t border-white/5 scroll-reveal" id="intelligence">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-purple-500/[0.05] rounded-full blur-[130px]"></div>
+      </div>
+      <div class="relative z-10 max-w-6xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+          <span class="section-label text-purple-400">Intelligence Layer</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white">
+            Not just scanning.<br><span class="text-gradient">Understanding.</span>
+          </h2>
+          <p class="text-lg text-[#6E6E73] mt-4 max-w-xl mx-auto">
+            Every scan feeds a layer of intelligence that works across your entire document library.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Data Cards -->
+          <div class="intel-card">
+            <div class="intel-icon bg-purple-500/10">
+              <span>🃏</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Data Cards</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              83 type-specific structured extractions. Receipt Cards show vendor, total, and line items. Contract Cards flag parties, auto-renewal terms, and deadlines. Medical Cards organize provider info and medications. Real data, not a text dump.
+            </p>
+          </div>
+
+          <!-- Intelligence Tab -->
+          <div class="intel-card">
+            <div class="intel-icon bg-blue-500/10">
+              <span>🧠</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Cross-Document Intelligence</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              Spending trends across all receipts. Vendor frequency. Warranty coverage gaps. Document connections and an activity feed that shows what matters across your entire library — not just individual files.
+            </p>
+          </div>
+
+          <!-- Weekly Digest -->
+          <div class="intel-card">
+            <div class="intel-icon bg-green-500/10">
+              <span>📊</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Weekly Digest</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              A magazine-style weekly summary with spending charts, document stats, and notable highlights. Shareable without exposing sensitive data — privacy-safe sharing built in.
+            </p>
+          </div>
+
+          <!-- Daily Briefing -->
+          <div class="intel-card">
+            <div class="intel-icon bg-amber-500/10">
+              <span>🌅</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Daily Briefing</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              A morning push notification that summarizes upcoming deadlines, spending trends, and action items. Your car insurance expires in 12 days. Your lease deadline is Friday. Before you've had coffee.
+            </p>
+          </div>
+
+          <!-- Document Chat -->
+          <div class="intel-card">
+            <div class="intel-icon bg-cyan-500/10">
+              <span>💬</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Document Chat</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              Ask questions about any document. "What are the cancellation terms?" "Is my deductible covered?" "When does this warranty expire?" Five AI personas ranging from Legal Expert to Financial Advisor.
+            </p>
+          </div>
+
+          <!-- Natural Language Search -->
+          <div class="intel-card">
+            <div class="intel-icon bg-amber-500/10">
+              <span>🔍</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Natural Language Search</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              "Receipts from Amazon over $50 last month." "Contracts expiring this quarter." "Medical records with Dr. Smith." Ask for what you want in plain English — get exactly what you're looking for.
+            </p>
+          </div>
+
+          <!-- Smart Exports -->
+          <div class="intel-card">
+            <div class="intel-icon bg-red-500/10">
+              <span>📤</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Smart Exports</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              Eight context-aware export modes via the iOS Share Sheet. Contracts export as calendar events. Business cards become contacts. Receipts become spreadsheets. Meeting notes turn into reminders. The right format, automatically.
+            </p>
+          </div>
+
+          <!-- Proactive Alerts -->
+          <div class="intel-card">
+            <div class="intel-icon bg-red-500/10">
+              <span>🔔</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">Proactive Alerts</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              Contract expiring in 7 days. Warranty ending next week. Immigration document renewal in 90 days. Vehicle registration due next month. OneScribe watches every deadline so you don't have to.
+            </p>
+          </div>
+
+          <!-- Siri -->
+          <div class="intel-card">
+            <div class="intel-icon bg-indigo-500/10">
+              <span>🎙️</span>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2">14 Siri Commands</h3>
+            <p class="text-[#6E6E73] leading-relaxed text-sm">
+              "Hey Siri, scan a receipt." "Show me my contracts." "What's my spending this week?" "Find my insurance card." Deep App Intents integration so OneScribe responds to you naturally.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Privacy callout -->
+        <div class="mt-14 rounded-2xl bg-green-500/[0.05] border border-green-500/[0.1] p-8 text-center">
+          <div class="text-2xl mb-3">🔒</div>
+          <h3 class="text-white font-semibold text-xl mb-2">All of this. Zero cloud.</h3>
+          <p class="text-[#98989D] text-base max-w-xl mx-auto">
+            Every scan, every AI analysis, every search query runs entirely on your iPhone or iPad. No Apple Intelligence required. Your documents never leave your device. No servers, no data collection, no exceptions.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- FULL DOCUMENT TYPE DIRECTORY                    -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="relative py-28 bg-black border-t border-white/5 scroll-reveal" id="all-types">
+      <div class="max-w-5xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+          <span class="section-label text-purple-400">Complete Directory</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            All <span class="text-gradient">83 document types</span>
+          </h2>
+          <p class="text-lg text-[#6E6E73] max-w-xl mx-auto mb-8">
+            Every type gets a structured Data Card with intelligent extraction. If you can scan it, OneScribe understands it.
+          </p>
+          <!-- Search -->
+          <input
+            id="type-search"
+            class="type-search-input"
+            type="search"
+            placeholder="Filter document types..."
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </div>
+
+        <div class="flex flex-wrap gap-2 justify-center" id="type-directory">
+          <span class="type-pill">Appraisal</span>
+          <span class="type-pill">Auto Insurance Card</span>
+          <span class="type-pill">Bank Statement</span>
+          <span class="type-pill">Boarding Pass</span>
+          <span class="type-pill">Business Card</span>
+          <span class="type-pill">Certificate</span>
+          <span class="type-pill">Check</span>
+          <span class="type-pill">Closing Disclosure</span>
+          <span class="type-pill">Contract</span>
+          <span class="type-pill">Coupon</span>
+          <span class="type-pill">Court Document</span>
+          <span class="type-pill">Credit Card Statement</span>
+          <span class="type-pill">Deed</span>
+          <span class="type-pill">Dental Record</span>
+          <span class="type-pill">EOB</span>
+          <span class="type-pill">Event Ticket</span>
+          <span class="type-pill">Expense Report</span>
+          <span class="type-pill">Form</span>
+          <span class="type-pill">Gift Card</span>
+          <span class="type-pill">Government Letter</span>
+          <span class="type-pill">Health Insurance Card</span>
+          <span class="type-pill">Home Inspection</span>
+          <span class="type-pill">Home Insurance</span>
+          <span class="type-pill">Hotel Confirmation</span>
+          <span class="type-pill">Identity</span>
+          <span class="type-pill">Immigration</span>
+          <span class="type-pill">Insurance</span>
+          <span class="type-pill">Investment Statement</span>
+          <span class="type-pill">Invoice</span>
+          <span class="type-pill">Lab Results</span>
+          <span class="type-pill">Lease</span>
+          <span class="type-pill">Letter</span>
+          <span class="type-pill">Medical</span>
+          <span class="type-pill">Meeting Notes</span>
+          <span class="type-pill">Membership Card</span>
+          <span class="type-pill">Menu</span>
+          <span class="type-pill">Mortgage Statement</span>
+          <span class="type-pill">NDA</span>
+          <span class="type-pill">Notes</span>
+          <span class="type-pill">Offer Letter</span>
+          <span class="type-pill">Order Confirmation</span>
+          <span class="type-pill">Parking Ticket</span>
+          <span class="type-pill">Pay Stub</span>
+          <span class="type-pill">Performance Review</span>
+          <span class="type-pill">Pet Record</span>
+          <span class="type-pill">Power of Attorney</span>
+          <span class="type-pill">Prescription Label</span>
+          <span class="type-pill">Product Manual</span>
+          <span class="type-pill">Property Tax</span>
+          <span class="type-pill">Receipt</span>
+          <span class="type-pill">Recipe</span>
+          <span class="type-pill">Report</span>
+          <span class="type-pill">Resume</span>
+          <span class="type-pill">School Record</span>
+          <span class="type-pill">Screenshot</span>
+          <span class="type-pill">Shipping Label</span>
+          <span class="type-pill">Support Order</span>
+          <span class="type-pill">Tax Document</span>
+          <span class="type-pill">Traffic Citation</span>
+          <span class="type-pill">Transcript</span>
+          <span class="type-pill">Travel Itinerary</span>
+          <span class="type-pill">Utility Bill</span>
+          <span class="type-pill">Vaccination Record</span>
+          <span class="type-pill">Vehicle Registration</span>
+          <span class="type-pill">Vehicle Service Record</span>
+          <span class="type-pill">Vehicle Title</span>
+          <span class="type-pill">Vision Prescription</span>
+          <span class="type-pill">Warranty</span>
+          <span class="type-pill">Whiteboard</span>
+          <span class="type-pill">Will</span>
+          <span class="type-pill">Wine Label</span>
+        </div>
+
+        <p class="text-center text-[#48484A] text-sm mt-8">
+          More document types added regularly. Suggest one at <a href="mailto:support@getonescribe.app" class="text-[#6E6E73] hover:text-white transition-colors underline underline-offset-2">support@getonescribe.app</a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CTA                                             -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="relative py-32 bg-black border-t border-white/5 features-cta scroll-reveal">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-purple-600/[0.08] rounded-full blur-[120px]"></div>
+      </div>
+      <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm mb-10">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="text-[#98989D] font-medium tracking-wide text-xs uppercase">Scan free, forever</span>
+        </div>
+
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          Start scanning today.<br><span class="text-gradient">It's free.</span>
+        </h2>
+        <p class="text-xl text-[#98989D] mb-10 max-w-lg mx-auto">
+          Unlimited scans, always free. Pro unlocks Data Cards, document chat, smart alerts, and the full intelligence layer for $0.99/month.
+        </p>
+
+        <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="cta-primary-btn">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download Free
+        </a>
+
+        <p class="text-[#48484A] text-sm mt-6">iPhone &amp; iPad · iOS 26 · No Apple Intelligence required</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FOOTER                                          -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <footer class="relative py-20 bg-black border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="flex items-center justify-center gap-2 mb-8">
+        <img src="/app-icon.png" alt="OneScribe app icon" class="w-8 h-8 rounded-lg">
+        <span class="text-white font-semibold">One<span class="footer-gradient">Scribe</span></span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8">
+        <a href="/#features" class="text-[#6E6E73] text-sm hover:text-white transition-colors">Features</a>
+        <a href="/#pricing" class="text-[#6E6E73] text-sm hover:text-white transition-colors">Pricing</a>
+        <a href="/privacy" class="text-[#6E6E73] text-sm hover:text-white transition-colors">Privacy Policy</a>
+        <a href="/support" class="text-[#6E6E73] text-sm hover:text-white transition-colors">Support</a>
+        <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="text-[#6E6E73] text-sm hover:text-white transition-colors">App Store</a>
+      </div>
+      <p class="text-[#48484A] text-sm mb-3">
+        Available on iPhone &amp; iPad · Requires iOS 26 · No Apple Intelligence required
+      </p>
+      <p class="text-[#48484A] text-xs">
+        &copy; 2025-2026 Casa Vargas Digital
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
