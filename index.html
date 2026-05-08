@@ -382,6 +382,42 @@
       .screenshots__frame { width: 220px; }
       .screenshots__carousel { gap: 1.5rem; padding: 1.5rem calc(50vw - 110px); }
     }
+
+    /* === BEFORE/AFTER === */
+    .compare {
+      padding: var(--section-pad) 0; border-top: 0.5px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
+    .compare__header { text-align: center; margin-bottom: 3rem; }
+    .compare__grid {
+      max-width: 48rem; margin: 0 auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .compare__card {
+      padding: 1.5rem; border-radius: 1rem; border: 0.5px solid var(--border-subtle);
+    }
+    .compare__card--old { background: rgba(255,255,255,0.02); }
+    .compare__card--new {
+      background: rgba(139,92,246,0.04); border-color: rgba(139,92,246,0.15);
+      box-shadow: 0 0 40px rgba(139,92,246,0.06);
+    }
+    .compare__label {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 1rem;
+    }
+    .compare__ocr {
+      font-family: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, monospace;
+      font-size: 0.8rem; line-height: 1.8; color: var(--text-quaternary);
+    }
+    .compare__field { line-height: 2; font-size: 0.875rem; }
+    .compare__field-label { color: var(--text-tertiary); }
+    .compare__field-value { color: var(--text-primary); }
+    .compare__action {
+      margin-top: 0.75rem; font-size: 0.8rem; color: var(--accent-purple); font-weight: 500;
+    }
+    @media (max-width: 639px) {
+      .compare__grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -525,7 +561,32 @@
       <p class="screenshots__types">Receipts · Contracts · Medical · Boarding Passes · Prescriptions · Warranties · Tax Docs · Invoices · Meeting Notes · Insurance · Bank Statements · Pay Stubs · and 71 more</p>
     </section>
 
-    <!-- BEFORE/AFTER -->
+    <section class="compare reveal">
+      <div class="compare__header container">
+        <span class="section-label" style="color: var(--text-secondary);">Not just another scanner</span>
+        <h2 class="section-heading">Other scanners <span style="color: var(--text-tertiary);">flatten.</span><br>OneScribe <span class="text-gradient">understands.</span></h2>
+      </div>
+      <div class="compare__grid">
+        <div class="compare__card compare__card--old">
+          <div class="compare__label" style="color: var(--accent-red);">✗ Other Scanners</div>
+          <div class="compare__ocr">
+            BEST BUY<br>Store #1234<br>04/15/2025<br>SAMSUNG TV 65"<br>$847.99<br>HDMI CABLE<br>$24.99<br>SUBTOTAL $872.98<br>TAX $69.84<br>TOTAL $942.82<br>VISA ****4821<br>THANK YOU
+          </div>
+        </div>
+        <div class="compare__card compare__card--new">
+          <div class="compare__label" style="color: var(--accent-purple);">✓ OneScribe Data Card</div>
+          <div class="compare__field">
+            <span class="compare__field-label">Vendor: </span><span class="compare__field-value">Best Buy #1234</span><br>
+            <span class="compare__field-label">Total: </span><span class="compare__field-value" style="color: var(--accent-green); font-weight: 600;">$942.82</span><br>
+            <span class="compare__field-label">Category: </span><span class="compare__field-value">Electronics</span><br>
+            <span class="compare__field-label">Items: </span><span class="compare__field-value">Samsung TV 65", HDMI Cable</span><br>
+            <span class="compare__field-label">Warranty: </span><span class="compare__field-value" style="color: var(--accent-amber);">Expires Apr 2026</span><br>
+            <span class="compare__field-label">Payment: </span><span class="compare__field-value">Visa ····4821</span>
+          </div>
+          <div class="compare__action">→ Export to Spreadsheet</div>
+        </div>
+      </div>
+    </section>
 
     <!-- FEATURE: ALERTS -->
 
