@@ -325,6 +325,63 @@
     .reveal.is-visible > *:nth-child(2) { transition-delay: 0.08s; }
     .reveal.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
     .reveal.is-visible > *:nth-child(4) { transition-delay: 0.16s; }
+
+    /* === TRUST STRIP === */
+    .trust {
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border-subtle);
+      border-bottom: 0.5px solid var(--border-subtle); background: var(--bg-card);
+    }
+    .trust__inner {
+      max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem;
+      display: flex; justify-content: center; align-items: center;
+      gap: 2.5rem; flex-wrap: wrap;
+    }
+    .trust__item { font-size: 0.875rem; font-weight: 600; white-space: nowrap; }
+
+    /* === SCREENSHOTS === */
+    .screenshots { padding: var(--section-pad) 0; overflow: hidden; }
+    .screenshots__header { text-align: center; margin-bottom: 3rem; }
+    .screenshots__sub { font-size: 1.25rem; color: var(--text-tertiary); max-width: 36rem; margin: 0 auto; }
+    .screenshots__carousel {
+      display: flex; gap: 2rem; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 2rem calc(50vw - 140px); -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .screenshots__carousel::-webkit-scrollbar { display: none; }
+    .screenshots__item {
+      flex: 0 0 auto; scroll-snap-align: center; text-align: center;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .screenshots__item:hover { transform: translateY(-4px) scale(1.01); }
+    .screenshots__frame {
+      width: 260px; border-radius: 2.5rem; border: 2.5px solid rgba(255,255,255,0.08);
+      background: #0a0a0a; padding: 0.625rem; overflow: hidden; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .screenshots__frame-notch {
+      position: absolute; top: 0.625rem; left: 50%; transform: translateX(-50%);
+      width: 4rem; height: 0.3rem; border-radius: 1rem; background: rgba(255,255,255,0.1); z-index: 2;
+    }
+    .screenshots__frame-screen { border-radius: 2rem; overflow: hidden; }
+    .screenshots__frame-screen img { width: 100%; display: block; }
+    .screenshots__frame-home {
+      position: absolute; bottom: 0.4rem; left: 50%; transform: translateX(-50%);
+      width: 2rem; height: 0.2rem; border-radius: 1rem; background: rgba(255,255,255,0.12);
+    }
+    .screenshots__caption {
+      margin-top: 1rem; font-size: 0.875rem; color: var(--text-tertiary);
+    }
+    .screenshots__types {
+      text-align: center; margin-top: 3rem; font-size: 0.875rem; color: var(--text-quaternary);
+      max-width: 48rem; margin-left: auto; margin-right: auto; padding: 0 1.5rem; line-height: 1.8;
+    }
+
+    @media (max-width: 767px) {
+      .trust__inner { gap: 1rem; justify-content: center; }
+      .trust__item { font-size: 0.8rem; }
+      .screenshots__frame { width: 220px; }
+      .screenshots__carousel { gap: 1.5rem; padding: 1.5rem calc(50vw - 110px); }
+    }
   </style>
 </head>
 <body>
@@ -388,9 +445,85 @@
 </section>
 
   <main>
-    <!-- TRUST STRIP -->
+    <section class="trust">
+      <div class="trust__inner">
+        <span class="trust__item" style="color: var(--accent-purple);">83 Doc Types</span>
+        <span class="trust__item" style="color: var(--accent-green);">100% On-Device</span>
+        <span class="trust__item" style="color: var(--accent-blue);">$0.99/mo</span>
+        <span class="trust__item" style="color: var(--accent-amber);">No Apple Intelligence Required</span>
+      </div>
+    </section>
 
-    <!-- SCREENSHOTS -->
+    <section class="screenshots reveal" id="screenshots">
+      <div class="screenshots__header">
+        <span class="section-label" style="color: var(--text-secondary);">Data Cards</span>
+        <h2 class="section-heading">See it to <span class="text-gradient">believe it.</span></h2>
+        <p class="screenshots__sub">Every scan produces a structured Data Card. Not just text — real, typed, searchable data.</p>
+      </div>
+      <div class="screenshots__carousel">
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/OneScribe1.png" alt="Receipt Data Card — vendor, total, items, warranty extracted" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Receipt → vendor, total, items, warranty</p>
+        </div>
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/OneScribe2.png" alt="Contract Data Card — parties, renewal dates, risk flags extracted" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Contract → clauses, renewal date, risk flags</p>
+        </div>
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/OneScribe3.png" alt="Event Ticket Data Card — date, venue, calendar sync" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Ticket → date, venue, calendar sync</p>
+        </div>
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/OneScribe4.png" alt="Medical Record Data Card — provider, medications, appointments" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Medical → provider, meds, appointments</p>
+        </div>
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/OneScribe5.png" alt="Invoice Data Card — amount, due date, vendor, line items" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Invoice → amount, due date, line items</p>
+        </div>
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/OneScribe6.png" alt="Business Card Data Card — name, title, phone, email extracted" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Business Card → name, phone, email</p>
+        </div>
+      </div>
+      <p class="screenshots__types">Receipts · Contracts · Medical · Boarding Passes · Prescriptions · Warranties · Tax Docs · Invoices · Meeting Notes · Insurance · Bank Statements · Pay Stubs · and 71 more</p>
+    </section>
 
     <!-- BEFORE/AFTER -->
 
