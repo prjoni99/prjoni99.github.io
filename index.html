@@ -13,13 +13,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OneScribe — Your Documents Work For You Now</title>
-  <meta name="description" content="Document intelligence for iPhone &amp; iPad. Receipts become spreadsheets. Contracts send deadline alerts. 83 AI document types, 100% on-device. Scan free, forever.">
-  <meta name="keywords" content="document scanner app, AI document scanner, receipt scanner, contract scanner, OCR app, Apple Intelligence scanner, no Apple Intelligence required, on-device AI scanner, receipt organizer, medical record scanner, expense tracking, iPhone scanner, private scanner, on-device AI, smart scanner, document intelligence">
+  <meta name="description" content="Document intelligence for iPhone &amp; iPad. Daily briefings, deadline alerts, weekly digests, and cross-document connections. 83 AI document types, 100% on-device. Scan free, forever.">
+  <meta name="keywords" content="document scanner app, AI document scanner, receipt scanner, contract scanner, OCR app, Apple Intelligence scanner, no Apple Intelligence required, on-device AI scanner, receipt organizer, medical record scanner, expense tracking, iPhone scanner, private scanner, on-device AI, smart scanner, document intelligence, daily briefing app, deadline alerts, weekly digest, document connections, drug interaction checker, FDA lookup, vehicle recall lookup">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:title" content="OneScribe — Your Documents Work For You Now">
-  <meta property="og:description" content="Document intelligence for iPhone &amp; iPad. Receipts become spreadsheets. Contracts send deadline alerts. 83 AI document types, 100% on-device. Scan free, forever.">
+  <meta property="og:description" content="Document intelligence for iPhone &amp; iPad. Daily briefings, deadline alerts, weekly digests, and cross-document connections. 83 AI document types, 100% on-device. Scan free, forever.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://getonescribe.app">
   <meta property="og:image" content="https://getonescribe.app/app-icon.png">
@@ -37,7 +37,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="OneScribe — Your Documents Work For You Now">
-  <meta name="twitter:description" content="Document intelligence for iPhone &amp; iPad. Receipts become spreadsheets. Contracts send deadline alerts. 83 AI document types, 100% on-device. Scan free, forever.">
+  <meta name="twitter:description" content="Document intelligence for iPhone &amp; iPad. Daily briefings, deadline alerts, weekly digests, and cross-document connections. 83 AI document types, 100% on-device. Scan free, forever.">
   <meta name="twitter:image" content="https://getonescribe.app/app-icon.png">
 
   <!-- Favicon -->
@@ -51,7 +51,7 @@
     "name": "OneScribe",
     "operatingSystem": "iOS 26 or later",
     "applicationCategory": "ProductivityApplication",
-    "description": "Document intelligence platform with 83 AI-powered document types. On-device processing, 100% private. Receipts, contracts, medical records & more.",
+    "description": "Document intelligence platform with 83 AI-powered document types. Daily briefings, proactive deadline alerts, weekly digests, document connections, and privacy-first Smart Lookup. On-device processing, 100% private.",
     "offers": [
       {
         "@type": "Offer",
@@ -381,6 +381,41 @@
       .trust__item { font-size: 0.8rem; }
       .screenshots__frame { width: 220px; }
       .screenshots__carousel { gap: 1.5rem; padding: 1.5rem calc(50vw - 110px); }
+    }
+
+    /* === MARKETING SHOWCASE === */
+    .showcase {
+      padding: var(--section-pad) 0; overflow: hidden;
+      border-top: 0.5px solid var(--border-subtle);
+      background: linear-gradient(180deg, transparent, rgba(139,92,246,0.025), transparent);
+    }
+    .showcase__header { text-align: center; margin-bottom: 2rem; padding: 0 1.5rem; }
+    .showcase__sub { font-size: 1.25rem; color: var(--text-tertiary); max-width: 36rem; margin: 0 auto; }
+    .showcase__row {
+      display: flex; gap: 2rem; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 2.5rem calc(50vw - 150px); -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .showcase__row::-webkit-scrollbar { display: none; }
+    .showcase__item {
+      flex: 0 0 auto; scroll-snap-align: center; text-align: center;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .showcase__item:hover { transform: translateY(-6px) scale(1.015); }
+    .showcase__media {
+      width: 300px; border-radius: 2rem; overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06);
+    }
+    .showcase__media img { width: 100%; display: block; }
+    .showcase__tag {
+      display: inline-block; margin-top: 1rem; padding: 0.25rem 0.75rem;
+      font-size: 0.75rem; font-weight: 600; color: var(--text-secondary);
+      background: var(--bg-card); border: 0.5px solid var(--border-subtle);
+      border-radius: 9999px;
+    }
+    @media (max-width: 767px) {
+      .showcase__media { width: 260px; }
+      .showcase__row { gap: 1.5rem; padding: 2rem calc(50vw - 130px); }
     }
 
     /* === BEFORE/AFTER === */
@@ -762,7 +797,7 @@
       <div class="device-frame">
         <div class="device-frame__notch" aria-hidden="true"></div>
         <div class="device-frame__screen">
-          <img src="/Screenshots/OneScribe1.png" alt="OneScribe Data Card showing a receipt with extracted vendor, total, items, and warranty info" loading="eager">
+          <img src="/Screenshots/DataCards/11-receipt-dark.png" alt="OneScribe Data Card — H-E-B receipt extracted into vendor, total, line items, warranty, and category" loading="eager">
         </div>
         <div class="device-frame__home" aria-hidden="true"></div>
       </div>
@@ -791,7 +826,7 @@
           <div class="screenshots__frame">
             <div class="screenshots__frame-notch" aria-hidden="true"></div>
             <div class="screenshots__frame-screen">
-              <img src="/Screenshots/OneScribe1.png" alt="Receipt Data Card — vendor, total, items, warranty extracted" loading="lazy">
+              <img src="/Screenshots/DataCards/11-receipt-dark.png" alt="Receipt Data Card — vendor, total, line items, warranty extracted" loading="lazy">
             </div>
             <div class="screenshots__frame-home" aria-hidden="true"></div>
           </div>
@@ -801,54 +836,120 @@
           <div class="screenshots__frame">
             <div class="screenshots__frame-notch" aria-hidden="true"></div>
             <div class="screenshots__frame-screen">
-              <img src="/Screenshots/OneScribe2.png" alt="Contract Data Card — parties, renewal dates, risk flags extracted" loading="lazy">
+              <img src="/Screenshots/DataCards/12-health-timeline-dark.png" alt="Health Timeline — prescriptions, lab results, insurance cards arranged chronologically" loading="lazy">
             </div>
             <div class="screenshots__frame-home" aria-hidden="true"></div>
           </div>
-          <p class="screenshots__caption">Contract → clauses, renewal date, risk flags</p>
+          <p class="screenshots__caption">Health Timeline → visits, meds, results in order</p>
         </div>
         <div class="screenshots__item">
           <div class="screenshots__frame">
             <div class="screenshots__frame-notch" aria-hidden="true"></div>
             <div class="screenshots__frame-screen">
-              <img src="/Screenshots/OneScribe3.png" alt="Event Ticket Data Card — date, venue, calendar sync" loading="lazy">
+              <img src="/Screenshots/DataCards/02-drivers-license-dark.png" alt="Driver's License Data Card — name, DL number, expiration extracted" loading="lazy">
             </div>
             <div class="screenshots__frame-home" aria-hidden="true"></div>
           </div>
-          <p class="screenshots__caption">Ticket → date, venue, calendar sync</p>
+          <p class="screenshots__caption">Driver's License → name, DL #, expiration</p>
         </div>
         <div class="screenshots__item">
           <div class="screenshots__frame">
             <div class="screenshots__frame-notch" aria-hidden="true"></div>
             <div class="screenshots__frame-screen">
-              <img src="/Screenshots/OneScribe4.png" alt="Medical Record Data Card — provider, medications, appointments" loading="lazy">
+              <img src="/Screenshots/DataCards/01-boarding-pass-dark.png" alt="Boarding Pass Data Card — flight number, gate, time, seat extracted with calendar sync" loading="lazy">
             </div>
             <div class="screenshots__frame-home" aria-hidden="true"></div>
           </div>
-          <p class="screenshots__caption">Medical → provider, meds, appointments</p>
+          <p class="screenshots__caption">Boarding Pass → flight, gate, calendar</p>
         </div>
         <div class="screenshots__item">
           <div class="screenshots__frame">
             <div class="screenshots__frame-notch" aria-hidden="true"></div>
             <div class="screenshots__frame-screen">
-              <img src="/Screenshots/OneScribe5.png" alt="Invoice Data Card — amount, due date, vendor, line items" loading="lazy">
+              <img src="/Screenshots/DataCards/08-prescription-label-dark.png" alt="Prescription Label Data Card — drug name, dosage, refills, interaction warnings" loading="lazy">
             </div>
             <div class="screenshots__frame-home" aria-hidden="true"></div>
           </div>
-          <p class="screenshots__caption">Invoice → amount, due date, line items</p>
+          <p class="screenshots__caption">Prescription → drug, dose, refills, interactions</p>
         </div>
         <div class="screenshots__item">
           <div class="screenshots__frame">
             <div class="screenshots__frame-notch" aria-hidden="true"></div>
             <div class="screenshots__frame-screen">
-              <img src="/Screenshots/OneScribe6.png" alt="Business Card Data Card — name, title, phone, email extracted" loading="lazy">
+              <img src="/Screenshots/DataCards/04-business-card-dark.png" alt="Business Card Data Card — name, title, phone, email extracted" loading="lazy">
             </div>
             <div class="screenshots__frame-home" aria-hidden="true"></div>
           </div>
           <p class="screenshots__caption">Business Card → name, phone, email</p>
         </div>
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/DataCards/10-wine-label-dark.png" alt="Wine Label Data Card — producer, vintage, varietal, region extracted" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Wine Label → producer, vintage, varietal, region</p>
+        </div>
+        <div class="screenshots__item">
+          <div class="screenshots__frame">
+            <div class="screenshots__frame-notch" aria-hidden="true"></div>
+            <div class="screenshots__frame-screen">
+              <img src="/Screenshots/DataCards/17-pet-dna-dark.png" alt="Pet DNA Data Card — Embark report with breeds, traits, and health markers" loading="lazy">
+            </div>
+            <div class="screenshots__frame-home" aria-hidden="true"></div>
+          </div>
+          <p class="screenshots__caption">Pet DNA → breeds, traits, health markers</p>
+        </div>
       </div>
       <p class="screenshots__types">Receipts · Contracts · Medical · Boarding Passes · Prescriptions · Warranties · Tax Docs · Invoices · Meeting Notes · Insurance · Bank Statements · Pay Stubs · and 71 more</p>
+    </section>
+
+    <section class="showcase reveal" id="showcase">
+      <div class="showcase__header">
+        <span class="section-label" style="color: var(--text-secondary);">Beyond scanning</span>
+        <h2 class="section-heading">Your documents <span class="text-gradient">earn their keep.</span></h2>
+        <p class="showcase__sub">Daily briefings. Deadline alerts. Cross-document connections. OneScribe works while you sleep.</p>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__item">
+          <div class="showcase__media">
+            <img src="/Screenshots/Marketing/06-daily-briefing-dark.png" alt="Daily Briefing — morning summary with urgent alerts, weekly spending, and upcoming deadlines" loading="lazy">
+          </div>
+          <span class="showcase__tag">Daily Briefing</span>
+        </div>
+        <div class="showcase__item">
+          <div class="showcase__media">
+            <img src="/Screenshots/Marketing/07-proactive-alerts-dark.png" alt="Proactive Alerts — insurance, subscriptions, prescriptions, and flights surfaced before they expire" loading="lazy">
+          </div>
+          <span class="showcase__tag">Proactive Alerts</span>
+        </div>
+        <div class="showcase__item">
+          <div class="showcase__media">
+            <img src="/Screenshots/Marketing/08-smart-lookup-consent-dark.png" alt="Smart Lookup privacy consent — explicit disclosure of exactly what leaves your device, with a 'What We NEVER Do' list" loading="lazy">
+          </div>
+          <span class="showcase__tag">Smart Lookup · Consent First</span>
+        </div>
+        <div class="showcase__item">
+          <div class="showcase__media">
+            <img src="/Screenshots/Marketing/09-weekly-digest-dark.png" alt="Weekly Digest — your scans, data points, spending, and insights wrapped in a shareable recap" loading="lazy">
+          </div>
+          <span class="showcase__tag">Weekly Digest</span>
+        </div>
+        <div class="showcase__item">
+          <div class="showcase__media">
+            <img src="/Screenshots/Marketing/10-document-connections-dark.png" alt="Document Connections — receipts linked to warranties, statements linked to bills, automatically" loading="lazy">
+          </div>
+          <span class="showcase__tag">Document Connections</span>
+        </div>
+        <div class="showcase__item">
+          <div class="showcase__media">
+            <img src="/Screenshots/Marketing/02-entity-recognition-dark.png" alt="Entity recognition — people, vehicles, and businesses linked across every document you scan" loading="lazy">
+          </div>
+          <span class="showcase__tag">Entity Recognition</span>
+        </div>
+      </div>
     </section>
 
     <section class="compare reveal">
@@ -983,7 +1084,9 @@
         <tr><td>Document types</td><td class="vs__check">83</td><td class="vs__x">1–5</td></tr>
         <tr><td>Structured data extraction</td><td class="vs__check">✓</td><td class="vs__x">✗</td></tr>
         <tr><td>On-device AI</td><td class="vs__check">✓</td><td class="vs__x">Cloud</td></tr>
+        <tr><td>Daily briefings &amp; weekly digest</td><td class="vs__check">✓</td><td class="vs__x">✗</td></tr>
         <tr><td>Proactive alerts</td><td class="vs__check">✓</td><td class="vs__x">✗</td></tr>
+        <tr><td>Smart Lookup (FDA, NHTSA)</td><td class="vs__check">✓</td><td class="vs__x">✗</td></tr>
         <tr><td>Document chat</td><td class="vs__check">✓</td><td class="vs__x">✗</td></tr>
         <tr><td>Smart exports</td><td class="vs__check">✓</td><td class="vs__x">Basic PDF</td></tr>
         <tr><td>Price</td><td class="vs__highlight">$9.99 forever</td><td class="vs__x">$4–10/mo</td></tr>
@@ -1012,10 +1115,11 @@
       <ul class="pricing__list">
         <li>Full Data Cards</li>
         <li>Document Chat</li>
-        <li>Smart Alerts</li>
-        <li>Daily Briefings</li>
-        <li>Smart Exports</li>
-        <li>Natural Language Search</li>
+        <li>Daily Briefings &amp; Weekly Digest</li>
+        <li>Proactive Alerts</li>
+        <li>Document Connections</li>
+        <li>Smart Lookup (FDA, NHTSA, Wikipedia)</li>
+        <li>Smart Exports &amp; Natural Language Search</li>
         <li>Cancel anytime</li>
       </ul>
       <a href="https://apps.apple.com/us/app/onescribe-ai-note-scanner/id6756506734" class="pricing__btn pricing__btn--outline">Download Free</a>
