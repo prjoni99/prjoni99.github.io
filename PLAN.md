@@ -100,7 +100,10 @@ Kept byte-for-byte in `public/`: `apple-app-site-association` (Notion OAuth univ
 - **OneScribe's `marketing/copy/claims.md` governs the copy.** It was found mid-build. It retires the "83" count, rules out "No Apple Intelligence required" (the MLX fallback hasn't passed its release gate), bars Smart Lookup until PRIVACY.md covers it, and bans a Siri count and "100% on-device". §5 above is superseded where it disagrees.
 - **Data Card library.** 92 entries extracted from the app source at `c97e14d0`: 80 document types, with the tax form split into its 11 specific forms plus a generic entry. The site prints no total.
 - **`--sub` darkened** from `#6c7079` to `#5f636c`, because the compositor value fails AA on `--paper-3`.
-- **Privacy policy carried over word for word** (February 2026). It is out of date about Smart Lookup, the model download and iCloud sync. That's for the owner to decide.
+- **Privacy policy** was first carried over word for word (February 2026). It was then **rewritten on 2026-09-25** at the owner's request, traced to the app source. It now covers:
+  - iCloud sync, Private Cloud Compute and Smart Lookup: every provider, and the exact term sent.
+  - Downloads from Hugging Face, recipe import and tracking links.
+  - Purchases, crash reports, email, this website's analytics, children, rights and changes.
 - **What's new.** The March entry is annotated (the monthly plan was retired in May), a May entry records the change, and version 1.8.6 is listed. The unreleased 1.9.0 is not.
 
 ## 9. Verification (2026-09-24, `astro preview`)

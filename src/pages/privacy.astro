@@ -2,80 +2,190 @@
 import Page from '../layouts/Page.astro';
 import { facts } from '../data/facts';
 
-// LEGAL TEXT. Carried over word for word from the previous site (policy dated
-// February 2026) during the 2026-09 redesign; only the markup changed. It no
-// longer describes everything the app does (Smart Lookup, the optional model
-// download, iCloud sync). Updating it is the owner's decision; don't edit the
-// substance here without that. See PLAN.md.
+// LEGAL TEXT, rewritten 2026-09-25 at the owner's request. Every statement is
+// traced to the OneScribe app source at 1.8.6 (52c03aa6) and main (c97e14d0),
+// and to the repo's PRIVACY.md (the in-app privacy source of truth):
+//   defaults       Features/Settings/Models/WorkflowSettings.swift
+//                  (smartLookupEnabled, iCloudSyncEnabled, enhancedAnalysisEnabled: false)
+//   Smart Lookup   Features/Intelligence/SmartLookup/Providers/*.swift
+//   PCC            PRIVACY.md, Core/PCCProvider.swift, EnhancedAnalysisService.swift
+//   downloads      Features/TTS/TTSModelDownloader.swift, LocalModels/LocalModelConfiguration.swift
+//   recipe import  Features/Library/Services/WebRecipeImporter.swift
+// Change a sentence only after checking it against the app again. Keep the App
+// Store privacy label consistent with this page.
+const updated = 'September 25, 2026';
 ---
 
 <Page
   title="Privacy policy | OneScribe"
-  description="How OneScribe handles your documents and data."
+  description="How OneScribe handles your documents: what stays on your iPhone or iPad, what can leave it, and only when you turn it on."
   heading="Privacy policy"
-  lede="Last updated: February 2026"
+  lede={`Last updated ${updated}`}
   narrow
 >
   <div class="prose">
-    <p><strong>TL;DR:</strong> OneScribe processes everything on your device. We don’t collect, store, or transmit your data. Your documents never leave your iPhone.</p>
+    <div class="short">
+      <h2>The short version</h2>
+      <ul>
+        <li>OneScribe reads your documents on your iPhone or iPad.</li>
+        <li>There’s no OneScribe account, no OneScribe server, and no analytics, advertising or crash-reporting SDK in the app. We never receive your documents or anything read from them.</li>
+        <li>A few optional features send limited information to Apple or to public services. Each one is off until you turn it on, and each is described below.</li>
+      </ul>
+    </div>
 
-    <h2>Our Philosophy</h2>
-    <p>OneScribe was built with privacy as a core principle. Your thoughts, documents, and personal information should remain completely private. That’s why we process everything on your device: no cloud servers, no data collection, no tracking.</p>
+    <h2>Who we are</h2>
+    <p>
+      OneScribe is made by Casa Vargas LLC, a software company in North Carolina, USA
+      (“we”, “us”). This policy covers the OneScribe app for iPhone and iPad and this
+      website, getonescribe.app. Questions go to
+      <a href={`mailto:${facts.privacyEmail}`}>{facts.privacyEmail}</a>.
+    </p>
 
-    <h2>What We Don’t Collect</h2>
-    <p>OneScribe does not collect, store, or transmit:</p>
+    <h2>What stays on your device</h2>
+    <p>These happen on your iPhone or iPad, using Apple’s on-device frameworks:</p>
     <ul>
-      <li>Scanned documents or images</li>
-      <li>Extracted text or OCR results</li>
-      <li>AI analysis results or Data Card contents</li>
-      <li>Usage analytics or behavioral data</li>
-      <li>Device identifiers</li>
-      <li>Location data</li>
-    </ul>
-    <p>Zero data collection means zero privacy risk.</p>
-
-    <h2>On-Device Processing</h2>
-    <p>All processing happens locally on your iPhone or iPad:</p>
-    <ul>
-      <li>OCR: Apple Vision Framework (on-device)</li>
-      <li>AI Analysis: Apple Intelligence / Foundation Models (on-device)</li>
-      <li>Document Classification: On-device machine learning</li>
-      <li>Data Card Generation: Processed entirely on your device</li>
-    </ul>
-    <p>Your scanned documents and AI insights never leave your device during processing.</p>
-
-    <h2>Exports via Share Sheet</h2>
-    <p>When you export documents using the iOS Share Sheet:</p>
-    <ul>
-      <li>Documents go directly to your chosen app via iOS sharing</li>
-      <li>No intermediate servers are involved</li>
-      <li>OneScribe has no access to your accounts in other apps</li>
-      <li>We never see your credentials or authentication tokens</li>
-    </ul>
-    <p>Once shared, your documents are subject to the privacy policies of the receiving apps (Apple Notes, Bear, Email, etc.).</p>
-
-    <h2>Local Storage</h2>
-    <p>OneScribe stores locally on your device:</p>
-    <ul>
-      <li>Scanned images (until you delete them)</li>
-      <li>App settings and preferences</li>
-      <li>Document library and metadata</li>
-      <li>AI-generated insights and Data Cards</li>
-    </ul>
-    <p>Deleting the app removes all local data.</p>
-
-    <h2>Your Rights</h2>
-    <p>Since we don’t collect your data, there’s nothing to request, delete, or export from us. You have full control:</p>
-    <ul>
-      <li>Delete scanned documents from your device anytime</li>
-      <li>Uninstall the app to remove all local data</li>
-      <li>Your data is yours; we never have access to it</li>
+      <li>Scanning, text recognition (Apple Vision), and reading documents into Data Cards (Apple’s on-device Foundation Models).</li>
+      <li>Search, document chat, voice questions and Siri requests, daily briefings, deadline alerts and connections between documents.</li>
+      <li>Your library: page images, recognized text, Data Cards and settings are stored in the app on your device. Deleting the app deletes them, unless you’ve turned on iCloud sync.</li>
+      <li>Spotlight search: document titles and metadata are indexed on your device so iOS search can find them. Documents you’ve locked are indexed without their text.</li>
+      <li>Notifications for deadlines and briefings are scheduled on your device.</li>
     </ul>
 
-    <h2>Changes</h2>
-    <p>We may update this policy. Changes will be posted here with an updated date. Material changes will be communicated through the app.</p>
+    <h2>What can leave your device, and only if you turn it on</h2>
 
-    <h2>Questions?</h2>
-    <p>Contact us at <a href={`mailto:${facts.privacyEmail}`}>{facts.privacyEmail}</a></p>
+    <h3>iCloud sync (off by default)</h3>
+    <p>
+      When you turn it on, your library syncs through Apple’s iCloud (CloudKit) under
+      your Apple Account, so it appears on your other devices. It’s stored by Apple and
+      governed by Apple’s privacy policy. We have no access to it.
+    </p>
+
+    <h3>Private Cloud Compute (off by default)</h3>
+    <p>
+      Private Cloud Compute is Apple’s server-side Apple Intelligence. OneScribe only
+      uses it when you turn on the switch in Settings, which requires Pro and Apple
+      Intelligence. With it on, depending on your version of OneScribe:
+    </p>
+    <ul>
+      <li><strong>Enhanced Analysis</strong>, which you run on one document at a time, sends that document’s text to Private Cloud Compute. It never sends page images, and a locked document asks you first, every time.</li>
+      <li><strong>Questions across your library</strong> can be answered there from a compact index: your question, your last few questions and answers, and one short line per document (its type, title, date, vendor, amount, key dates and a one-sentence summary). Page images, recognized text and locked documents are never sent, unless you choose to include locked documents for that one question.</li>
+    </ul>
+    <p>
+      Every answer says whether it ran on your device or on Private Cloud Compute.
+      Apple states that it does not store Private Cloud Compute requests. We never
+      receive them.
+    </p>
+
+    <h3>Smart Lookup (off by default)</h3>
+    <p>
+      Smart Lookup adds public reference information to some Data Cards. When it’s on,
+      OneScribe sends a single search term, never the document, directly from your
+      device to one of these public services:
+    </p>
+    <ul>
+      <li>A medication name to the U.S. Food and Drug Administration (openFDA).</li>
+      <li>A vehicle’s VIN, or its year, make and model, to the U.S. National Highway Traffic Safety Administration (NHTSA).</li>
+      <li>A product name or barcode to Open Food Facts.</li>
+      <li>A book’s ISBN to Open Library, or to Google Books if Open Library has no match.</li>
+      <li>A place or topic name to Wikipedia.</li>
+      <li>A country name to REST Countries.</li>
+    </ul>
+    <p>
+      Like any web request, these services also see your IP address. Their own privacy
+      policies apply. The results come back to your device; we don’t receive the term
+      or the results.
+    </p>
+
+    <h2>Things you start yourself</h2>
+    <ul>
+      <li><strong>Downloads.</strong> Optional on-device voices and models are downloaded from Hugging Face when you choose to download them. Hugging Face sees the download request, including your IP address, but nothing from your library.</li>
+      <li><strong>Recipes from the web.</strong> When you import a recipe from a link, OneScribe fetches that web page, and the website sees the request.</li>
+      <li><strong>Tracking links.</strong> When you track a package or a flight, OneScribe opens the carrier’s or flight tracker’s website in your browser with that tracking or flight number.</li>
+      <li><strong>Sharing and exporting.</strong> Exports go through the iOS Share Sheet straight to the app or person you choose, with no server of ours in between. After that, the receiving app’s privacy policy applies. OneScribe doesn’t ask for or store your credentials for other apps.</li>
+    </ul>
+
+    <h2>Purchases</h2>
+    <p>
+      OneScribe Pro is sold by Apple through the App Store. Apple handles payment; we
+      never receive your payment details. Apple gives us sales reports that don’t
+      identify you.
+    </p>
+
+    <h2>Crash reports and diagnostics</h2>
+    <p>
+      The app contains no crash reporter and no analytics. If you choose to share
+      analytics with app developers in your device’s settings, Apple may provide us
+      with crash reports and aggregated usage statistics that don’t identify you. The
+      app writes technical events to your device’s own log, which stays on your device
+      unless you share it.
+    </p>
+
+    <h2>Email</h2>
+    <p>
+      If you write to us, we receive your email address and what you send, and use them
+      only to reply. Ask us and we’ll delete the conversation.
+    </p>
+
+    <h2>This website</h2>
+    <p>
+      getonescribe.app uses Google Analytics and Plausible Analytics to count visits
+      and see which pages are read. Google Analytics uses cookies and processes
+      information such as your IP address, device and browser under Google’s privacy
+      policy. Plausible doesn’t use cookies. You can block both with a content blocker,
+      and the site works without them.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      OneScribe isn’t directed to children under 13, and we don’t knowingly collect
+      personal information from anyone.
+    </p>
+
+    <h2>Your choices and rights</h2>
+    <p>
+      Because we don’t hold your documents or an account for you, everything OneScribe
+      stores is on your device or in your own iCloud, and you control it:
+    </p>
+    <ul>
+      <li>Delete any document in the app at any time.</li>
+      <li>Turn iCloud sync, Private Cloud Compute or Smart Lookup off in Settings.</li>
+      <li>Delete the app to remove its data from your device. If you used iCloud sync, you can also remove OneScribe’s data from iCloud in your device’s iCloud settings.</li>
+    </ul>
+    <p>
+      For anything we do hold, such as email with us, you can ask to see it, correct it
+      or delete it, whatever the law where you live. Write to
+      <a href={`mailto:${facts.privacyEmail}`}>{facts.privacyEmail}</a> and we’ll
+      respond within 30 days.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      When OneScribe changes what it does with your information, we’ll update this page
+      and its date, and describe material changes in the app’s release notes.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Casa Vargas LLC, North Carolina, USA.
+      <a href={`mailto:${facts.privacyEmail}`}>{facts.privacyEmail}</a>
+    </p>
   </div>
 </Page>
+
+<style>
+  .short {
+    margin-bottom: 2.5rem;
+    padding: 1.4rem 1.6rem 0.4rem;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: var(--lift);
+  }
+  .short h2 { margin-top: 0 !important; }
+  .prose :global(h3) {
+    margin: 1.8rem 0 0.4rem;
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+</style>
