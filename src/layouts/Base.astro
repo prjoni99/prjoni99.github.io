@@ -1,0 +1,94 @@
+---
+// Loaded only where SF Pro isn't available (Windows, Android, Linux): the
+// system stack comes first, so Apple devices never download it.
+import '@fontsource-variable/inter-tight';
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { facts } from '../data/facts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title = 'OneScribe | The document scanner that reads what it scans',
+  description = `OneScribe turns receipts, tickets, labels and letters into structured Data Cards, read on your iPhone or iPad. Free to scan. Pro is ${facts.proPrice} once.`,
+  ogImage = '/og/onescribe.png',
+  ogType = 'website',
+  schema,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogAbsolute = new URL(ogImage, Astro.site).href;
+const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#faf9f6" />
+    <meta name="color-scheme" content="light" />
+    <meta name="apple-itunes-app" content={`app-id=${facts.appStoreId}`} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogAbsolute} />
+    <meta property="og:site_name" content="OneScribe" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogAbsolute} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon-256.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XQ50EWVB2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8XQ50EWVB2');
+    </script>
+    <script defer data-domain="getonescribe.app" src="https://analytics.jonvargas.net/js/script.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  .skip {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .skip:focus { top: 1rem; }
+</style>

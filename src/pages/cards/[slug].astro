@@ -1,0 +1,136 @@
+---
+import Base from '../../layouts/Base.astro';
+import Specimen from '../../components/Specimen.astro';
+import { cards, related, catSlug, withArticle, type DataCard } from '../../data/cards';
+import { facts } from '../../data/facts';
+
+export function getStaticPaths() {
+  return cards.map((card) => ({ params: { slug: card.slug }, props: { card } }));
+}
+
+const { card } = Astro.props as { card: DataCard & { slug: string } };
+const others = related(card);
+const aName = withArticle(card.name);
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${card.name} Data Card`,
+    description: card.summary,
+    url: `https://getonescribe.app/cards/${card.slug}/`,
+    isPartOf: { '@type': 'CollectionPage', name: 'OneScribe Data Card library', url: 'https://getonescribe.app/cards/' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Data Cards', item: 'https://getonescribe.app/cards/' },
+      { '@type': 'ListItem', position: 2, name: card.name },
+    ],
+  },
+];
+---
+
+<Base
+  title={`Scan ${aName} on iPhone | OneScribe Data Card`}
+  description={`${card.summary} OneScribe reads ${aName} on your ${facts.platforms} and turns it into a Data Card.`}
+  ogImage="/og/cards.png"
+  schema={schema}
+>
+  <div class="wrap card-page">
+    <nav class="crumbs small" aria-label="Breadcrumb">
+      <a href="/cards/">Data Cards</a> <span aria-hidden="true">/</span> <a href={`/cards/#${catSlug(card.category)}`}>{card.category}</a>
+    </nav>
+
+    <div class="card-page__grid">
+      <div>
+        <h1 class="display card-page__title">{card.name}</h1>
+        <p class="lede card-page__lede">{card.summary}</p>
+
+        {card.actions.length > 0 && (
+          <div class="card-page__actions">
+            <h2 class="card-page__label">Then it can</h2>
+            <ul>{card.actions.map((a) => <li>{a}</li>)}</ul>
+          </div>
+        )}
+
+        <p class="card-page__cta">
+          <a class="button" href={facts.appStoreUrl} rel="noopener">Scan one with OneScribe</a>
+          <span class="small">Free to scan. Full Data Cards with Pro, {facts.proPrice} once.</span>
+        </p>
+      </div>
+
+      <div class="card-page__spec">
+        <h2 class="card-page__label">What OneScribe reads</h2>
+        <Specimen name={card.name} category={card.category} fields={card.fields} />
+      </div>
+    </div>
+
+    {others.length > 0 && (
+      <section class="more" aria-labelledby="more-title">
+        <h2 id="more-title" class="title more__title">More in {card.category}</h2>
+        <ul class="more__list">
+          {others.map((o) => (
+            <li><Specimen name={o.name} category={o.category} fields={o.fields} href={`/cards/${o.slug}/`} compact /></li>
+          ))}
+        </ul>
+        <p><a class="link" href="/cards/">All Data Cards</a></p>
+      </section>
+    )}
+  </div>
+</Base>
+
+<style>
+  .card-page { padding-block: clamp(2rem, 5vw, 3.5rem) 0; }
+  .crumbs a { color: var(--sub); text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); }
+  .crumbs span { margin-inline: 0.35rem; color: var(--faint); }
+
+  .card-page__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  .card-page__title { font-size: clamp(2.75rem, 6vw, 5rem); }
+  .card-page__lede { margin-top: 1.3rem; max-width: 30em; }
+
+  .card-page__label {
+    margin: 0 0 0.8rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--sub);
+  }
+  .card-page__actions { margin-top: 2.2rem; }
+  .card-page__actions ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .card-page__actions li {
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: #0b4fb8;   /* --accent on --accent-soft is 4.25:1; this clears AA */
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  .card-page__cta { display: flex; align-items: center; flex-wrap: wrap; gap: 1.1rem; margin-top: 2.4rem; }
+  .card-page__spec { position: sticky; top: 5.5rem; }
+
+  .more { margin-top: clamp(4rem, 8vw, 6rem); }
+  .more__title { font-size: clamp(1.7rem, 3vw, 2.25rem); }
+  .more__list {
+    list-style: none;
+    margin: 1.6rem 0 1.4rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 860px) {
+    .card-page__grid { grid-template-columns: 1fr; }
+    .card-page__spec { position: static; }
+    .more__list { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) { .more__list { grid-template-columns: 1fr; } }
+</style>

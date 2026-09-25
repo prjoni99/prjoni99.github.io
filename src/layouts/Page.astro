@@ -1,0 +1,47 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  lede?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  narrow?: boolean;
+}
+
+const { title, description, heading, lede, schema, narrow = false } = Astro.props;
+---
+
+<Base title={title} description={description} schema={schema}>
+  <header class="wrap page-head">
+    <h1 class="display page-head__title">{heading}</h1>
+    {lede && <p class="lede page-head__lede">{lede}</p>}
+  </header>
+  <div class:list={['wrap', 'page-body', narrow && 'page-body--narrow']}>
+    <slot />
+  </div>
+</Base>
+
+<style>
+  .page-head { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem); }
+  .page-head__title { font-size: clamp(2.75rem, 6vw, 5rem); max-width: 14em; }
+  .page-head__lede { margin-top: 1.3rem; max-width: 34em; }
+  /* Narrow pages keep the page's left edge; only the measure shrinks. */
+  .page-body--narrow > :global(*) { max-width: 50rem; }
+
+  /* Long-form prose (privacy, support answers). */
+  .page-body :global(.prose) { max-width: 42rem; }
+  .page-body :global(.prose h2) {
+    margin: 2.6rem 0 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .page-body :global(.prose p),
+  .page-body :global(.prose ul) { margin: 0 0 1rem; color: #3a3d46; }
+  .page-body :global(.prose ul) { padding-left: 1.2rem; }
+  .page-body :global(.prose li) { margin-bottom: 0.35rem; }
+  .page-body :global(.prose a) { color: var(--accent); }
+</style>

@@ -1,0 +1,158 @@
+---
+// The printed boarding pass that sits beside the phone in the hero. Same
+// fictional flight as the capture (Pacifica Air PA 1924, ORD to SFO) so the
+// paper and the Data Card visibly describe one document.
+const read = [
+  ['Flight', 'PA 1924'],
+  ['Gate', 'C18'],
+  ['Seat', '7A'],
+  ['Boards', '07:40'],
+];
+---
+
+<figure class="pass" aria-label="A printed boarding pass for Pacifica Air flight PA 1924, Chicago to San Francisco">
+  <div class="pass__sheet" aria-hidden="true">
+    <div class="pass__top">
+      <span class="pass__airline">PACIFICA AIR</span>
+      <span>BOARDING PASS</span>
+    </div>
+    <div class="pass__route">
+      <div><b>ORD</b><small>CHICAGO</small></div>
+      <span class="pass__plane">✈︎</span>
+      <div><b>SFO</b><small>SAN FRANCISCO</small></div>
+    </div>
+    <dl class="pass__fields">
+      {read.map(([k, v], i) => (
+        <div class="pass__field" style={`--i:${i}`}>
+          <dt>{k.toUpperCase()}</dt>
+          <dd>{v}</dd>
+        </div>
+      ))}
+    </dl>
+    <div class="pass__foot">
+      <span>CHEN/JAMES</span>
+      <span>20 FEB 2026</span>
+      <span>ECONOMY PLUS</span>
+    </div>
+    <div class="pass__barcode"></div>
+    <div class="pass__scan"></div>
+  </div>
+</figure>
+
+<style>
+  .pass { margin: 0; }
+
+  .pass__sheet {
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem 1.6rem 1.3rem;
+    background:
+      radial-gradient(120% 90% at 10% 0%, rgba(255, 255, 255, 0.9), transparent 60%),
+      var(--sheet);
+    border-radius: 6px;
+    box-shadow:
+      0 0 0 1px rgba(21, 23, 30, 0.06),
+      0 1px 2px rgba(21, 23, 30, 0.06),
+      0 24px 40px -26px rgba(21, 23, 30, 0.45);
+    font-family: var(--font-mono);
+    font-size: clamp(0.7rem, 1vw, 0.8125rem);
+    letter-spacing: 0.02em;
+    color: #2a2c33;
+    transform: rotate(-3.5deg);
+  }
+
+  .pass__top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px dashed rgba(21, 23, 30, 0.25);
+    font-size: 0.72rem;
+    color: #6a6d75;
+  }
+  .pass__airline { font-weight: 700; color: #2a2c33; }
+
+  .pass__route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 0 0.9rem;
+  }
+  .pass__route b { display: block; font-size: 2.4em; line-height: 1; letter-spacing: 0; }
+  .pass__route small { font-size: 0.66rem; color: #6a6d75; }
+  .pass__route > div:last-child { text-align: right; }
+  .pass__plane { font-size: 1.1rem; color: #6a6d75; }
+
+  .pass__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0;
+  }
+  .pass__field {
+    position: relative;
+    padding: 0.45rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(21, 23, 30, 0.035);
+  }
+  .pass__field dt { font-size: 0.62rem; color: #6a6d75; }
+  .pass__field dd { margin: 0.15rem 0 0; font-size: 1.12em; font-weight: 700; color: #1d1f25; white-space: nowrap; letter-spacing: 0; }
+
+  /* Each field lights up as the scan line passes over it. */
+  .pass__field::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 5px;
+    border: 1.5px solid var(--accent);
+    background: var(--accent-soft);
+    opacity: 0;
+    animation: read 0.5s ease-out forwards;
+    animation-delay: calc(0.95s + var(--i) * 0.09s);
+  }
+
+  .pass__foot {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    color: #6a6d75;
+  }
+
+  .pass__barcode {
+    height: 34px;
+    margin-top: 0.9rem;
+    background: repeating-linear-gradient(90deg,
+      #2a2c33 0 2px, transparent 2px 4px, #2a2c33 4px 5px, transparent 5px 8px,
+      #2a2c33 8px 11px, transparent 11px 12px, #2a2c33 12px 13px, transparent 13px 16px);
+    opacity: 0.85;
+  }
+
+  /* The one motion moment on the page: a single scan pass on load. */
+  .pass__scan {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    background: var(--accent);
+    box-shadow: 0 0 18px 6px rgba(19, 102, 230, 0.35);
+    opacity: 0;
+    animation: scan 1.7s cubic-bezier(0.45, 0, 0.25, 1) 0.35s forwards;
+  }
+
+  @keyframes scan {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  @keyframes read {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pass__scan { display: none; }
+    .pass__field::after { animation: none; opacity: 1; }
+  }
+</style>
