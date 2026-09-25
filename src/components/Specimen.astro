@@ -1,0 +1,86 @@
+---
+// A Data Card drawn as a blank form: the fields OneScribe fills in for this
+// kind of document. It shows the schema, never invented values.
+interface Props {
+  name: string;
+  category: string;
+  fields: string[];
+  href?: string;
+  compact?: boolean;
+}
+
+const { name, category, fields, href, compact = false } = Astro.props;
+const shown = compact ? fields.slice(0, 4) : fields;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag class:list={['spec', compact && 'spec--compact']} href={href}>
+  <div class="spec__head">
+    <span class="spec__name">{name}</span>
+    <span class="spec__cat">{category}</span>
+  </div>
+  <dl class="spec__fields">
+    {shown.map((f, i) => (
+      <div class="spec__row">
+        <dt>{f}</dt>
+        <dd><span class="spec__blank" style={`--w:${38 + ((i * 29) % 45)}%`}></span></dd>
+      </div>
+    ))}
+  </dl>
+  {compact && fields.length > shown.length && <p class="spec__more">and {fields.length - shown.length} more fields</p>}
+</Tag>
+
+<style>
+  .spec {
+    display: block;
+    padding: 1.1rem 1.2rem 1rem;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: var(--lift);
+    color: var(--ink);
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  a.spec:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 2px rgba(21, 23, 30, 0.06), 0 18px 36px -18px rgba(21, 23, 30, 0.35);
+  }
+
+  .spec__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.8rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .spec__name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: -0.02em;
+  }
+  .spec__cat { font-size: 0.8125rem; color: var(--sub); white-space: nowrap; }
+
+  .spec__fields { margin: 0.4rem 0 0; }
+  .spec__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.8rem;
+    align-items: center;
+    padding-block: 0.45rem;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .spec__row:last-child { border-bottom: 0; }
+  .spec__row dt { font-size: 0.9rem; color: var(--sub); }
+  .spec__row dd { margin: 0; }
+  /* The value OneScribe will fill in: a faint blank, not a fake value. */
+  .spec__blank {
+    display: block;
+    width: var(--w);
+    height: 0.55rem;
+    border-radius: 3px;
+    background: var(--paper-3);
+  }
+  .spec__more { margin: 0.5rem 0 0; font-size: 0.8125rem; color: var(--sub); }
+</style>

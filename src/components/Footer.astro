@@ -1,0 +1,86 @@
+---
+import { facts } from '../data/facts';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <p class="footer__line">OneScribe reads what you scan, on your {facts.platforms}.</p>
+      <p class="small">Requires {facts.requires}. Free to scan; Pro is {facts.proPrice} once.</p>
+      <a class="footer__badge" href={facts.appStoreUrl} rel="noopener">
+        <img src="/app-store-badge-black.svg" alt="Download on the App Store" width="150" height="50" loading="lazy" />
+      </a>
+    </div>
+    <nav aria-label="Product">
+      <h2 class="footer__head">Product</h2>
+      <ul>
+        <li><a href="/cards/">Data Cards</a></li>
+        <li><a href="/features/">Features</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/whats-new/">What’s new</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Help">
+      <h2 class="footer__head">Help</h2>
+      <ul>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/privacy/">Privacy policy</a></li>
+        <li><a href={`mailto:${facts.supportEmail}`}>{facts.supportEmail}</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap footer__base small">
+    <p>© 2025–{year} Casa Vargas LLC, North Carolina</p>
+    <p>Made by <a href="https://casavargas.app/work/onescribe/">CasaVargas</a>, a one-person software studio.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: clamp(4rem, 9vw, 7rem);
+    background: var(--paper-3);
+    border-top: 1px solid var(--rule);
+    padding-top: clamp(3rem, 6vw, 4.5rem);
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  .footer__line {
+    margin: 0 0 0.4rem;
+    max-width: 22ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+  .footer__badge { display: inline-block; margin-top: 1.2rem; }
+  .footer__badge img { display: block; height: 44px; width: auto; }
+  .footer__head {
+    margin: 0 0 0.8rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--sub);
+  }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+  ul a { color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+  ul a:hover { color: var(--accent); }
+  .footer__base {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem 2rem;
+    margin-top: 3rem;
+    padding-block: 1.4rem 2rem;
+    background: linear-gradient(var(--rule), var(--rule)) center top / calc(100% - 2 * var(--gutter)) 1px no-repeat;
+  }
+  .footer__base p { margin: 0; }
+  .footer__base a { color: var(--ink); }
+  @media (max-width: 900px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .footer__grid > :first-child { grid-column: 1 / -1; }
+  }
+</style>

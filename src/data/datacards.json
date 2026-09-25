@@ -1,0 +1,1841 @@
+[
+  {
+    "id": "driversLicense",
+    "name": "Driver's license",
+    "category": "Identity",
+    "summary": "Reads your name, license number, class and expiration date from the front of the card, or from the barcode on the back when it can be decoded, so renewal is easy to track.",
+    "fields": [
+      "Full name",
+      "License number",
+      "Issuing state",
+      "License class",
+      "Date of birth",
+      "Expiration date",
+      "Address",
+      "Restrictions and endorsements"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "car.fill"
+  },
+  {
+    "id": "stateId",
+    "name": "State ID",
+    "category": "Identity",
+    "summary": "Keeps the name, ID number, date of birth and expiration date from a state ID card, reading the barcode on the back when it can be decoded.",
+    "fields": [
+      "Full name",
+      "ID number",
+      "Issuing state",
+      "Date of birth",
+      "Address",
+      "Issue date",
+      "Expiration date"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "person.text.rectangle.fill"
+  },
+  {
+    "id": "passport",
+    "name": "Passport",
+    "category": "Identity",
+    "summary": "Reads the machine-readable lines on the photo page, checks their check digits, and keeps your passport number and expiration date on hand.",
+    "fields": [
+      "Full name",
+      "Passport number",
+      "Nationality",
+      "Issuing country",
+      "Date of birth",
+      "Sex",
+      "Expiration date"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "airplane.circle.fill"
+  },
+  {
+    "id": "ssnCard",
+    "name": "Social Security card",
+    "category": "Identity",
+    "summary": "Stores the name and number from a Social Security card as a structured record, so you are not digging out the card itself.",
+    "fields": [
+      "Full name",
+      "Social Security number",
+      "Issuing authority"
+    ],
+    "actions": [],
+    "symbol": "lock.shield.fill"
+  },
+  {
+    "id": "greenCard",
+    "name": "Green card",
+    "category": "Identity",
+    "summary": "Pulls the card number, name, nationality and expiration date from a permanent resident card, reading the machine-readable lines on the back when present.",
+    "fields": [
+      "Full name",
+      "Card number",
+      "Nationality",
+      "Date of birth",
+      "Issue date",
+      "Expiration date"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "checkmark.rectangle.portrait.fill"
+  },
+  {
+    "id": "visa",
+    "name": "Visa",
+    "category": "Identity",
+    "summary": "Reads the visa number, issuing country and validity dates from a visa, including its machine-readable lines when present.",
+    "fields": [
+      "Full name",
+      "Visa number",
+      "Nationality",
+      "Issuing country",
+      "Date of birth",
+      "Issue date",
+      "Expiration date"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "globe.americas.fill"
+  },
+  {
+    "id": "militaryId",
+    "name": "Military ID",
+    "category": "Identity",
+    "summary": "Keeps the name, ID number, issuing authority and expiration date from a military ID card.",
+    "fields": [
+      "Full name",
+      "ID number",
+      "Issuing authority",
+      "Date of birth",
+      "Issue date",
+      "Expiration date"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "shield.checkered"
+  },
+  {
+    "id": "immigration",
+    "name": "Immigration document",
+    "category": "Identity",
+    "summary": "Reads work permits, I-94 records and similar immigration papers for status, visa category, key numbers and the dates they are valid.",
+    "fields": [
+      "Document type",
+      "Full name",
+      "USCIS number",
+      "Status",
+      "Visa category",
+      "Employment authorization",
+      "Valid from",
+      "Expiration date"
+    ],
+    "actions": [],
+    "symbol": "airplane.arrival"
+  },
+  {
+    "id": "certificate",
+    "name": "Certificate",
+    "category": "Identity",
+    "summary": "Handles diplomas, marriage certificates and professional certifications, pulling the recipient, issuer, dates and certificate number.",
+    "fields": [
+      "Certificate type",
+      "Title",
+      "Recipient",
+      "Issuing authority",
+      "Issue date",
+      "Certificate number",
+      "Degree or field of study",
+      "Expiration date"
+    ],
+    "actions": [],
+    "symbol": "rosette"
+  },
+  {
+    "id": "birthCertificate",
+    "name": "Birth certificate",
+    "category": "Identity",
+    "summary": "Pulls the name, date, time and place of birth, the parents' names and the certificate number from a birth certificate.",
+    "fields": [
+      "Name",
+      "Date of birth",
+      "Time of birth",
+      "Place of birth",
+      "Sex",
+      "Parents' names",
+      "Certificate number",
+      "Registration date"
+    ],
+    "actions": [],
+    "symbol": "figure.and.child.holdinghands"
+  },
+  {
+    "id": "receipt",
+    "name": "Receipt",
+    "category": "Financial & Tax",
+    "summary": "Turns a receipt into a record of the store, items, tax and total, and notes the return window when one is printed.",
+    "fields": [
+      "Vendor",
+      "Purchase date",
+      "Line items",
+      "Subtotal",
+      "Tax",
+      "Total",
+      "Payment method",
+      "Return window"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Expense report"
+    ],
+    "symbol": "receipt"
+  },
+  {
+    "id": "invoice",
+    "name": "Invoice",
+    "category": "Financial & Tax",
+    "summary": "Captures who billed you, for what, the amount due and the due date, and shows whether the invoice is paid or overdue.",
+    "fields": [
+      "Vendor",
+      "Invoice number",
+      "Issue date",
+      "Due date",
+      "Line items",
+      "Tax",
+      "Total",
+      "Amount due"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Set a reminder"
+    ],
+    "symbol": "doc.text.fill"
+  },
+  {
+    "id": "bankStatement",
+    "name": "Bank statement",
+    "category": "Financial & Tax",
+    "summary": "Summarizes a statement period with opening and closing balances, total deposits and withdrawals, interest earned and fees.",
+    "fields": [
+      "Bank",
+      "Account type",
+      "Account (last 4 digits)",
+      "Statement period",
+      "Opening balance",
+      "Closing balance",
+      "Total deposits",
+      "Total withdrawals"
+    ],
+    "actions": [
+      "Export to spreadsheet"
+    ],
+    "symbol": "building.columns.fill"
+  },
+  {
+    "id": "creditCardStatement",
+    "name": "Credit card statement",
+    "category": "Financial & Tax",
+    "summary": "Pulls the balance, minimum payment, due date, APR and available credit so you can see what is owed and when.",
+    "fields": [
+      "Card issuer",
+      "Account (last 4 digits)",
+      "Statement period",
+      "Current balance",
+      "Minimum payment",
+      "Payment due date",
+      "APR",
+      "Available credit"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar"
+    ],
+    "symbol": "creditcard.fill"
+  },
+  {
+    "id": "investmentStatement",
+    "name": "Investment statement",
+    "category": "Financial & Tax",
+    "summary": "Shows how a brokerage or retirement account changed over the period, with contributions, withdrawals, dividends and top holdings.",
+    "fields": [
+      "Institution",
+      "Account type",
+      "Statement period",
+      "Beginning value",
+      "Ending value",
+      "Net change",
+      "Contributions",
+      "Top holdings"
+    ],
+    "actions": [
+      "Export to spreadsheet"
+    ],
+    "symbol": "chart.line.uptrend.xyaxis"
+  },
+  {
+    "id": "payStub",
+    "name": "Pay stub",
+    "category": "Financial & Tax",
+    "summary": "Breaks a pay stub into gross pay, net pay, each tax and deduction, and year-to-date totals.",
+    "fields": [
+      "Employer",
+      "Pay date",
+      "Pay period",
+      "Gross pay",
+      "Net pay",
+      "Taxes withheld",
+      "Deductions",
+      "Year-to-date totals"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Tax package"
+    ],
+    "symbol": "banknote.fill"
+  },
+  {
+    "id": "check",
+    "name": "Check",
+    "category": "Financial & Tax",
+    "summary": "Reads the payee, amount, date, check number and memo, and notes whether the check is signed or voided.",
+    "fields": [
+      "Payee",
+      "Amount",
+      "Check date",
+      "Check number",
+      "Bank",
+      "Memo",
+      "Routing number",
+      "Account number"
+    ],
+    "actions": [
+      "Export to spreadsheet"
+    ],
+    "symbol": "dollarsign.bank.building.fill"
+  },
+  {
+    "id": "mortgageStatement",
+    "name": "Mortgage statement",
+    "category": "Financial & Tax",
+    "summary": "Shows the payment due, how it splits into principal, interest and escrow, and the balance left on the loan.",
+    "fields": [
+      "Lender",
+      "Loan number",
+      "Monthly payment",
+      "Payment due date",
+      "Principal balance",
+      "Interest rate",
+      "Escrow balance",
+      "Year-to-date interest"
+    ],
+    "actions": [
+      "Add to Calendar",
+      "Property binder"
+    ],
+    "symbol": "house.fill"
+  },
+  {
+    "id": "propertyTax",
+    "name": "Property tax bill",
+    "category": "Financial & Tax",
+    "summary": "Pulls the assessed value, tax owed and installment due dates from a property tax bill.",
+    "fields": [
+      "Taxing authority",
+      "Property address",
+      "Parcel number",
+      "Tax year",
+      "Assessed value",
+      "Tax amount",
+      "Due date",
+      "Installments"
+    ],
+    "actions": [
+      "Add to Calendar",
+      "Property binder"
+    ],
+    "symbol": "house.circle.fill"
+  },
+  {
+    "id": "expenseReport",
+    "name": "Expense report",
+    "category": "Financial & Tax",
+    "summary": "Reads a submitted expense report for totals by category, any advance received, the amount due back and approval status.",
+    "fields": [
+      "Employee",
+      "Trip or project",
+      "Period",
+      "Total amount",
+      "Category breakdown",
+      "Advance received",
+      "Amount due",
+      "Approval status"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Tax package"
+    ],
+    "symbol": "dollarsign.arrow.circlepath"
+  },
+  {
+    "id": "tax",
+    "name": "Tax document",
+    "category": "Financial & Tax",
+    "summary": "For tax forms without their own layout, pulls the form type, tax year, payer, main amount and federal and state withholding.",
+    "fields": [
+      "Form type",
+      "Tax year",
+      "Payer",
+      "Payer tax ID",
+      "Recipient",
+      "Total amount",
+      "Federal tax withheld",
+      "State tax withheld"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Set a reminder",
+      "Tax package"
+    ],
+    "symbol": "dollarsign.square.fill"
+  },
+  {
+    "id": "tax1040",
+    "name": "Form 1040 tax return",
+    "category": "Financial & Tax",
+    "summary": "Reads the main lines of a 1040, from total income and adjusted gross income to total tax and your refund or balance due.",
+    "fields": [
+      "Tax year",
+      "Filing status",
+      "Taxpayer",
+      "Total income",
+      "Adjusted gross income",
+      "Taxable income",
+      "Total tax",
+      "Refund or amount owed"
+    ],
+    "actions": [
+      "Set a reminder",
+      "Tax package"
+    ],
+    "symbol": "doc.text.fill"
+  },
+  {
+    "id": "taxW2",
+    "name": "W-2 wage and tax statement",
+    "category": "Financial & Tax",
+    "summary": "Reads the boxes on a W-2, including wages, federal, Social Security, Medicare and state withholding, and Box 12 codes.",
+    "fields": [
+      "Employer",
+      "Employee",
+      "Wages",
+      "Federal tax withheld",
+      "Social Security wages and tax",
+      "Medicare wages and tax",
+      "State wages and tax",
+      "Box 12 codes"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "building.2.fill"
+  },
+  {
+    "id": "tax1099NEC",
+    "name": "1099-NEC",
+    "category": "Financial & Tax",
+    "summary": "Pulls nonemployee compensation, withholding and payer details from the 1099-NEC that freelancers and contractors receive.",
+    "fields": [
+      "Payer",
+      "Payer TIN",
+      "Recipient",
+      "Nonemployee compensation",
+      "Federal tax withheld",
+      "State tax withheld",
+      "State",
+      "Direct sales indicator"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "doc.text.fill"
+  },
+  {
+    "id": "tax1099INT",
+    "name": "1099-INT",
+    "category": "Financial & Tax",
+    "summary": "Reads interest income, early withdrawal penalties, savings bond and tax-exempt interest, and withholding from a 1099-INT.",
+    "fields": [
+      "Payer",
+      "Interest income",
+      "Early withdrawal penalty",
+      "U.S. savings bond interest",
+      "Federal tax withheld",
+      "Tax-exempt interest",
+      "Private activity bond interest",
+      "Account number"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "banknote.fill"
+  },
+  {
+    "id": "tax1099DIV",
+    "name": "1099-DIV",
+    "category": "Financial & Tax",
+    "summary": "Separates ordinary, qualified and capital gain dividends on a 1099-DIV, along with withholding and foreign tax paid.",
+    "fields": [
+      "Payer",
+      "Ordinary dividends",
+      "Qualified dividends",
+      "Capital gain distributions",
+      "Nondividend distributions",
+      "Federal tax withheld",
+      "Foreign tax paid",
+      "Section 199A dividends"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "banknote.fill"
+  },
+  {
+    "id": "tax1099MISC",
+    "name": "1099-MISC",
+    "category": "Financial & Tax",
+    "summary": "Reads rents, royalties, other income and withholding from a 1099-MISC.",
+    "fields": [
+      "Payer",
+      "Recipient",
+      "Rents",
+      "Royalties",
+      "Other income",
+      "Medical payments",
+      "Attorney proceeds",
+      "Federal tax withheld"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "doc.text.fill"
+  },
+  {
+    "id": "tax1099R",
+    "name": "1099-R retirement distributions",
+    "category": "Financial & Tax",
+    "summary": "Reads pension, annuity and IRA distributions from a 1099-R, including the taxable amount, distribution code and withholding.",
+    "fields": [
+      "Payer",
+      "Gross distribution",
+      "Taxable amount",
+      "Distribution code",
+      "IRA indicator",
+      "Employee contributions",
+      "Federal tax withheld",
+      "State tax withheld"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "banknote.fill"
+  },
+  {
+    "id": "tax1099B",
+    "name": "1099-B broker proceeds",
+    "category": "Financial & Tax",
+    "summary": "Totals the sales on a 1099-B into proceeds, cost basis, and short-term and long-term gains or losses.",
+    "fields": [
+      "Broker",
+      "Total proceeds",
+      "Total cost basis",
+      "Total gain or loss",
+      "Short-term gain or loss",
+      "Long-term gain or loss",
+      "Number of transactions",
+      "Federal tax withheld"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "chart.line.uptrend.xyaxis.circle.fill"
+  },
+  {
+    "id": "tax1098",
+    "name": "1098 mortgage interest",
+    "category": "Financial & Tax",
+    "summary": "Reads mortgage interest paid, points, mortgage insurance premiums and the outstanding principal from a Form 1098.",
+    "fields": [
+      "Lender",
+      "Mortgage interest",
+      "Outstanding principal",
+      "Mortgage insurance premiums",
+      "Points paid",
+      "Origination date",
+      "Refund of overpaid interest",
+      "Property address"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "house.fill"
+  },
+  {
+    "id": "tax1098T",
+    "name": "1098-T tuition statement",
+    "category": "Financial & Tax",
+    "summary": "Pulls tuition payments, scholarships and enrollment status from the 1098-T a college or university sends.",
+    "fields": [
+      "Institution",
+      "Student",
+      "Payments received",
+      "Scholarships or grants",
+      "Adjustments",
+      "At least half-time student",
+      "Graduate student",
+      "Amounts for next year"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "graduationcap.fill"
+  },
+  {
+    "id": "tax1098E",
+    "name": "1098-E student loan interest",
+    "category": "Financial & Tax",
+    "summary": "Reads the student loan interest you paid, and the lender and account it came from, from a 1098-E.",
+    "fields": [
+      "Lender",
+      "Borrower",
+      "Student loan interest",
+      "Origination fees excluded",
+      "Account number"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "graduationcap.fill"
+  },
+  {
+    "id": "tax1095",
+    "name": "1095 health coverage",
+    "category": "Financial & Tax",
+    "summary": "Reads Forms 1095-A, 1095-B and 1095-C for who was covered, in which months, and any advance premium tax credit.",
+    "fields": [
+      "Form variant",
+      "Coverage provider",
+      "Recipient",
+      "Policy number",
+      "Covered individuals",
+      "Months covered",
+      "Monthly premium",
+      "Advance premium tax credit"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar",
+      "Tax package"
+    ],
+    "symbol": "heart.text.square.fill"
+  },
+  {
+    "id": "medical",
+    "name": "Medical record",
+    "category": "Medical",
+    "summary": "Summarizes visit notes and medical bills with the provider, diagnoses, medications, follow-up date and what you owe.",
+    "fields": [
+      "Provider",
+      "Doctor",
+      "Patient",
+      "Date of service",
+      "Diagnoses",
+      "Medications",
+      "Follow-up date",
+      "Amount due"
+    ],
+    "actions": [
+      "Medical summary export",
+      "Set a reminder"
+    ],
+    "symbol": "cross.case.fill"
+  },
+  {
+    "id": "prescription",
+    "name": "Prescription",
+    "category": "Medical",
+    "summary": "Records the medications, dosages and prescriber from a prescription or pharmacy label.",
+    "fields": [
+      "Medications and dosages",
+      "Prescribing doctor",
+      "Patient",
+      "Provider or pharmacy",
+      "Date"
+    ],
+    "actions": [
+      "Medical summary export"
+    ],
+    "symbol": "pills.fill"
+  },
+  {
+    "id": "visionPrescription",
+    "name": "Vision prescription",
+    "category": "Medical",
+    "summary": "Reads each eye's sphere, cylinder and axis, the add power, pupillary distance and contact lens fit, and tracks when the prescription expires.",
+    "fields": [
+      "Prescription type",
+      "Right eye",
+      "Left eye",
+      "Add power",
+      "Pupillary distance",
+      "Contact lens and fit",
+      "Provider",
+      "Expiration date"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "eyeglasses"
+  },
+  {
+    "id": "vaccinationRecord",
+    "name": "Vaccination record",
+    "category": "Medical",
+    "summary": "Logs each vaccine with the dose number, date given, lot number and provider, plus the date the next dose is due.",
+    "fields": [
+      "Vaccine",
+      "Manufacturer",
+      "Dose number",
+      "Date given",
+      "Next dose due",
+      "Lot number",
+      "Provider",
+      "Patient"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "syringe.fill"
+  },
+  {
+    "id": "petRecord",
+    "name": "Pet record",
+    "category": "Medical",
+    "summary": "Keeps a pet's vet visits, vaccinations, medications, allergies, microchip number and next appointment together.",
+    "fields": [
+      "Pet name",
+      "Species and breed",
+      "Veterinarian",
+      "Vaccinations",
+      "Medications",
+      "Allergies",
+      "Microchip number",
+      "Next appointment"
+    ],
+    "actions": [
+      "Pet health card export",
+      "Add to Calendar"
+    ],
+    "symbol": "pawprint.fill"
+  },
+  {
+    "id": "labResults",
+    "name": "Lab results",
+    "category": "Medical",
+    "summary": "Lists each result with its value, unit and reference range, and highlights anything the report flags as high, low or critical.",
+    "fields": [
+      "Test name",
+      "Lab",
+      "Ordering physician",
+      "Collection date",
+      "Results",
+      "Reference ranges",
+      "Flagged results",
+      "Patient"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Medical summary export"
+    ],
+    "symbol": "flask.fill"
+  },
+  {
+    "id": "dentalRecord",
+    "name": "Dental record",
+    "category": "Medical",
+    "summary": "Records what was done at a dental visit, what it cost, what insurance covered and when your next appointment is.",
+    "fields": [
+      "Practice",
+      "Dentist",
+      "Visit date",
+      "Visit type",
+      "Procedures",
+      "Teeth treated",
+      "Cost and insurance coverage",
+      "Next appointment"
+    ],
+    "actions": [
+      "Set a reminder"
+    ],
+    "symbol": "mouth.fill"
+  },
+  {
+    "id": "healthInsuranceCard",
+    "name": "Health insurance card",
+    "category": "Medical",
+    "summary": "Keeps your member ID, group number, copays and pharmacy numbers ready for the front desk or the pharmacy counter.",
+    "fields": [
+      "Insurance company",
+      "Plan",
+      "Member name",
+      "Member ID",
+      "Group number",
+      "Copays",
+      "Pharmacy numbers (BIN, PCN, group)",
+      "Customer service phone"
+    ],
+    "actions": [
+      "Insurance card export"
+    ],
+    "symbol": "staroflife.fill"
+  },
+  {
+    "id": "eob",
+    "name": "Explanation of benefits",
+    "category": "Medical",
+    "summary": "Breaks down a claim into what was billed, what insurance allowed and paid, and what you still owe, with the reason if it was denied.",
+    "fields": [
+      "Insurance company",
+      "Provider",
+      "Service date",
+      "Amount billed",
+      "Allowed amount",
+      "Insurance paid",
+      "Your responsibility",
+      "Claim status"
+    ],
+    "actions": [
+      "Export to spreadsheet"
+    ],
+    "symbol": "doc.text.below.ecg"
+  },
+  {
+    "id": "humanDnaReport",
+    "name": "DNA report",
+    "category": "Medical",
+    "summary": "Organizes a consumer DNA report into ancestry percentages, haplogroups, health predispositions, carrier status and traits.",
+    "fields": [
+      "Testing company",
+      "Ancestry composition",
+      "Maternal haplogroup",
+      "Paternal haplogroup",
+      "Neanderthal percentage",
+      "Health predispositions",
+      "Carrier status",
+      "Traits"
+    ],
+    "actions": [],
+    "symbol": "person.and.background.dotted"
+  },
+  {
+    "id": "petDnaReport",
+    "name": "Pet DNA report",
+    "category": "Medical",
+    "summary": "Reads a dog or cat DNA test for breed mix, genetic health markers, genetic diversity and predicted adult weight.",
+    "fields": [
+      "Pet name",
+      "Species",
+      "Testing company",
+      "Breed composition",
+      "Predicted adult weight",
+      "Genetic diversity",
+      "Inbreeding coefficient",
+      "Genetic health markers"
+    ],
+    "actions": [],
+    "symbol": "pawprint.circle.fill"
+  },
+  {
+    "id": "contract",
+    "name": "Contract",
+    "category": "Legal",
+    "summary": "Finds the parties, key dates, obligations and renewal terms in a contract, and flags clauses worth a second look.",
+    "fields": [
+      "Contract type",
+      "Parties",
+      "Start date",
+      "End date",
+      "Total value",
+      "Auto-renewal",
+      "Cancellation notice",
+      "Key obligations"
+    ],
+    "actions": [
+      "Add to Calendar",
+      "Set a reminder"
+    ],
+    "symbol": "signature"
+  },
+  {
+    "id": "insurance",
+    "name": "Insurance policy",
+    "category": "Legal",
+    "summary": "Pulls the coverage, deductible, premium and renewal date from an insurance policy.",
+    "fields": [
+      "Insurance type",
+      "Provider",
+      "Policyholder",
+      "Policy number",
+      "Coverage amount",
+      "Deductible",
+      "Premium",
+      "Renewal date"
+    ],
+    "actions": [
+      "Insurance card export",
+      "Add to Calendar",
+      "Set a reminder"
+    ],
+    "symbol": "shield.fill"
+  },
+  {
+    "id": "lease",
+    "name": "Lease agreement",
+    "category": "Legal",
+    "summary": "Reads the rent, deposit, due day, lease dates and required notice period, plus the rules on pets, parking and utilities.",
+    "fields": [
+      "Property address",
+      "Landlord",
+      "Tenants",
+      "Start date",
+      "End date",
+      "Monthly rent",
+      "Security deposit",
+      "Notice period"
+    ],
+    "actions": [
+      "Add to Calendar",
+      "Set a reminder"
+    ],
+    "symbol": "house.fill"
+  },
+  {
+    "id": "powerOfAttorney",
+    "name": "Power of attorney",
+    "category": "Legal",
+    "summary": "Identifies the principal, the agent, the powers granted, and whether the document is durable, springing or notarized.",
+    "fields": [
+      "Type",
+      "Principal",
+      "Agent",
+      "Alternate agent",
+      "Powers granted",
+      "Durable",
+      "Effective date",
+      "Notarized"
+    ],
+    "actions": [],
+    "symbol": "person.badge.shield.checkmark.fill"
+  },
+  {
+    "id": "nda",
+    "name": "Non-disclosure agreement",
+    "category": "Legal",
+    "summary": "Summarizes who is bound, what counts as confidential, for how long, and any non-compete or non-solicitation terms.",
+    "fields": [
+      "NDA type",
+      "Disclosing party",
+      "Receiving party",
+      "Effective date",
+      "Term",
+      "Scope",
+      "Exceptions",
+      "Governing law"
+    ],
+    "actions": [],
+    "symbol": "lock.doc.fill"
+  },
+  {
+    "id": "will",
+    "name": "Will",
+    "category": "Legal",
+    "summary": "Lays out the executor, who inherits what, and who is named guardian for minor children.",
+    "fields": [
+      "Testator",
+      "Executor",
+      "Alternate executor",
+      "Beneficiaries",
+      "Specific bequests",
+      "Guardian for minors",
+      "Date signed",
+      "Witnesses"
+    ],
+    "actions": [],
+    "symbol": "scroll.fill"
+  },
+  {
+    "id": "deed",
+    "name": "Property deed",
+    "category": "Legal",
+    "summary": "Records who transferred the property to whom, the legal description, the parcel number and the recording details.",
+    "fields": [
+      "Deed type",
+      "Grantor",
+      "Grantee",
+      "Property address",
+      "Parcel number",
+      "Recording date",
+      "Consideration",
+      "County"
+    ],
+    "actions": [
+      "Property binder"
+    ],
+    "symbol": "doc.on.doc.fill"
+  },
+  {
+    "id": "trafficCitation",
+    "name": "Traffic citation",
+    "category": "Legal",
+    "summary": "Pulls the violation, fine, payment due date and any required court date from a traffic ticket.",
+    "fields": [
+      "Citation number",
+      "Violation",
+      "Speed and limit",
+      "Location",
+      "Fine amount",
+      "Due date",
+      "Court date",
+      "Issuing agency"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "exclamationmark.triangle.fill"
+  },
+  {
+    "id": "courtDocument",
+    "name": "Court document",
+    "category": "Legal",
+    "summary": "Pulls the case number, court, parties, hearing date and any response deadline from court filings and notices.",
+    "fields": [
+      "Document type",
+      "Case number",
+      "Court",
+      "Judge",
+      "Plaintiffs",
+      "Defendants",
+      "Hearing date",
+      "Response deadline"
+    ],
+    "actions": [],
+    "symbol": "building.columns.fill"
+  },
+  {
+    "id": "supportOrder",
+    "name": "Support order",
+    "category": "Legal",
+    "summary": "Reads a child or spousal support order for the amount, payment schedule, parties, children covered and any arrears.",
+    "fields": [
+      "Order type",
+      "Case number",
+      "Court",
+      "Paying party",
+      "Receiving party",
+      "Monthly amount",
+      "Payment frequency",
+      "Effective date"
+    ],
+    "actions": [],
+    "symbol": "figure.2.and.child.holdinghands"
+  },
+  {
+    "id": "boardingPass",
+    "name": "Boarding pass",
+    "category": "Travel",
+    "summary": "Pulls the flight, route, boarding time, gate and seat so they are in one place on travel day.",
+    "fields": [
+      "Airline",
+      "Flight number",
+      "Passenger",
+      "Departure airport",
+      "Arrival airport",
+      "Boarding time",
+      "Gate",
+      "Seat"
+    ],
+    "actions": [
+      "Travel card export",
+      "Add to Calendar"
+    ],
+    "symbol": "airplane.departure"
+  },
+  {
+    "id": "travelItinerary",
+    "name": "Travel itinerary",
+    "category": "Travel",
+    "summary": "Collects the flights, hotel, car rental and confirmation numbers from a trip itinerary.",
+    "fields": [
+      "Traveler",
+      "Origin",
+      "Destination",
+      "Start date",
+      "End date",
+      "Flight numbers",
+      "Hotel",
+      "Confirmation number"
+    ],
+    "actions": [
+      "Travel card export",
+      "Add to Calendar"
+    ],
+    "symbol": "map.fill"
+  },
+  {
+    "id": "hotelConfirmation",
+    "name": "Hotel confirmation",
+    "category": "Travel",
+    "summary": "Keeps the check-in and check-out times, room, nightly rate, total cost and cancellation policy from a booking.",
+    "fields": [
+      "Hotel",
+      "Confirmation number",
+      "Guest",
+      "Check-in",
+      "Check-out",
+      "Room type",
+      "Total cost",
+      "Cancellation policy"
+    ],
+    "actions": [
+      "Travel card export",
+      "Add to Calendar"
+    ],
+    "symbol": "bed.double.fill"
+  },
+  {
+    "id": "eventTicket",
+    "name": "Event ticket",
+    "category": "Travel",
+    "summary": "Pulls the event, venue, date, door time and your seat from a ticket.",
+    "fields": [
+      "Event",
+      "Performer",
+      "Venue",
+      "Date",
+      "Time",
+      "Doors open",
+      "Section, row and seat",
+      "Price"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "ticket.fill"
+  },
+  {
+    "id": "meetingNotes",
+    "name": "Meeting notes",
+    "category": "Work & School",
+    "summary": "Turns meeting notes into attendees, decisions and action items with owners and due dates, and each action item can go to Reminders.",
+    "fields": [
+      "Title",
+      "Meeting date",
+      "Organizer",
+      "Attendees",
+      "Topics covered",
+      "Key decisions",
+      "Action items",
+      "Summary"
+    ],
+    "actions": [
+      "Add to Calendar",
+      "Set a reminder",
+      "Action item checklist"
+    ],
+    "symbol": "note.text"
+  },
+  {
+    "id": "offerLetter",
+    "name": "Offer letter",
+    "category": "Work & School",
+    "summary": "Lays out the salary, bonus, equity, benefits, start date and the date the offer expires.",
+    "fields": [
+      "Company",
+      "Job title",
+      "Start date",
+      "Base salary",
+      "Signing bonus",
+      "Equity grant",
+      "Benefits",
+      "Offer expiration"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "envelope.badge.person.crop"
+  },
+  {
+    "id": "performanceReview",
+    "name": "Performance review",
+    "category": "Work & School",
+    "summary": "Summarizes the rating, accomplishments, areas to improve, goals and any raise or bonus from a performance review.",
+    "fields": [
+      "Employee",
+      "Reviewer",
+      "Review period",
+      "Overall rating",
+      "Accomplishments",
+      "Areas for improvement",
+      "Goals",
+      "Salary increase"
+    ],
+    "actions": [],
+    "symbol": "star.bubble.fill"
+  },
+  {
+    "id": "resume",
+    "name": "Resume",
+    "category": "Work & School",
+    "summary": "Pulls a candidate's contact details, experience, skills and education from a resume.",
+    "fields": [
+      "Candidate",
+      "Current title",
+      "Email and phone",
+      "Years of experience",
+      "Recent employer",
+      "Skills",
+      "Education",
+      "Certifications"
+    ],
+    "actions": [
+      "Save to Contacts"
+    ],
+    "symbol": "person.text.rectangle"
+  },
+  {
+    "id": "school",
+    "name": "School document",
+    "category": "Work & School",
+    "summary": "Handles report cards, assignments, tests and syllabi, pulling the course, teacher, grade or score and due dates.",
+    "fields": [
+      "Document type",
+      "Student",
+      "School",
+      "Course",
+      "Teacher",
+      "Assignment or test",
+      "Score or grade",
+      "Due date"
+    ],
+    "actions": [],
+    "symbol": "graduationcap.fill"
+  },
+  {
+    "id": "transcript",
+    "name": "Transcript",
+    "category": "Work & School",
+    "summary": "Reads an academic transcript for courses, grades, credits, GPA and degree details.",
+    "fields": [
+      "Institution",
+      "Student",
+      "Degree",
+      "Majors",
+      "Cumulative GPA",
+      "Total credits",
+      "Courses and grades",
+      "Graduation date"
+    ],
+    "actions": [
+      "Export to spreadsheet"
+    ],
+    "symbol": "text.document.fill"
+  },
+  {
+    "id": "governmentLetter",
+    "name": "Government letter",
+    "category": "Work & School",
+    "summary": "Explains a letter from an agency such as the IRS or DMV in plain language, with the reference number, any amount due and the response deadline.",
+    "fields": [
+      "Agency",
+      "Letter type",
+      "Reference number",
+      "Letter date",
+      "Subject",
+      "Amount",
+      "Response deadline",
+      "Required actions"
+    ],
+    "actions": [],
+    "symbol": "envelope.badge.shield.half.filled.fill"
+  },
+  {
+    "id": "utilityBill",
+    "name": "Utility bill",
+    "category": "Property & Vehicle",
+    "summary": "Pulls the amount due, due date, billing period and usage from an electric, gas, water, internet or phone bill.",
+    "fields": [
+      "Provider",
+      "Utility type",
+      "Account number",
+      "Service address",
+      "Billing period",
+      "Usage",
+      "Amount due",
+      "Due date"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "bolt.fill"
+  },
+  {
+    "id": "homeInsurance",
+    "name": "Home insurance",
+    "category": "Property & Vehicle",
+    "summary": "Reads a homeowners, renters or condo policy for coverage limits, deductible, premium and policy dates.",
+    "fields": [
+      "Insurance company",
+      "Policy number",
+      "Property address",
+      "Dwelling coverage",
+      "Personal property coverage",
+      "Liability coverage",
+      "Deductible",
+      "Annual premium"
+    ],
+    "actions": [
+      "Add to Calendar",
+      "Set a reminder",
+      "Property binder"
+    ],
+    "symbol": "house.lodge.fill"
+  },
+  {
+    "id": "homeInspection",
+    "name": "Home inspection",
+    "category": "Property & Vehicle",
+    "summary": "Sorts an inspection report into major defects and minor issues, with the condition of the roof, foundation and main systems and estimated repair costs.",
+    "fields": [
+      "Property address",
+      "Inspector",
+      "Inspection date",
+      "Major defects",
+      "Minor issues",
+      "System conditions",
+      "Estimated repair costs",
+      "Recommendation"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Property binder"
+    ],
+    "symbol": "house.and.flag.fill"
+  },
+  {
+    "id": "closingDisclosure",
+    "name": "Closing disclosure",
+    "category": "Property & Vehicle",
+    "summary": "Pulls the loan terms, monthly payment, closing costs and cash to close from a mortgage closing disclosure.",
+    "fields": [
+      "Property address",
+      "Closing date",
+      "Loan amount",
+      "Interest rate",
+      "Loan term",
+      "Monthly payment",
+      "Closing costs",
+      "Cash to close"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Property binder"
+    ],
+    "symbol": "key.fill"
+  },
+  {
+    "id": "appraisal",
+    "name": "Appraisal",
+    "category": "Property & Vehicle",
+    "summary": "Records the appraised value, date and appraiser, and the property details behind the value.",
+    "fields": [
+      "Appraised value",
+      "Appraisal date",
+      "Appraiser",
+      "Property type",
+      "Square footage",
+      "Bedrooms and bathrooms",
+      "Year built",
+      "Condition"
+    ],
+    "actions": [
+      "Property binder"
+    ],
+    "symbol": "magnifyingglass.circle.fill"
+  },
+  {
+    "id": "vehicleRegistration",
+    "name": "Vehicle registration",
+    "category": "Property & Vehicle",
+    "summary": "Keeps the plate, VIN, vehicle details and registration expiration date together.",
+    "fields": [
+      "Plate number",
+      "Make and model",
+      "Year",
+      "VIN",
+      "Owner",
+      "Issuing state",
+      "Expiration date",
+      "Registration fee"
+    ],
+    "actions": [
+      "Vehicle card export",
+      "Add to Calendar"
+    ],
+    "symbol": "car.side.fill"
+  },
+  {
+    "id": "autoInsuranceCard",
+    "name": "Auto insurance card",
+    "category": "Property & Vehicle",
+    "summary": "Keeps your proof of insurance handy: policy number, covered vehicle, policy dates and the claims phone number.",
+    "fields": [
+      "Insurer",
+      "Policy number",
+      "Insured",
+      "Vehicle",
+      "VIN",
+      "Effective date",
+      "Expiration date",
+      "Claims phone"
+    ],
+    "actions": [
+      "Insurance card export",
+      "Vehicle card export",
+      "Add to Calendar"
+    ],
+    "symbol": "car.badge.gearshape.fill"
+  },
+  {
+    "id": "parkingTicket",
+    "name": "Parking ticket",
+    "category": "Property & Vehicle",
+    "summary": "Pulls the violation, fine, late fee and payment due date from a parking ticket.",
+    "fields": [
+      "Ticket number",
+      "Violation",
+      "Location",
+      "Issue date",
+      "Vehicle plate",
+      "Fine amount",
+      "Late fee",
+      "Due date"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "parkingsign"
+  },
+  {
+    "id": "vehicleService",
+    "name": "Vehicle service record",
+    "category": "Property & Vehicle",
+    "summary": "Logs what was done to your car, at what mileage and cost, and when the next service is due.",
+    "fields": [
+      "Shop",
+      "Service date",
+      "Vehicle",
+      "Mileage",
+      "Services performed",
+      "Parts replaced",
+      "Total cost",
+      "Next service due"
+    ],
+    "actions": [
+      "Vehicle card export",
+      "Set a reminder"
+    ],
+    "symbol": "wrench.and.screwdriver.fill"
+  },
+  {
+    "id": "vehicleTitle",
+    "name": "Vehicle title",
+    "category": "Property & Vehicle",
+    "summary": "Records the VIN, owners, lienholder, title status and odometer reading from a vehicle title.",
+    "fields": [
+      "Title number",
+      "Title status",
+      "Year, make and model",
+      "VIN",
+      "Owners",
+      "Lienholder",
+      "Issuing state",
+      "Odometer reading"
+    ],
+    "actions": [
+      "Vehicle card export"
+    ],
+    "symbol": "car.fill"
+  },
+  {
+    "id": "businessCard",
+    "name": "Business card",
+    "category": "Reference",
+    "summary": "Turns a business card into a contact with name, title, company, phone numbers, email and address.",
+    "fields": [
+      "Name",
+      "Job title",
+      "Company",
+      "Phone",
+      "Mobile",
+      "Email",
+      "Website",
+      "Address"
+    ],
+    "actions": [
+      "Save to Contacts"
+    ],
+    "symbol": "person.crop.rectangle.fill"
+  },
+  {
+    "id": "recipe",
+    "name": "Recipe",
+    "category": "Reference",
+    "summary": "Pulls the ingredients, steps, times, servings and nutrition from a recipe, and can walk you through it one step at a time.",
+    "fields": [
+      "Recipe name",
+      "Cuisine",
+      "Servings",
+      "Prep time",
+      "Cook time",
+      "Ingredients",
+      "Instructions",
+      "Nutrition"
+    ],
+    "actions": [
+      "Recipe card export",
+      "Cooking mode"
+    ],
+    "symbol": "fork.knife"
+  },
+  {
+    "id": "giftCard",
+    "name": "Gift card",
+    "category": "Reference",
+    "summary": "Keeps the card number, PIN, balance and expiration date so a gift card does not go unused.",
+    "fields": [
+      "Brand",
+      "Balance",
+      "Original value",
+      "Card number",
+      "PIN",
+      "Expiration date",
+      "Online or in-store use",
+      "Balance check info"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "giftcard.fill"
+  },
+  {
+    "id": "membershipCard",
+    "name": "Membership card",
+    "category": "Reference",
+    "summary": "Keeps your member ID, tier, points balance and expiration date from loyalty and membership cards.",
+    "fields": [
+      "Organization",
+      "Member name",
+      "Member ID",
+      "Membership type",
+      "Tier",
+      "Member since",
+      "Expiration date",
+      "Points balance"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "person.badge.key.fill"
+  },
+  {
+    "id": "coupon",
+    "name": "Coupon",
+    "category": "Reference",
+    "summary": "Pulls the discount, promo code, minimum purchase and expiration date from a coupon.",
+    "fields": [
+      "Store",
+      "Discount",
+      "Promo code",
+      "Minimum purchase",
+      "Expiration date",
+      "Restrictions",
+      "One-time use",
+      "Can be combined"
+    ],
+    "actions": [
+      "Add to Calendar"
+    ],
+    "symbol": "tag.fill"
+  },
+  {
+    "id": "wineLabel",
+    "name": "Wine label",
+    "category": "Reference",
+    "summary": "Reads the winery, varietal, vintage, region and alcohol content from a wine label, with tasting notes and food pairings.",
+    "fields": [
+      "Wine name",
+      "Winery",
+      "Varietal",
+      "Vintage",
+      "Region",
+      "Country",
+      "Alcohol content",
+      "Tasting notes and pairings"
+    ],
+    "actions": [],
+    "symbol": "wineglass.fill"
+  },
+  {
+    "id": "productManual",
+    "name": "Product manual",
+    "category": "Reference",
+    "summary": "Pulls the model number, setup steps, maintenance notes, safety warnings and support contacts from a product manual.",
+    "fields": [
+      "Product",
+      "Brand",
+      "Model number",
+      "Setup steps",
+      "Maintenance notes",
+      "Safety warnings",
+      "Warranty info",
+      "Support contact"
+    ],
+    "actions": [],
+    "symbol": "book.closed.fill"
+  },
+  {
+    "id": "orderConfirmation",
+    "name": "Order confirmation",
+    "category": "Reference",
+    "summary": "Records what you ordered, what you paid, where it ships and when it should arrive.",
+    "fields": [
+      "Retailer",
+      "Order number",
+      "Order date",
+      "Items",
+      "Total",
+      "Shipping address",
+      "Tracking number",
+      "Estimated delivery"
+    ],
+    "actions": [
+      "Export to spreadsheet",
+      "Add to Calendar"
+    ],
+    "symbol": "shippingbox.fill"
+  },
+  {
+    "id": "shippingLabel",
+    "name": "Shipping label",
+    "category": "Reference",
+    "summary": "Pulls the carrier, tracking number, sender, recipient and expected delivery from a shipping label.",
+    "fields": [
+      "Carrier",
+      "Tracking number",
+      "Service type",
+      "From",
+      "To",
+      "Weight",
+      "Ship date",
+      "Expected delivery"
+    ],
+    "actions": [
+      "Track package"
+    ],
+    "symbol": "shippingbox.fill"
+  },
+  {
+    "id": "menu",
+    "name": "Menu",
+    "category": "Reference",
+    "summary": "Organizes a restaurant menu into sections and dishes with prices and dietary options, plus the restaurant's hours and contact details.",
+    "fields": [
+      "Restaurant",
+      "Cuisine",
+      "Price range",
+      "Sections and dishes",
+      "Featured items",
+      "Dietary options",
+      "Hours",
+      "Address and phone"
+    ],
+    "actions": [],
+    "symbol": "menucard.fill"
+  },
+  {
+    "id": "warranty",
+    "name": "Warranty",
+    "category": "Reference",
+    "summary": "Keeps the product's model and serial numbers, what is covered, when coverage ends and how to file a claim.",
+    "fields": [
+      "Product",
+      "Brand",
+      "Model number",
+      "Serial number",
+      "Warranty type",
+      "Start date",
+      "Coverage end date",
+      "Claims phone"
+    ],
+    "actions": [
+      "Warranty card export",
+      "Add to Calendar",
+      "Set a reminder",
+      "File a claim"
+    ],
+    "symbol": "checkmark.seal.fill"
+  },
+  {
+    "id": "letter",
+    "name": "Letter",
+    "category": "Other",
+    "summary": "Summarizes who wrote a letter, what it asks for, and whether it needs a reply.",
+    "fields": [
+      "Sender",
+      "Recipient",
+      "Date",
+      "Letter type",
+      "Subject",
+      "Key points",
+      "Tone",
+      "Response needed"
+    ],
+    "actions": [],
+    "symbol": "envelope.open.fill"
+  },
+  {
+    "id": "report",
+    "name": "Report",
+    "category": "Other",
+    "summary": "Condenses a business, technical or research report into an executive summary, key findings and recommendations.",
+    "fields": [
+      "Title",
+      "Report type",
+      "Author",
+      "Organization",
+      "Report date",
+      "Executive summary",
+      "Key findings",
+      "Recommendations"
+    ],
+    "actions": [],
+    "symbol": "chart.bar.doc.horizontal.fill"
+  },
+  {
+    "id": "form",
+    "name": "Form",
+    "category": "Other",
+    "summary": "Identifies the form and its fields, and shows how much of it is already filled in.",
+    "fields": [
+      "Form type",
+      "Title",
+      "Issuing organization",
+      "Fields",
+      "Required fields",
+      "Completion"
+    ],
+    "actions": [
+      "Export to spreadsheet"
+    ],
+    "symbol": "doc.richtext.fill"
+  },
+  {
+    "id": "notes",
+    "name": "Notes",
+    "category": "Other",
+    "summary": "Turns handwritten or typed notes into topics, key points, open questions and action items.",
+    "fields": [
+      "Title",
+      "Date",
+      "Note type",
+      "Topics",
+      "Key points",
+      "Action items",
+      "Open questions",
+      "People mentioned"
+    ],
+    "actions": [
+      "Action item checklist"
+    ],
+    "symbol": "note.text"
+  },
+  {
+    "id": "screenshot",
+    "name": "Screenshot",
+    "category": "Other",
+    "summary": "Pulls the text, links, amounts and confirmation numbers out of a screenshot and notes which app or site it came from.",
+    "fields": [
+      "Source app or website",
+      "Content type",
+      "Main text",
+      "URL",
+      "Confirmation numbers",
+      "Amounts",
+      "Date",
+      "Error message"
+    ],
+    "actions": [],
+    "symbol": "rectangle.on.rectangle"
+  },
+  {
+    "id": "whiteboard",
+    "name": "Whiteboard",
+    "category": "Other",
+    "summary": "Transcribes a whiteboard photo and pulls out the topics, key ideas and action items.",
+    "fields": [
+      "Title",
+      "Content type",
+      "Topics",
+      "Key ideas",
+      "Action items",
+      "People mentioned",
+      "Transcribed text",
+      "Date"
+    ],
+    "actions": [
+      "Action item checklist"
+    ],
+    "symbol": "square.on.square.badge.person.crop"
+  }
+]

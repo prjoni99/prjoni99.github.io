@@ -1,0 +1,121 @@
+---
+import Page from '../layouts/Page.astro';
+import { facts } from '../data/facts';
+
+// Carried over from the previous support page. Answers that contradicted the
+// app (Apple Intelligence required; "no data collection, no cloud") are
+// corrected against the OneScribe repo, 2026-09-24.
+const sections = [
+  {
+    title: 'Getting started',
+    items: [
+      { q: 'What is OneScribe?', a: `A document scanner that reads what it scans. Each document becomes a Data Card built for its kind, with the details that matter, and OneScribe keeps working with it afterwards: briefings, deadline alerts, connections between documents and answers to your questions.` },
+      { q: 'Which devices are supported?', a: `${facts.platforms}, on ${facts.requires}.` },
+      { q: 'Do I need Apple Intelligence?', a: `Yes, for Data Cards and the features built on them. They’re read by Apple’s on-device model, which needs an ${facts.aiDevices}, with Apple Intelligence turned on in Settings.` },
+      { q: 'How do I scan my first document?', a: 'Open OneScribe, tap Scan and point the camera at the page. OneScribe finds the edges and captures when it’s ready. Add more pages if you need them; when you’re done it works out what the document is and builds its Data Card.' },
+    ],
+  },
+  {
+    title: 'Scanning',
+    items: [
+      { q: 'How do I get the best scan?', a: 'Good light (daylight is best), a background that contrasts with the page, a steady hand, and a flat page.' },
+      { q: 'Does it read handwriting?', a: 'Yes. Apple’s Vision framework reads printed text and handwriting. Dark ink on light paper with clear letters works best.' },
+      { q: 'Does it work with Kindle Scribe?', a: 'Yes. OneScribe started life for Kindle Scribe pages. Photograph an e-ink page like any other document.' },
+    ],
+  },
+  {
+    title: 'Data Cards and privacy',
+    items: [
+      { q: 'What are Data Cards?', a: `A card built for each kind of document. A receipt card shows the vendor, items, tax and total; a contract card shows the parties, dates and renewal terms; a prescription card shows the drug, dose and refills. Browse them all in the Data Card library.` },
+      { q: 'Where are my documents read?', a: 'On your iPhone or iPad. There’s no OneScribe account, no OneScribe server and no analytics SDK. iCloud sync is off until you turn it on, and then it syncs to your own iCloud.' },
+      { q: 'Why don’t I see Data Cards?', a: `Data Cards need Apple Intelligence: an ${facts.aiDevices}, on iOS 26, with Apple Intelligence turned on in Settings under Apple Intelligence & Siri.` },
+    ],
+  },
+  {
+    title: 'Exporting',
+    items: [
+      { q: 'Where can I export to?', a: `Anywhere the Share Sheet reaches: Notes, Reminders, Calendar, Contacts, Files, Mail, Messages and other apps, or a PDF. There are ${facts.exportModes} smart export modes that shape the output for where it’s going.` },
+      { q: 'Why isn’t my formatting preserved?', a: 'Structure comes from the page itself. Consistent indentation, clear list markers and space between sections all help.' },
+    ],
+  },
+  {
+    title: 'Troubleshooting',
+    items: [
+      { q: 'An export failed', a: 'If the destination is a cloud app, check your connection, make sure the receiving app is working, and share again. If it keeps failing, restart OneScribe.' },
+      { q: 'Text recognition is poor', a: 'Improve the light, hold steady, keep the page flat and clean the camera lens. For handwriting, dark ink on light paper helps most.' },
+      { q: 'The app is slow or crashes', a: 'Restart the app, update iOS, and free up storage if the device is nearly full. If it keeps happening, write to us with your device model and iOS version.' },
+    ],
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sections.flatMap((s) => s.items).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Page
+  title="Support | OneScribe"
+  description="Answers to common OneScribe questions: devices, Apple Intelligence, scanning, Data Cards, privacy and exporting."
+  heading="Support"
+  lede={`Answers to the common questions. For anything else, write to ${facts.supportEmail}; the person who builds OneScribe reads every message.`}
+  schema={schema}
+  narrow
+>
+  {sections.map((s) => (
+    <section class="faq" aria-labelledby={s.title}>
+      <h2 id={s.title} class="faq__title">{s.title}</h2>
+      {s.items.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </section>
+  ))}
+
+  <section class="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title" class="title">Still stuck?</h2>
+    <p class="lede">Write to <a class="link" href={`mailto:${facts.supportEmail}`}>{facts.supportEmail}</a>. Include your device model and iOS version if something isn’t working.</p>
+  </section>
+</Page>
+
+<style>
+  .faq { margin-bottom: 2.5rem; }
+  .faq__title {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  details { border-bottom: 1px solid var(--rule); }
+  details:first-of-type { border-top: 1px solid var(--rule); }
+  summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '';
+    flex-shrink: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: 0.35rem;
+    border-right: 2px solid var(--sub);
+    border-bottom: 2px solid var(--sub);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+  details[open] summary::after { transform: rotate(-135deg); }
+  details p { margin: 0 0 1.2rem; color: #3a3d46; max-width: 40em; }
+  .contact { margin-top: 3.5rem; }
+  .contact .lede { margin-top: 0.8rem; }
+</style>

@@ -1,0 +1,124 @@
+---
+import Page from '../layouts/Page.astro';
+import { facts, free, pro } from '../data/facts';
+
+const rows: [string, boolean, boolean][] = [
+  ['Unlimited scans', true, true],
+  ['PDF export', true, true],
+  ['Data Card preview', true, true],
+  ['Document reading', true, true],
+  ['Full Data Cards for every document type', false, true],
+  ['Ask questions about any document', false, true],
+  ['Daily briefing and weekly digest', false, true],
+  ['Deadline and expiration alerts', false, true],
+  ['Connections across documents', false, true],
+  ['Search in plain English', false, true],
+  ['Document series tracking', false, true],
+  [`${facts.exportModes} smart export modes`, false, true],
+  ['Siri and Shortcuts', false, true],
+];
+
+const faq = [
+  { q: 'Is Pro a subscription?', a: `No. Pro is a single ${facts.proPrice} purchase. It doesn’t renew and it doesn’t expire.` },
+  { q: 'Do I need Pro to scan?', a: 'No. Scanning is free and unlimited, with no trial period and no card.' },
+  { q: 'What if I don’t buy Pro?', a: 'You keep scanning, reading and exporting PDFs for as long as you like. Full Data Cards and the intelligence features need the one-time purchase.' },
+  { q: 'I subscribed to the old monthly plan. What happens now?', a: 'Existing subscriptions are still honored. OneScribe stopped selling the monthly plan in May 2026; new Pro purchases are one-time only.' },
+  { q: 'Can I restore Pro on a new device?', a: 'Yes. Pro is tied to your Apple Account. Tap Restore on the Pro screen and it comes back.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Page
+  title="Pricing | OneScribe"
+  description={`Scanning is free and unlimited. OneScribe Pro is a one-time ${facts.proPrice} purchase. No subscription, no account, no trial clock.`}
+  heading="Scan free. Pay once for the rest."
+  lede={`Scanning is free and unlimited. Pro is ${facts.proPrice}, once, and unlocks everything else for good.`}
+  schema={schema}
+>
+  <div class="plans">
+    <section class="plan" aria-labelledby="free-title">
+      <h2 id="free-title">Free</h2>
+      <p class="plan__price">$0</p>
+      <p class="plan__note">For as long as you like.</p>
+      <ul>{free.map((f) => <li>{f}</li>)}</ul>
+    </section>
+    <section class="plan plan--pro" aria-labelledby="pro-title">
+      <h2 id="pro-title">Pro</h2>
+      <p class="plan__price">{facts.proPrice} <span>once</span></p>
+      <p class="plan__note">Everything in Free, plus:</p>
+      <ul>{pro.map((f) => <li>{f}</li>)}</ul>
+      <a class="button plan__cta" href={facts.appStoreUrl} rel="noopener">Download OneScribe</a>
+    </section>
+  </div>
+
+  <section class="compare" aria-labelledby="compare-title">
+    <h2 id="compare-title" class="title">Side by side</h2>
+    <table>
+      <caption class="visually-hidden">Features in Free and Pro</caption>
+      <thead><tr><th scope="col">Feature</th><th scope="col">Free</th><th scope="col">Pro</th></tr></thead>
+      <tbody>
+        {rows.map(([name, f, p]) => (
+          <tr>
+            <th scope="row">{name}</th>
+            <td>{f ? <span class="yes">Included</span> : <span class="no">Not included</span>}</td>
+            <td>{p ? <span class="yes">Included</span> : <span class="no">Not included</span>}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="pfaq" aria-labelledby="pfaq-title">
+    <h2 id="pfaq-title" class="title">Pricing questions</h2>
+    <dl>
+      {faq.map((f) => (<div><dt>{f.q}</dt><dd>{f.a}</dd></div>))}
+    </dl>
+  </section>
+</Page>
+
+<style>
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 24rem));
+    gap: 1.5rem;
+  }
+  .plan { padding: 2rem; border-radius: 22px; background: #fff; box-shadow: var(--lift); }
+  .plan--pro { box-shadow: var(--lift), 0 0 0 2px var(--ink); }
+  .plan h2 { margin: 0; font-size: 1rem; font-weight: 600; color: var(--sub); }
+  .plan__price { margin: 0.3rem 0 0; font-family: var(--font-display); font-size: 3.25rem; font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+  .plan__price span { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--sub); }
+  .plan__note { margin: 0.8rem 0 1.1rem; color: var(--sub); }
+  .plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+  .plan li { position: relative; padding-left: 1.5rem; }
+  .plan li::before {
+    content: ''; position: absolute; left: 0.15rem; top: 0.42em;
+    width: 0.7rem; height: 0.4rem;
+    border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+    transform: rotate(-45deg);
+  }
+  .plan__cta { margin-top: 1.6rem; }
+
+  .compare { margin-top: clamp(4rem, 8vw, 6rem); max-width: 52rem; }
+  table { width: 100%; margin-top: 1.6rem; border-collapse: collapse; }
+  th, td { padding: 0.8rem 0.5rem 0.8rem 0; border-bottom: 1px solid var(--rule); text-align: left; }
+  thead th { font-size: 0.875rem; font-weight: 600; color: var(--sub); border-bottom-color: var(--rule-strong); }
+  tbody th { font-weight: 500; }
+  td { width: 8rem; }
+  .yes { color: var(--accent); font-weight: 600; }
+  .no { color: var(--faint); }
+
+  .pfaq { margin-top: clamp(4rem, 8vw, 6rem); max-width: 52rem; }
+  .pfaq dl { display: grid; gap: 1.6rem; margin: 1.6rem 0 0; }
+  .pfaq dt { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.015em; }
+  .pfaq dd { margin: 0.35rem 0 0; color: var(--sub); }
+
+  @media (max-width: 700px) {
+    .plans { grid-template-columns: 1fr; }
+    td { width: auto; }
+  }
+</style>

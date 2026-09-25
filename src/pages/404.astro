@@ -1,0 +1,21 @@
+---
+import Page from '../layouts/Page.astro';
+---
+
+<Page
+  title="Page not found | OneScribe"
+  description="This page doesn’t exist."
+  heading="Nothing to read here."
+  lede="This page doesn’t exist, or it moved when the site was rebuilt."
+>
+  <p class="links">
+    <a class="link" href="/">Home</a>
+    <a class="link" href="/cards/">Data Cards</a>
+    <a class="link" href="/features/">Features</a>
+    <a class="link" href="/support/">Support</a>
+  </p>
+</Page>
+
+<style>
+  .links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0 0 4rem; }
+</style>

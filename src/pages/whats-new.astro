@@ -1,0 +1,98 @@
+---
+import Page from '../layouts/Page.astro';
+
+// History carried over from the previous site's changelog. Entries describe
+// what was true when they shipped; later changes get their own entry rather
+// than rewriting old ones. Unreleased versions (e.g. 1.9.0) are not listed.
+const releases = [
+  {
+    when: 'August 2026',
+    title: 'Version 1.8.6',
+    items: ['Improvements and fixes. This is the current version on the App Store, released August 14, 2026.'],
+  },
+  {
+    when: 'May 2026',
+    title: 'One price, paid once',
+    items: [
+      'Pro is now sold only as a one-time $9.99 purchase. The monthly plan introduced in March is no longer offered.',
+      'Existing monthly subscriptions are still honored.',
+    ],
+  },
+  {
+    when: 'April 2026',
+    title: 'Cinematic Intelligence',
+    items: [
+      'Intelligence tab: people, companies and vehicles tracked across all your documents, with an activity feed of what OneScribe has found.',
+      'Document connections: a receipt linked to its warranty, an invoice matched to its payment, an insurance card tied to a registration.',
+      'Weekly digest: your week in documents, spending and deadlines, with a sharing card that never shows amounts or personal details.',
+      'Daily briefing becomes the home screen, with sections that unlock as your library grows.',
+      'A scan reveal on your first scan, and library cards that unfold when you tap them.',
+      'New settings for digest scheduling, connection scanning and your default tab.',
+    ],
+  },
+  {
+    when: 'March 2026',
+    title: 'Simplified pricing',
+    items: [
+      'Added a $0.99/month plan alongside the $9.99 lifetime purchase. (Retired in May 2026.)',
+    ],
+  },
+  {
+    when: 'February 2026',
+    title: 'Launch',
+    items: [
+      'Dozens of document types, each with its own Data Card.',
+      'On-device AI processing.',
+      'Smart exports through the Share Sheet.',
+      'Document chat with AI personas.',
+      'Search in plain English across your library.',
+      'Proactive alerts and reminders.',
+      'Siri commands.',
+      'iCloud sync across your Apple devices.',
+    ],
+  },
+];
+---
+
+<Page
+  title="What’s new | OneScribe"
+  description="Every OneScribe release, newest first."
+  heading="What’s new"
+  lede="Every release, newest first."
+  narrow
+>
+  <ol class="releases">
+    {releases.map((r) => (
+      <li class="release">
+        <p class="release__when small">{r.when}</p>
+        <div>
+          <h2 class="release__title">{r.title}</h2>
+          <ul>{r.items.map((i) => <li>{i}</li>)}</ul>
+        </div>
+      </li>
+    ))}
+  </ol>
+</Page>
+
+<style>
+  .releases { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .release {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 0.5rem 2rem;
+    padding-block: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .release__when { margin: 0.35rem 0 0; }
+  .release__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .release ul { margin: 0.9rem 0 0; padding-left: 1.1rem; color: #3a3d46; display: grid; gap: 0.45rem; }
+  @media (max-width: 640px) {
+    .release { grid-template-columns: 1fr; }
+  }
+</style>

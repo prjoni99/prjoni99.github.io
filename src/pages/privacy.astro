@@ -1,0 +1,81 @@
+---
+import Page from '../layouts/Page.astro';
+import { facts } from '../data/facts';
+
+// LEGAL TEXT. Carried over word for word from the previous site (policy dated
+// February 2026) during the 2026-09 redesign; only the markup changed. It no
+// longer describes everything the app does (Smart Lookup, the optional model
+// download, iCloud sync). Updating it is the owner's decision; don't edit the
+// substance here without that. See PLAN.md.
+---
+
+<Page
+  title="Privacy policy | OneScribe"
+  description="How OneScribe handles your documents and data."
+  heading="Privacy policy"
+  lede="Last updated: February 2026"
+  narrow
+>
+  <div class="prose">
+    <p><strong>TL;DR:</strong> OneScribe processes everything on your device. We don’t collect, store, or transmit your data. Your documents never leave your iPhone.</p>
+
+    <h2>Our Philosophy</h2>
+    <p>OneScribe was built with privacy as a core principle. Your thoughts, documents, and personal information should remain completely private. That’s why we process everything on your device: no cloud servers, no data collection, no tracking.</p>
+
+    <h2>What We Don’t Collect</h2>
+    <p>OneScribe does not collect, store, or transmit:</p>
+    <ul>
+      <li>Scanned documents or images</li>
+      <li>Extracted text or OCR results</li>
+      <li>AI analysis results or Data Card contents</li>
+      <li>Usage analytics or behavioral data</li>
+      <li>Device identifiers</li>
+      <li>Location data</li>
+    </ul>
+    <p>Zero data collection means zero privacy risk.</p>
+
+    <h2>On-Device Processing</h2>
+    <p>All processing happens locally on your iPhone or iPad:</p>
+    <ul>
+      <li>OCR: Apple Vision Framework (on-device)</li>
+      <li>AI Analysis: Apple Intelligence / Foundation Models (on-device)</li>
+      <li>Document Classification: On-device machine learning</li>
+      <li>Data Card Generation: Processed entirely on your device</li>
+    </ul>
+    <p>Your scanned documents and AI insights never leave your device during processing.</p>
+
+    <h2>Exports via Share Sheet</h2>
+    <p>When you export documents using the iOS Share Sheet:</p>
+    <ul>
+      <li>Documents go directly to your chosen app via iOS sharing</li>
+      <li>No intermediate servers are involved</li>
+      <li>OneScribe has no access to your accounts in other apps</li>
+      <li>We never see your credentials or authentication tokens</li>
+    </ul>
+    <p>Once shared, your documents are subject to the privacy policies of the receiving apps (Apple Notes, Bear, Email, etc.).</p>
+
+    <h2>Local Storage</h2>
+    <p>OneScribe stores locally on your device:</p>
+    <ul>
+      <li>Scanned images (until you delete them)</li>
+      <li>App settings and preferences</li>
+      <li>Document library and metadata</li>
+      <li>AI-generated insights and Data Cards</li>
+    </ul>
+    <p>Deleting the app removes all local data.</p>
+
+    <h2>Your Rights</h2>
+    <p>Since we don’t collect your data, there’s nothing to request, delete, or export from us. You have full control:</p>
+    <ul>
+      <li>Delete scanned documents from your device anytime</li>
+      <li>Uninstall the app to remove all local data</li>
+      <li>Your data is yours; we never have access to it</li>
+    </ul>
+
+    <h2>Changes</h2>
+    <p>We may update this policy. Changes will be posted here with an updated date. Material changes will be communicated through the app.</p>
+
+    <h2>Questions?</h2>
+    <p>Contact us at <a href={`mailto:${facts.privacyEmail}`}>{facts.privacyEmail}</a></p>
+  </div>
+</Page>

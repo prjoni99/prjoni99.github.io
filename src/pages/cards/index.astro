@@ -1,0 +1,143 @@
+---
+import Page from '../../layouts/Page.astro';
+import { cards, categories, catSlug } from '../../data/cards';
+import { facts } from '../../data/facts';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'OneScribe Data Card library',
+  url: 'https://getonescribe.app/cards/',
+  hasPart: cards.map((c) => ({ '@type': 'WebPage', name: c.name, url: `https://getonescribe.app/cards/${c.slug}/` })),
+};
+---
+
+<Page
+  title="Data Card library | OneScribe"
+  description="Every kind of document OneScribe reads, and the fields it pulls out of each, from boarding passes to leases."
+  heading="The Data Card library"
+  lede="Every kind of document OneScribe knows how to read, and what it pulls out of each one, grouped the way you’d file them."
+  schema={schema}
+>
+  <div class="tools">
+    <label class="filter">
+      <span class="visually-hidden">Filter Data Cards</span>
+      <input id="card-filter" type="search" placeholder="Filter by document or field, e.g. warranty" autocomplete="off" />
+    </label>
+    <p class="small tools__count" id="card-count" aria-live="polite"></p>
+  </div>
+
+  <nav class="jump" aria-label="Categories">
+    {categories.map((cat) => (
+      <a href={`#${catSlug(cat.name)}`}>{cat.name}</a>
+    ))}
+  </nav>
+
+  {categories.map((cat) => (
+    <section class="cat" id={catSlug(cat.name)} aria-labelledby={`h-${catSlug(cat.name)}`} data-cat>
+      <h2 id={`h-${catSlug(cat.name)}`} class="cat__title">{cat.name}</h2>
+      <ul class="cat__list">
+        {cat.cards.map((c) => (
+          <li data-card data-search={`${c.name} ${c.fields.join(' ')} ${c.summary}`.toLowerCase()}>
+            <a href={`/cards/${c.slug}/`}>
+              <span class="entry__name">{c.name}</span>
+              <span class="entry__reads">{c.fields.slice(0, 4).join(', ')}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <p class="empty" id="card-empty" hidden>No Data Card matches that. OneScribe still reads any document; this list is the kinds it structures.</p>
+
+  <p class="library__cta">
+    <a class="button" href={facts.appStoreUrl} rel="noopener">Download OneScribe</a>
+    <span class="small">Scanning is free. Full Data Cards are part of Pro, {facts.proPrice} once.</span>
+  </p>
+</Page>
+
+<script>
+  const input = document.getElementById('card-filter') as HTMLInputElement | null;
+  const count = document.getElementById('card-count');
+  const empty = document.getElementById('card-empty');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-card]'));
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-cat]'));
+  input?.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    for (const li of items) {
+      const hit = !q || (li.dataset.search ?? '').includes(q);
+      li.hidden = !hit;
+      if (hit) shown++;
+    }
+    for (const s of sections) s.hidden = !s.querySelector('[data-card]:not([hidden])');
+    if (count) count.textContent = q ? `${shown} match${shown === 1 ? '' : 'es'}` : '';
+    if (empty) empty.hidden = shown !== 0;
+  });
+</script>
+
+<style>
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .filter input {
+    width: min(26rem, 80vw);
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 12px;
+    background: #fff;
+    font: inherit;
+    color: var(--ink);
+  }
+  .filter input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+  .tools__count { margin: 0; }
+
+  .jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.2rem;
+    margin: 1.6rem 0 1rem;
+    font-size: 0.9375rem;
+  }
+  .jump a { color: var(--sub); text-decoration: none; }
+  .jump a:hover { color: var(--accent); }
+  .jump span { color: var(--faint); }
+
+  .cat { padding-top: 2.4rem; }
+  .cat__title {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  .cat__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .cat__list li { border-bottom: 1px solid var(--rule); }
+  .cat__list a {
+    display: block;
+    padding: 0.8rem 0;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .entry__name { display: block; font-weight: 600; letter-spacing: -0.012em; }
+  .entry__reads { display: block; margin-top: 0.15rem; font-size: 0.875rem; color: var(--sub); }
+  .cat__list a:hover .entry__name { color: var(--accent); }
+
+  .empty { margin-top: 2rem; color: var(--sub); }
+  .library__cta { display: flex; align-items: center; flex-wrap: wrap; gap: 1.2rem; margin-top: 3.5rem; }
+
+  @media (max-width: 900px) { .cat__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .cat__list { grid-template-columns: 1fr; } }
+</style>

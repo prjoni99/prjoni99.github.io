@@ -1,0 +1,124 @@
+---
+import Page from '../layouts/Page.astro';
+import Device from '../components/Device.astro';
+import { facts } from '../data/facts';
+import briefing from '../assets/captures/briefing.jpg';
+import wineLabel from '../assets/captures/wine-label.jpg';
+import recipe from '../assets/captures/recipe.jpg';
+
+// Claims here are checked against the App Store listing and the OneScribe repo
+// (2026-09-24). Counts live in facts.ts. No 2.0-only features.
+const groups = [
+  {
+    title: 'Reading',
+    shot: recipe,
+    alt: 'A recipe read into servings, prep and cook times, ingredients and steps',
+    items: [
+      ['Any page, printed or handwritten', 'Apple’s Vision framework reads printed text and handwriting in reading order, across as many pages as the document has.'],
+      ['Dozens of Data Cards', 'OneScribe recognizes what kind of document it’s looking at and fills a card built for it: a receipt gets its line items and total, a lease its notice period and renewal date.'],
+      ['Checked after it reads', 'Impossible dates, negative amounts and totals that don’t add up are caught and read again before a card is saved.'],
+      ['Apple’s on-device model', `Data Cards are read by Apple Intelligence on the device. It needs an ${facts.aiDevices}.`],
+    ],
+  },
+  {
+    title: 'Keeping watch',
+    shot: briefing,
+    alt: 'The evening briefing: three documents with deadlines coming up, and this month’s spending',
+    items: [
+      ['Daily briefing', 'A morning summary of what needs attention: deadlines coming up, recent spending, and what’s new in your library.'],
+      ['Weekly digest', 'A look back at the week: what you scanned, what you spent and what’s due next.'],
+      ['Alerts before deadlines', 'Warranties about to lapse, return windows closing, policies up for renewal. You hear about them before they pass.'],
+      ['Connections', 'Related documents link themselves: a receipt to its warranty, an invoice to its payment, an insurance card to a registration.'],
+      ['Series and people', 'Monthly statements line up as a series, and the people, companies and vehicles in your documents are tracked across all of them.'],
+    ],
+  },
+  {
+    title: 'Asking and acting',
+    shot: wineLabel,
+    alt: 'A wine label read into producer, vintage, tasting notes and price',
+    items: [
+      ['Search in plain English', '“What did I spend on groceries this month?” Ask across everything you’ve scanned.'],
+      ['Ask a document', 'Ask a single document about its cancellation terms or its deductible, and get the answer from the page.'],
+      [`${facts.exportModes} export modes`, 'Contracts to Calendar, business cards to Contacts, meeting notes to Reminders, receipts to a spreadsheet, or a clean PDF.'],
+      ['Siri and Shortcuts', 'Scan, search and open documents without opening the app.'],
+    ],
+  },
+];
+---
+
+<Page
+  title="Features | OneScribe"
+  description={`What OneScribe does after it scans: Data Cards for dozens of document types, a daily briefing, deadline alerts, connections, plain-English search and ${facts.exportModes} export modes.`}
+  heading="Scanning is only the beginning."
+  lede={`OneScribe reads each document on your ${facts.platforms}, understands what it is, and keeps working with it after the scan.`}
+>
+  {groups.map((g, i) => (
+    <section class:list={['group', i % 2 === 1 && 'group--flip']} aria-labelledby={`g-${i}`}>
+      <div class="group__art">
+        <Device src={g.shot} alt={g.alt} sizes="(max-width: 860px) 60vw, 300px" />
+      </div>
+      <div>
+        <h2 id={`g-${i}`} class="title group__title">{g.title}</h2>
+        <dl class="group__list">
+          {g.items.map(([t, d]) => (
+            <div>
+              <dt>{t}</dt>
+              <dd>{d}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  ))}
+
+  <section class="also" aria-labelledby="also-title">
+    <h2 id="also-title" class="title">Also in the box</h2>
+    <ul class="also__list">
+      <li><b>iPad, properly.</b> A layout built for the bigger screen, not a stretched phone.</li>
+      <li><b>iCloud sync.</b> Your library on every device you own, when you turn it on.</li>
+      <li><b>Kindle Scribe pages.</b> Photograph an e-ink page like any other document.</li>
+      <li><b>No account.</b> Nothing to sign up for.</li>
+    </ul>
+    <p class="also__cta">
+      <a class="button" href={facts.appStoreUrl} rel="noopener">Download OneScribe</a>
+      <a class="link" href="/cards/">Browse the Data Card library</a>
+    </p>
+  </section>
+</Page>
+
+<style>
+  .group {
+    display: grid;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+    border-top: 1px solid var(--rule);
+  }
+  .group--flip .group__art { order: 2; }
+  .group__art { max-width: 300px; justify-self: center; width: 100%; }
+  .group__title { font-size: clamp(1.9rem, 3.4vw, 2.75rem); }
+  .group__list { display: grid; gap: 1.6rem; margin: 1.8rem 0 0; }
+  .group__list dt { font-family: var(--font-display); font-weight: 700; font-size: 1.1875rem; letter-spacing: -0.02em; }
+  .group__list dd { margin: 0.3rem 0 0; color: var(--sub); max-width: 34em; }
+
+  .also { padding-block: clamp(3rem, 6vw, 4.5rem) 0; border-top: 1px solid var(--rule); }
+  .also__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem 2.5rem;
+    margin: 1.8rem 0 0;
+    padding: 0;
+    color: var(--sub);
+  }
+  .also__list b { color: var(--ink); }
+  .also__cta { display: flex; align-items: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 2.2rem; }
+
+  @media (max-width: 860px) {
+    .group { grid-template-columns: 1fr; }
+    .group--flip .group__art { order: 0; }
+    .group__art { max-width: 260px; }
+    .also__list { grid-template-columns: 1fr; }
+  }
+</style>
