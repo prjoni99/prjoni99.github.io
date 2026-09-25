@@ -38,7 +38,11 @@ Everything in `public/` is copied as-is.
 
 ## The privacy policy is legal text
 
-`src/pages/privacy.astro` is the February 2026 policy, word for word. It doesn't cover Smart Lookup, the optional model download or iCloud sync. **Don't change its substance without the owner.**
+`src/pages/privacy.astro` was rewritten on 2026-09-25 at the owner's request. Every statement traces to the app source (1.8.6 and main) and to the OneScribe repo's `PRIVACY.md`; the sources are listed in the file's header comment.
+
+- **When the app changes** anything that sends data off the device (a new Smart Lookup provider, a new PCC feature, a download), update this page and its date in the same release.
+- **Keep it consistent** with the App Store privacy label.
+- **Don't soften or extend its commitments** without the owner.
 
 ## Structure
 
