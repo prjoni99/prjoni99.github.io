@@ -67,6 +67,19 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
       gtag('config', 'G-8XQ50EWVB2');
     </script>
     <script defer data-domain="getonescribe.app" src="https://analytics.jonvargas.net/js/script.js"></script>
+    <script is:inline>
+      // The one conversion the site can see: a tap on any App Store link.
+      // GA4 event `app_store_click` (a key event, imported into Google Ads)
+      // and Plausible goal "App Store Click".
+      window.plausible = window.plausible || function(){(window.plausible.q = window.plausible.q || []).push(arguments);};
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
+        if (!link) return;
+        var path = location.pathname;
+        gtag('event', 'app_store_click', { link_url: link.href, page_path: path });
+        plausible('App Store Click', { props: { path: path } });
+      }, true);
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
