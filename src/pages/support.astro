@@ -1,6 +1,6 @@
 ---
 import Page from '../layouts/Page.astro';
-import { facts } from '../data/facts';
+import { facts, deviceTiers } from '../data/facts';
 
 // Carried over from the previous support page. Answers that contradicted the
 // app (Apple Intelligence required; "no data collection, no cloud") are
@@ -63,6 +63,21 @@ const schema = {
   schema={schema}
   narrow
 >
+  <section class="devices" id="devices" aria-labelledby="devices-title">
+    <h2 id="devices-title" class="faq__title">Which devices run what</h2>
+    <p class="devices__lede">OneScribe runs on every {facts.platforms} with {facts.requires}. What it can do depends on whether the device has Apple Intelligence.</p>
+    {deviceTiers.map((t) => (
+      <div class="tier">
+        <h3 class="tier__name">{t.name}</h3>
+        <p class="tier__needs">{t.needs}</p>
+        <p class="tier__gets">{t.gets}</p>
+        <ul class="tier__devices">
+          {t.devices.map((d) => <li>{d}</li>)}
+        </ul>
+      </div>
+    ))}
+  </section>
+
   {sections.map((s) => (
     <section class="faq" aria-labelledby={s.title}>
       <h2 id={s.title} class="faq__title">{s.title}</h2>
@@ -90,6 +105,14 @@ const schema = {
     font-weight: 800;
     letter-spacing: -0.03em;
   }
+  .devices { margin-bottom: 2.5rem; scroll-margin-top: 5rem; }
+  .devices__lede { margin: 0 0 0.4rem; color: #3a3d46; max-width: 40em; }
+  .tier { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+  .tier__name { margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: -0.012em; }
+  .tier__needs { margin: 0.15rem 0 0.6rem; color: var(--sub); font-size: 0.9rem; }
+  .tier__gets { margin: 0 0 0.6rem; color: #3a3d46; max-width: 40em; }
+  .tier__devices { margin: 0; padding-left: 1.2rem; color: #3a3d46; }
+  .tier__devices li { margin: 0.15rem 0; }
   details { border-bottom: 1px solid var(--rule); }
   details:first-of-type { border-top: 1px solid var(--rule); }
   summary {
